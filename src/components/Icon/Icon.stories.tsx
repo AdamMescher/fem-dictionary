@@ -10,6 +10,8 @@ export default {
 type Story = StoryObj<typeof Icon>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    id: 'moon'
+  },
   render: (args: any) => <Icon {...args} />,
 };

@@ -1,13 +1,27 @@
 import * as React from 'react';
 import styles from './Icon.module.scss';
 
-interface IconProps {}
+interface IconProps {
+  id: string;
+}
 
-const Icon = ({}: IconProps) => {
+const Icon = ({
+  id,
+  ...rest
+}: IconProps) => {
+  const icons = [
+    'arrow-down',
+    'logo',
+    'moon',
+    'new-window',
+    'play',
+    'search',
+  ];
+
   return (
-    <div className={styles.wrapper} data-testid="icon">
-      Icon
-    </div>
+    <svg id={id} className={styles.svg} {...rest}>
+      <use href={`../../../assets/icons/sprite.svg#${id}`} />
+    </svg>
   );
 }
 
