@@ -15,11 +15,15 @@
 }
 
 .theme-icon-visible {
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 200ms linear;
 }
 
 .theme-icon-hidden {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 200ms linear;
 }
 
 .switch-root {
