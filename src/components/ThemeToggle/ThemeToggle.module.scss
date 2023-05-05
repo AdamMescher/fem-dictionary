@@ -17,13 +17,13 @@
 .theme-icon-visible {
     visibility: visible;
     opacity: 1;
-    transition: opacity 200ms linear;
+    transition: opacity 200ms ease-in-out;
 }
 
 .theme-icon-hidden {
     visibility: hidden;
     opacity: 0;
-    transition: opacity 200ms linear;
+    transition: opacity 200ms ease-in-out;
 }
 
 .switch-root {
