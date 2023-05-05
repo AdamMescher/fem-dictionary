@@ -1,0 +1,66 @@
+import { Meta, Typeset } from '@storybook/blocks';
+
+<Meta title="Typography" />
+
+export const typography = {
+  type: {
+    sansSerif: 'Inter',
+    serif: 'Lora',
+    mono: 'Inconsolata',
+  },
+  weight: {
+    regular: 400,
+    bold: 700,
+  },
+  size: {
+    headingLarge: 'var(--typography-font-size-heading-large)',
+    headingMedium: 'var(--typography-font-size-heading-medium)',
+    headingSmall: 'var(--typography-font-size-heading-small)',
+    bodyMedium: 'var(--typography-font-size-body-medium)',
+    bodySmall: 'var(--typography-font-size-body-small)',
+  },
+};
+
+export const SampleText =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
+# Typography
+
+## Sans Serif
+
+**Font:** Inter (Sans Serif)
+
+**Weights:** Regular (400), Bold (700)
+
+<Typeset
+  fontSizes={[typography.size.headingLarge]}
+  fontWeight={typography.weight.regular}
+  sampleText={SampleText}
+  fontFamily={typography.type.sansSerif}
+/>
+
+## Serif
+
+**Font:** Lora (Serif)
+
+**Weights:** Regular (400), Bold (700)
+
+<Typeset
+  fontSizes={[typography.size.headingLarge]}
+  fontWeight={typography.weight.regular}
+  sampleText={SampleText}
+  fontFamily={typography.type.serif}
+/>
+
+## Monospace
+
+**Font:** Inconsolata (Monospace)
+
+**Weights:** Regular (400), Bold (700)
+
+<Typeset
+  fontSizes={[typography.size.headingLarge]}
+  fontWeight={typography.weight.regular}
+  sampleText={SampleText}
+  fontFamily="var(--font-family-inconsolata)"
+/>

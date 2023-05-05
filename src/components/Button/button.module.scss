@@ -1,0 +1,13 @@
+.default {
+  background-color: black;
+  color: white;
+  border: 2px solid transparent;
+  padding: 12px 24px;
+}
+
+.default:hover {
+  cursor: pointer;
+  background: white;
+  border: 2px solid black;
+  color: black;
+}
