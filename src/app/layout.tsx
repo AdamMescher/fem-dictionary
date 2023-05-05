@@ -22,10 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${styles.body} ${inter.className} ${inconsolata.className} ${lora.className}`}
-      >
-        <Header />
+      <body className={`${styles.body}`}>
         {children}
       </body>
     </html>
