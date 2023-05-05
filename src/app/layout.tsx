@@ -1,5 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
+import Providers from './providers';
 import { inconsolata, inter, lora } from './fonts';
 import Header from '@/components/Header';
 import styles from '../styles/RootLayout.module.scss';
@@ -22,8 +23,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${styles.body}`}>
-        {children}
+      <body className={`${styles.body} ${inconsolata.className} ${inter.className} ${lora.className}`}>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
