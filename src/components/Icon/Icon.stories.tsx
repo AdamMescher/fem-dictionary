@@ -6,6 +6,7 @@ const icons = [
   'arrow-down',
   'logo',
   'moon',
+  'sun',
   'new-window',
   'play',
   'search',

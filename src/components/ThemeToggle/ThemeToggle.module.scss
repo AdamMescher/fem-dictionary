@@ -1,0 +1,41 @@
+.switch-root {
+    all: unset;
+    width: 40px;
+    height: 20px;
+    border-radius: 9999px;
+    position: relative;
+    background-color: var(--color-neutral-gray-3);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.switch-root:hover {
+    cursor: pointer;
+}
+
+.switch-root:focus {
+    box-shadow: 0 0 0 2px black;
+}
+
+.switch-root[data-state='checked'] {
+    background-color: var(--color-primary-purple);
+}
+
+.SwitchThumb {
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    border-radius: 9999px;
+    transition: transform 100ms;
+    transform: translateX(3px);
+    will-change: transform;
+}
+
+.SwitchThumb[data-state='checked'] {
+    transform: translateX(23px);
+}
+
+.label {
+    font-size: 15px;
+    line-height: 1;
+}
