@@ -16,7 +16,7 @@ const colors: any = {
   red: 'var(--color-primary-red)',
   purple: 'var(--color-primary-purple)',
   'off black': 'var(--color-neutral-off-black)',
-  white: 'var(--color-neutral-white))',
+  white: 'var(--color-neutral-white)',
 };
 
 export default {

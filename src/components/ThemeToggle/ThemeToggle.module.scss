@@ -1,3 +1,27 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wrapper svg {
+    height: 24px;
+    width: 24px;
+}
+
+.theme-icon-container {
+    width: 24px;
+    height: 24px;
+}
+
+.theme-icon-visible {
+    display: block;
+}
+
+.theme-icon-hidden {
+    display: none;
+}
+
 .switch-root {
     all: unset;
     width: 40px;
