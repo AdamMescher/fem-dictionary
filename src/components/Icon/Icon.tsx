@@ -3,10 +3,12 @@ import styles from './Icon.module.scss';
 
 interface IconProps {
   id: string;
+  color?: string;
 }
 
 const Icon = ({
-  id,
+  id = 'logo',
+  color = 'var(--color-neutral-off-black)',
   ...rest
 }: IconProps) => {
   return (
