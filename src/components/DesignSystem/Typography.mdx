@@ -1,12 +1,12 @@
 import { Meta, Typeset } from '@storybook/blocks';
 
-<Meta title="Typography" />
+<Meta title="Design System/Typography" />
 
 export const typography = {
   type: {
     sansSerif: 'Inter',
     serif: 'Lora',
-    mono: 'Inconsolata',
+    monospace: 'Inconsolata',
   },
   weight: {
     regular: 400,
@@ -32,8 +32,15 @@ export const SampleText =
 
 **Weights:** Regular (400), Bold (700)
 
-<Typeset
+<Typeset 
   fontSizes={[typography.size.headingLarge]}
+  fontWeight={typography.weight.bold}
+  sampleText={SampleText}
+  fontFamily={typography.type.sansSerif}
+/>
+
+<Typeset
+  fontSizes={[typography.size.headingMedium, typography.size.headingSmall, typography.size.bodyMedium, typography.size.bodySmall]}
   fontWeight={typography.weight.regular}
   sampleText={SampleText}
   fontFamily={typography.type.sansSerif}
@@ -45,8 +52,15 @@ export const SampleText =
 
 **Weights:** Regular (400), Bold (700)
 
-<Typeset
+<Typeset 
   fontSizes={[typography.size.headingLarge]}
+  fontWeight={typography.weight.bold}
+  sampleText={SampleText}
+  fontFamily={typography.type.serif}
+/>
+
+<Typeset
+  fontSizes={[typography.size.headingMedium, typography.size.headingSmall, typography.size.bodyMedium, typography.size.bodySmall]}
   fontWeight={typography.weight.regular}
   sampleText={SampleText}
   fontFamily={typography.type.serif}
@@ -58,9 +72,16 @@ export const SampleText =
 
 **Weights:** Regular (400), Bold (700)
 
-<Typeset
+<Typeset 
   fontSizes={[typography.size.headingLarge]}
+  fontWeight={typography.weight.bold}
+  sampleText={SampleText}
+  fontFamily={typography.type.monospace}
+/>
+
+<Typeset
+  fontSizes={[typography.size.headingMedium, typography.size.headingSmall, typography.size.bodyMedium, typography.size.bodySmall]}
   fontWeight={typography.weight.regular}
   sampleText={SampleText}
-  fontFamily="var(--font-family-inconsolata)"
+  fontFamily={typography.type.monospace}
 />
