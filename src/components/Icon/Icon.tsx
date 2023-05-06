@@ -6,6 +6,8 @@ interface IconProps {
   color?: string;
   stroke?: string;
   className?: string;
+  height?: string;
+  width?: string;
 }
 
 const Icon = ({

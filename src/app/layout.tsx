@@ -14,7 +14,7 @@ if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
 export const metadata = {
   title: 'Dictionary',
   description: 'Dictionary using api to serve definitions of searched words',
-  author: 'Adam Mescher',
+  authors: { name: 'Adam Mescher' },
 };
 
 export default function RootLayout({
@@ -23,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${styles.body} ${inconsolata.className} ${inter.className} ${lora.className}`}>
+    <html lang="en" className={`${inter.variable} ${lora.variable} ${inconsolata.variable}`}>
+      <body className={`${styles.body}`}>
         <Providers>
           <Header />
           {children}

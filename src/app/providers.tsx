@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { ThemeProvider } from 'next-themes';
+import { FontContextProvider } from './Context/font';
 
 interface ProvidersProps {
     children: React.ReactNode;
@@ -10,7 +11,9 @@ interface ProvidersProps {
 const Providers = ({ children }: ProvidersProps) => {
     return (
         <ThemeProvider enableSystem={false}>
-            {children}
+            <FontContextProvider>
+                {children}
+            </FontContextProvider>
         </ThemeProvider>
     )
 }
