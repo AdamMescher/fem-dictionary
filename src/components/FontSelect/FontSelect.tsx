@@ -18,13 +18,13 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
           document.documentElement.style.setProperty('font-family', 'var(--font-family-sans-serif)');
         } else if (event.target.value === 'Serif') {
           document.documentElement.style.setProperty('font-family', 'var(--font-family-serif)');
-        } else if (event.target.value === 'Monospace') {
+        } else if (event.target.value === 'Mono') {
           document.documentElement.style.setProperty('font-family', 'var(--font-family-monospace)');
         }
       }}>
         <option>Sans Serif</option>
         <option>Serif</option>
-        <option>Monospace</option>
+        <option>Mono</option>
       </select>
       <div className={styles.presentational}>
         {fontType}

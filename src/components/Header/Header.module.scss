@@ -1,3 +1,16 @@
 .header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.toggles {
+    display: flex;
+    gap: 26px;
+    padding-right: 24px;
+}
+
+.toggles span {
+    color: var(--color-neutral-gray-2);
 }
