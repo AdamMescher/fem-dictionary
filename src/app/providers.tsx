@@ -9,7 +9,7 @@ interface ProvidersProps {
 
 const Providers = ({ children }: ProvidersProps) => {
     return (
-        <ThemeProvider defaultTheme='light'>
+        <ThemeProvider enableSystem={false}>
             {children}
         </ThemeProvider>
     )

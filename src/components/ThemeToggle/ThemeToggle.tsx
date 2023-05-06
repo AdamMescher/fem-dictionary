@@ -25,12 +25,11 @@ const ThemeToggle = ({ }: ThemeToggleProps) => {
 
   const handleCheckedChange = () => {
     setEnabled(!enabled);
-    setTheme(enabled ? 'dark' : 'light');
+    setTheme(enabled ? 'light' : 'dark');
   }
 
   return (
     <div className={styles.wrapper}>
-      {theme}
       <div className={styles['theme-icon-container']}>
         <Icon id="sun" color="hsl(0, 0%, 46%)" className={`${enabled ? styles['theme-icon-hidden'] : styles['theme-icon-visible']}`} />
       </div>

@@ -1,2 +1,11 @@
 .main {
+    --background: white;
+    --foreground: black;
+    background: var(--background);
+    color: var(--foreground);
+}
+
+[data-theme='dark'] .main {
+    --background: black;
+    --foreground: white;
 }
