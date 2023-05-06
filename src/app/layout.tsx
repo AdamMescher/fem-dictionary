@@ -1,5 +1,5 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import Providers from './providers';
 import Header from '@/components/Header';
 import { inconsolata, inter, lora } from './fonts';
