@@ -1,0 +1,22 @@
+.wrapper {
+    width: 350px;
+}
+
+.wrapper input {
+    border: none;
+    background-color: var(--color-neutral-gray-1);
+    border-radius: 16px;
+    padding-inline-start: 24px;
+    padding-block: 16px;
+}
+
+.wrapper input::placeholder {
+    color: var(--color-neutral-off-black);
+    font-size: var(--typography-font-size-body-medium);
+    font-weight: 700;
+    line-height: var(--typography-line-height-body-medium);
+}
+
+.wrapper input:active {
+    border: 2px solid var(--coloor-primary-purple);
+}

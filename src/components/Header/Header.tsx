@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Link from 'next/link';
 import Icon from '@/components/Icon';
 import FontSelect from '../FontSelect/FontSelect';
 import ThemeToggle from '@/components/ThemeToggle';
@@ -9,7 +10,9 @@ interface HeaderProps { }
 const Header = ({ }: HeaderProps) => {
   return (
     <header className={styles.header}>
-      <Icon id="logo" color="var(--color-neutral-gray-3)" height="32px"/>
+      <Link href="#">
+        <Icon id="logo" color="var(--color-neutral-gray-3)" height="32px" width="32px" />
+      </Link>
       <div className={styles.toggles}>
         <FontSelect />
         <span>|</span>

@@ -16,7 +16,7 @@ h3,
   line-height: var(--typography-line-height-heading-small);
 }
 
-.body {
+body {
   font-size: var(--typography-font-size-body-medium);
   line-height: var(--typography-line-height-body-medium);
 }
@@ -24,8 +24,5 @@ h3,
 .small {
   font-size: var(--typography-font-size-body-small);
   line-height: var(--typography-line-height-body-small);
-}
-
-body {
-  color: var(--color-neutral-off-black);
+  text-decoration-line: underline;
 }
