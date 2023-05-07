@@ -1,1 +1,21 @@
 .wrapper {}
+
+.heading {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.phonetic {
+    color: var(--color-primary-purple);
+}
+
+.meaning {
+    background: blue;
+}
+
+.part-of-speech {
+    color: red;
+    font-weight: 700;
+}

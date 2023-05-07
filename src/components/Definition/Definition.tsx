@@ -39,7 +39,7 @@ const Meaning = ({
     <div>
       <p>{partOfSpeech}</p>
       <ul>
-        {definitions.map(def => <li>{def.definition}</li>)}
+        {definitions.map(def => <li key={def.definition.slice(1,10)}>{def.definition}</li>)}
       </ul>
       <p>Synonyms: {synonyms.join(', ')}</p>
       <p>Antonyms: {antonyms.join(', ')}</p>
@@ -55,14 +55,14 @@ const Definition = ({
 }: DefinitionProps) => {
   return (
     <article className={styles.wrapper} data-testid="definition">
-      <div>
+      <div className={styles.heading}>
         <div>
           <h1>{word}</h1>
-          <h2>{phonetic}</h2>
+          <h2 className={styles.phonetic}>{phonetic}</h2>
         </div>
-        <Icon id="play" />
+        <Icon id="play" height={"75px"} width={"75px"}/>
       </div>
-      {meanings.map(meaning => <Meaning partOfSpeech={meaning.partOfSpeech} definitions={meaning.definitions} synonyms={meaning.synonyms} antonyms={meaning.antonyms} />)}
+      {meanings.map(meaning => <Meaning key={meaning.partOfSpeech} partOfSpeech={meaning.partOfSpeech} definitions={meaning.definitions} synonyms={meaning.synonyms} antonyms={meaning.antonyms} />)}
       <div>
         <p>source: {sourceUrls.join(', ')}</p>
       </div>
