@@ -1,16 +1,14 @@
 'use client';
 
-import Link from 'next/link';
+import { useQuery } from '@tanstack/react-query';
+import Search from '@/components/Search';
 import styles from '../styles/HomePage.module.scss';
 
-export default function Home() {
+
+export default async function Home() {
   return (
     <main className={`${styles.main}`}>
-      <h1>heading</h1>
-      <p>body text</p>
-      <p>more body text</p>
-      <div>needs to be Google font!</div>
-      <Link href="#">link test with wavvy quickness</Link>
+      <Search />
     </main>
   );
 }

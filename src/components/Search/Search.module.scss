@@ -1,22 +1,51 @@
 .wrapper {
-    width: 350px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
 }
 
 .wrapper input {
+    width: 100%;
     border: none;
     background-color: var(--color-neutral-gray-1);
     border-radius: 16px;
     padding-inline-start: 24px;
     padding-block: 16px;
+    font-weight: var(--weight-bold);
 }
 
 .wrapper input::placeholder {
-    color: var(--color-neutral-off-black);
-    font-size: var(--typography-font-size-body-medium);
-    font-weight: 700;
-    line-height: var(--typography-line-height-body-medium);
+    color: hsl(var(--color-neutral-gray-5-hsl), 0.25);
 }
 
-.wrapper input:active {
-    border: 2px solid var(--coloor-primary-purple);
+.wrapper input:focus-visible {
+    outline: 1px solid var(--color-primary-purple);
+}
+
+.wrapper button {
+    border: none;
+    background-color: transparent;
+    padding: 2px;
+    position: absolute;
+    right: 24px;
+    top: 16px;
+}
+
+.wrapper button:hover {
+    cursor: pointer;
+}
+
+.wrapper button:focus-visible {
+    outline: 1px solid var(--color-primary-purple);
+    border-radius: 4px;
+}
+
+.error {
+    color: var(--color-primary-red);
+}
+
+.empty {
+    height: 27px;
 }
