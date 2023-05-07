@@ -26,7 +26,85 @@ export const SampleText =
 
 # Typography
 
-## Sans Serif
+## Sizes
+
+All font faces utilize a uniform `font size` and `line height` scale. 
+
+This scale is based on the `root` font size of `18px` and a `line height` of `1.333`.
+
+### Design Token Values
+
+| Name | HTML Tag | Font Size | Line Height | 
+| ---- | -------- | ----- | ----- | 
+| Heading Large | `<h1>` | 64px | 77px | 
+| Heading Medium | `<h2>` | 24px | 29px |
+| Heading Small | `<h3>` | 20px | 24px |
+| Body Medium | many | 18px | 24px |
+| Body Small | many | 14px | 17px |
+
+### CSS Variables
+
+| Name | Font Size | Line Height |
+| ---- | --------- | ----------- |
+| Heading Large | `--typography-font-size-heading-large` | `--typography-line-height-heading-large` |
+| Heading Medium | `--typography-font-size-heading-medium` | `--typography-line-height-heading-medium` |
+| Heading Small | `--typography-font-size-heading-small` | `--typography-line-height-heading-small` |
+| Body Medium | `--typography-font-size-body-medium` | `--typography-line-height-body-medium` |
+| Body Small | `--typography-font-size-body-small` | `--typography-line-height-body-small` |
+
+
+## Font Weights
+
+### Design Token Values
+
+| Name | Value |
+| ---- | ----- |
+| Regular | 400 |
+| Bold | 700 |
+
+### CSS Variables
+
+| Name | Value |
+| ---- | ----- |
+| Regular | `--typography-font-weight-regular` |
+| Bold | `--typography-font-weight-bold` |
+
+Each font face has two available weights: `regular` and `bold`.
+
+The `bold` weight is used only for `<h1>` headings.
+
+The `regular` weight is used for all body text and `<h2>` and `<h3>` headings.
+
+## Font Faces
+
+There are three available font faces:
+
+1. **Sans Serif**
+2. **Serif**
+3. **Monospace** 
+
+### Design Token Values
+
+| Font Style | Font Family | CSS Font Stack |
+| ---------- | ----------- | -------------- |
+| Sans Serif | Inter | `'Inter', system-sans-serif, sans-serif` |
+| Serif | Lora | `'Lora', system-serif, serif` |
+| Monospace | Inconsolata | `'Inconsolata', system-monospace, monospace` |
+
+### CSS Variables
+
+| Font Style |  Value |
+| ---------- |  ----- |
+| Sans Serif | `--font-family-sans-serif` |
+| Serif | `--font-family-serif` |
+| Monospace | `--font-family-monospace` |
+
+
+
+### Font Weights
+
+
+### Sans Serif
 
 **Font:** Inter (Sans Serif)
 
