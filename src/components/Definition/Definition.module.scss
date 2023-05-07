@@ -11,6 +11,15 @@
     color: var(--color-primary-purple);
 }
 
+.play-button {
+    background: none;
+    border: none;
+}
+
+.play-button:hover {
+    cursor: pointer;
+}
+
 .meaning {
 }
 

@@ -7,17 +7,21 @@
 }
 
 .wrapper input {
+    --background: var(--color-neutral-gray-1);
+    --foreground: var(--color-neutral-off-black);
+    --placeholder: hsl(var(--color-neutral-gray-5-hsl), 0.25);
     width: 100%;
     border: none;
-    background-color: var(--color-neutral-gray-1);
     border-radius: 16px;
     padding-inline-start: 24px;
     padding-block: 16px;
-    font-weight: var(--weight-bold);
+    font-weight: var(--typography-font-weight-bold);
+    background-color: var(--background);
+    color: var(--foreground);
 }
 
 .wrapper input::placeholder {
-    color: hsl(var(--color-neutral-gray-5-hsl), 0.25);
+    color: var(--placeholder);
 }
 
 .wrapper input:focus-visible {
@@ -48,4 +52,16 @@
 
 .empty {
     height: 27px;
+}
+
+[data-theme="light"] .wrapper input {
+    --background: var(--color-neutral-gray-1);
+    --foreground: var(--color-neutral-off-black);
+    --placeholder: hsl(var(--color-neutral-gray-5-hsl), 0.25);
+}
+
+[data-theme="dark"] .wrapper input {
+    --background: var(--color-neutral-gray-6);
+    --foreground: var(--color-neutral-white);
+    --placeholder: hsl(var(--color-neutral-white-hsl), 0.25);;
 }

@@ -61,7 +61,9 @@ const Definition = ({
           <h1>{word}</h1>
           <h2 className={styles.phonetic}>{phonetic}</h2>
         </div>
-        <Icon id="play" height={"75px"} width={"75px"} />
+        <button className={styles['play-button']}>
+          <Icon id="play" height={"75px"} width={"75px"} color="var(--color-primary-purple)" />
+        </button>
       </div>
       <p></p>
       {meanings.map(meaning => <Meaning key={meaning.partOfSpeech} partOfSpeech={meaning.partOfSpeech} definitions={meaning.definitions} synonyms={meaning.synonyms} antonyms={meaning.antonyms} />)}
