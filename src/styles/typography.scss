@@ -1,3 +1,8 @@
+:root {
+  --regular: var(--typography-font-weight-regular);
+  --bold: var(--typography-font-weight-weight-bold);
+}
+
 h1,
 .h1 {
   font-size: var(--typography-font-size-heading-large);
@@ -26,3 +31,4 @@ body {
   line-height: var(--typography-line-height-body-small);
   text-decoration-line: underline;
 }
+

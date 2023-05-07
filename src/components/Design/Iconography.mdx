@@ -1,27 +1,44 @@
 import { Meta, Title, IconGallery, IconItem } from '@storybook/blocks';
 import Icon from '@/components/Icon';
+import IconGalleryMapped from '@/components/Design/IconGalleryMapped';
+
+export const icons = [
+  { name: 'ArrowDown', id: 'arrow-down', icon: <Icon id="arrow-down" height="24px" width="24px" /> },
+  { name: 'Logo', id: 'logo', icon: <Icon id="logo" height="24px" width="24px" /> },
+  { name: 'Moon', id: 'moon', icon: <Icon id="moon" height="24px" width="24px" /> },
+  { name: 'NewWindow', id: 'new-window', icon: <Icon id="new-window" height="24px" width="24px" /> },
+  { name: 'Play', id: 'play', icon: <Icon id="play" height="24px" width="24px" /> },
+  { name: 'Search', id: 'search', icon: <Icon id="search" height="24px" width="24px" /> },
+  { name: 'Sun', id: 'sun', icon: <Icon id="sun" height="24px" width="24px" /> },
+];
 
 <Meta title="Design System/Icongraphy" />
 
 # Iconography
 
-<IconGallery>
-  <IconItem name="arrow-down">
-    <Icon id="arrow-down" />
-  </IconItem>
-  <IconItem name="moon">
-    <Icon id="moon" />
-  </IconItem>
-  <IconItem name="new-window">
-    <Icon id="new-window" />
-  </IconItem>
-  <IconItem name="play">
-    <Icon id="play" />
-  </IconItem>
-  <IconItem name="search">
-    <Icon id="search" />
-  </IconItem>
-  <IconItem name="logo">
-    <Icon id="logo" />
-  </IconItem>
-</IconGallery>
+## Icons
+
+<IconGalleryMapped icons={icons} />
+
+## Defaults
+
+### Color
+
+Default color: `currentColor`
+
+### Size
+
+Default size: `24px`
+
+## Icon `name` and `id`
+
+<table id="icons">
+<thead>
+<tr>
+{Object.keys(icons[0]).map(key => <th>{key}</th>)}
+</tr>
+</thead>
+<tbody>
+{icons.map(icon => <tr>{Object.values(icon).map(value => <td>{value}</td>)}</tr>)}
+</tbody>
+</table>

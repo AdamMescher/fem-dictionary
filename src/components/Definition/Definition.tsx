@@ -36,10 +36,11 @@ const Meaning = ({
   antonyms,
 }: MeaningProps) => {
   return (
-    <div>
-      <p>{partOfSpeech}</p>
+    <div className={styles.meaning}>
+      <p className={styles['part-of-speech']}><strong><em>{partOfSpeech}</em></strong></p>
+      <p className={styles['meaning-heading']}>Meaning</p>
       <ul>
-        {definitions.map(def => <li key={def.definition.slice(1,10)}>{def.definition}</li>)}
+        {definitions.map(def => <li key={def.definition.slice(1, 10)}>{def.definition}</li>)}
       </ul>
       <p>Synonyms: {synonyms.join(', ')}</p>
       <p>Antonyms: {antonyms.join(', ')}</p>
@@ -60,8 +61,9 @@ const Definition = ({
           <h1>{word}</h1>
           <h2 className={styles.phonetic}>{phonetic}</h2>
         </div>
-        <Icon id="play" height={"75px"} width={"75px"}/>
+        <Icon id="play" height={"75px"} width={"75px"} />
       </div>
+      <p></p>
       {meanings.map(meaning => <Meaning key={meaning.partOfSpeech} partOfSpeech={meaning.partOfSpeech} definitions={meaning.definitions} synonyms={meaning.synonyms} antonyms={meaning.antonyms} />)}
       <div>
         <p>source: {sourceUrls.join(', ')}</p>

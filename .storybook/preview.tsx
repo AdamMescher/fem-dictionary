@@ -1,4 +1,6 @@
+import * as React from 'react';
 import type { Preview } from '@storybook/react';
+import { inter, lora, inconsolata } from '../src/app/fonts';
 import '../src/styles/globals.scss';
 
 const preview: Preview = {
@@ -12,5 +14,15 @@ const preview: Preview = {
     },
   },
 };
+
+const decorators = [
+  (Story) => (
+    <div className={`${inter.variable} ${lora.variable} ${inconsolata.variable}`}>
+      <Story />
+    </div>
+  ),
+];
+
+export { decorators };
 
 export default preview;
