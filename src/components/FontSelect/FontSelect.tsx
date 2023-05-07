@@ -16,10 +16,13 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
 
         if (event.target.value === 'Sans Serif') {
           document.documentElement.style.setProperty('font-family', 'var(--font-family-sans-serif)');
+          document.documentElement.style.setProperty('--small-underline', 'underline');
         } else if (event.target.value === 'Serif') {
           document.documentElement.style.setProperty('font-family', 'var(--font-family-serif)');
+          document.documentElement.style.setProperty('--small-underline', 'underline');
         } else if (event.target.value === 'Mono') {
           document.documentElement.style.setProperty('font-family', 'var(--font-family-monospace)');
+          document.documentElement.style.setProperty('--small-underline', 'none');
         }
       }}>
         <option>Sans Serif</option>

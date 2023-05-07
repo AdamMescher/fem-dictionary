@@ -11,6 +11,10 @@
   --font-family: var(--font-family-sans-serif);
 }
 
+.body a {
+  text-decoration: var(--small-underline);
+}
+
 [data-theme='light'] .body {
   --background: var(--color-neutral-white);
   --foreground: var(--color-neutral-off-black);
