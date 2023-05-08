@@ -5,8 +5,8 @@
 }
 
 .wrapper svg {
-    height: 24px;
     width: 24px;
+    height: 24px;
 }
 
 .theme-icon-container {
@@ -15,23 +15,23 @@
 }
 
 .theme-icon-visible {
-    visibility: visible;
     opacity: 1;
     transition: opacity 200ms ease-in-out;
+    visibility: visible;
 }
 
 .theme-icon-hidden {
-    visibility: hidden;
     opacity: 0;
     transition: opacity 200ms ease-in-out;
+    visibility: hidden;
 }
 
 .switch-root {
     all: unset;
+    position: relative;
     width: 40px;
     height: 20px;
     border-radius: 9999px;
-    position: relative;
     background-color: var(--color-neutral-gray-3);
     -webkit-tap-highlight-color: var(--color-neutral-black);
 }
@@ -52,10 +52,10 @@
     display: block;
     width: 14px;
     height: 14px;
-    background-color: white;
     border-radius: 9999px;
-    transition: transform 100ms;
+    background-color: white;
     transform: translateX(3px);
+    transition: transform 100ms;
     will-change: transform;
 }
 
