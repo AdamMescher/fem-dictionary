@@ -29,10 +29,10 @@
       <path
         d="M6.09 3.545H2.456A1.455 1.455 0 0 0 1 5v6.545A1.455 1.455 0 0 0 2.455 13H9a1.455 1.455 0 0 0 1.455-1.455V7.91m-5.091.727 7.272-7.272m0 0H9m3.636 0V5" />
     </symbol>
-    <symbol viewBox="0 0 75 75" id="play" fill="currentColor" fill-rule="evenodd">
+    <symbol viewBox="0 0 75 75" id="play" fill-rule="evenodd">
       <g>
-        <circle cx="37.5" cy="37.5" r="37.5" opacity=".25" />
-        <path d="M29 27v21l21-10.5z" />
+        <circle fill="currentColor" cx="37.5" cy="37.5" r="37.5" opacity=".25" />
+        <path fill="currentColor" d="M29 27v21l21-10.5z" />
       </g>
     </symbol>
     <symbol

@@ -60,22 +60,37 @@ const Definition = ({
   sourceUrls,
 }: DefinitionProps) => {
   return (
-    <article className={styles.wrapper} data-testid="definition">
-      <div className={styles.heading}>
-        <div>
-          <h1>{word}</h1>
-          <h2 className={styles.phonetic}>{phonetic}</h2>
+    <div className={styles.wrapper}>
+      <article data-testid="definition">
+        <div className={styles.heading}>
+          <div>
+            <h1>{word}</h1>
+            <h2 className={styles.phonetic}>{phonetic}</h2>
+          </div>
+          <button className={styles['play-button']}>
+            <Icon
+              id="play"
+              height={"48px"}
+              width={"48px"}
+              color="var(--color-primary-purple)" />
+          </button>
         </div>
-        <button className={styles['play-button']}>
-          <Icon id="play" height={"75px"} width={"75px"} color="var(--color-primary-purple)" />
-        </button>
-      </div>
-      {meanings.map(meaning => <Meaning key={meaning.partOfSpeech} partOfSpeech={meaning.partOfSpeech} definitions={meaning.definitions} synonyms={meaning.synonyms} antonyms={meaning.antonyms} />)}
-      <hr />
-      <div className={styles.source}>
-        <p>source: {sourceUrls.join(', ')}</p>
-      </div>
-    </article>
+        {meanings.map(meaning =>
+          <Meaning
+            key={meaning.partOfSpeech}
+            partOfSpeech={meaning.partOfSpeech}
+            definitions={meaning.definitions}
+            synonyms={meaning.synonyms}
+            antonyms={meaning.antonyms} />
+        )}
+        <div>
+          <hr />
+        </div>
+        <div className={styles.source}>
+          <p>source: {sourceUrls.join(', ')}</p>
+        </div>
+      </article>
+    </div>
   );
 }
 

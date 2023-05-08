@@ -1,14 +1,9 @@
 .main {
-    --background: white;
-    --foreground: black;
+    --search-error-div-height: 27px;
+    --margin-top: calc(28px - var(--search-error-div-height));
 
     width: 100%;
     height: 100%;
-    background: var(--background);
+    margin-top: var(--margin-top);
     color: var(--foreground);
-}
-
-[data-theme='dark'] .main {
-    --background: black;
-    --foreground: white;
 }
