@@ -24,7 +24,7 @@
 .menu {
     --background: var(--color-neutral-white);
     --foreground: var(--color-neutral-off-black);
-    --shadow: 0px 5px 30px hsl(var(--color-neutral-white) 0.1);
+    --shadow: 0px 5px 30px hsl(var(--color-neutral-white) / 10%);
 
     position: absolute;
     z-index: 1;
@@ -67,7 +67,7 @@
 [data-theme="light"] .menu {
     --background: var(--color-neutral-white);
     --foreground: var(--color-neutral-off-black);
-    --shadow: 0px 5px 30px hsl(var(--color-neutral-black-hsl) 0.1);
+    --shadow: 0px 5px 30px hsl(var(--color-neutral-black-hsl) / 10%);
 }
 
 [data-theme="dark"] .menu {

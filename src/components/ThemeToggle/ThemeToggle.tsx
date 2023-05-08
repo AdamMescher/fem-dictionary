@@ -31,7 +31,7 @@ const ThemeToggle = ({ }: ThemeToggleProps) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles['theme-icon-container']}>
-        <Icon id="sun" color="hsl(0, 0%, 46%)" className={`${enabled ? styles['theme-icon-hidden'] : styles['theme-icon-visible']}`} />
+        <Icon id="sun" color="var(--color-neutral-gray-3)" className={`${enabled ? styles['theme-icon-hidden'] : styles['theme-icon-visible']}`} />
       </div>
       <Switch.Root className={styles['switch-root']} id="airplane-mode" onCheckedChange={handleCheckedChange}>
         <Switch.Thumb className={styles['switch-thumb']} />
