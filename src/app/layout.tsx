@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Providers from './providers';
 import Header from '@/components/Header';
+import Search from '@/components/Search';
 import { inconsolata, inter, lora } from './fonts';
 import styles from '../styles/RootLayout.module.scss';
 import '../styles/globals.scss';
@@ -23,10 +24,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${lora.variable} ${inconsolata.variable}`}>
+    <html lang="en" className={`${inter.variable} ${lora.variable} ${inconsolata.variable}`} suppressHydrationWarning>
       <body className={`${styles.body}`}>
         <Providers>
-          <Header />
+          <div>
+            <Header />
+            <Search />
+          </div>
           {children}
         </Providers>
       </body>

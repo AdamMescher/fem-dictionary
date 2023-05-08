@@ -1,6 +1,5 @@
 'use client';
 
-import Search from '@/components/Search';
 import Definition from '@/components/Definition';
 import styles from '../styles/HomePage.module.scss';
 
@@ -51,7 +50,6 @@ const sourceUrls = [
 export default async function Home() {
   return (
     <main className={`${styles.main}`}>
-      <Search />
       <Definition word={"keyboard"} phonetic={"/ˈkiːbɔːd/"} meanings={meanings} sourceUrls={sourceUrls} />
     </main>
   );

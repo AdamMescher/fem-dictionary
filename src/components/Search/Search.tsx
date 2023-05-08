@@ -47,7 +47,7 @@ const Search = ({
       <button onClick={handleClick}>
         <Icon id="search" height="24px" width="24px" color="var(--color-primary-purple)" />
       </button>
-      {error ? <div className={styles.error}>Whoops, can't be empty…</div> : <div className={styles.empty} />}
+      {error ? <div className={styles.error}>Whoops, can&apos;t be empty…</div> : <div className={styles.empty} />}
     </div>
   );
 }

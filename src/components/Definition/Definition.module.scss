@@ -1,4 +1,15 @@
-.wrapper {}
+.wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.wrapper hr {
+    border: none;
+    height: 1px;
+    background: var(--color-neutral-gray-2);
+}
 
 .heading {
     width: 100%;
@@ -21,6 +32,18 @@
 }
 
 .meaning {
+    display: flex;
+    flex-direction: column;
+}
+
+.speech-divider {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+
+.speech-divider hr {
+    flex-grow: 1;
 }
 
 .meaning-heading {
