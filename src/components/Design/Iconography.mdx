@@ -3,13 +3,13 @@ import Icon from '@/components/Icon';
 import IconGalleryMapped from '@/components/Design/IconGalleryMapped';
 
 export const icons = [
-  { name: 'ArrowDown', id: 'arrow-down', icon: <Icon id="arrow-down" height="24px" width="24px" /> },
-  { name: 'Logo', id: 'logo', icon: <Icon id="logo" height="24px" width="24px" /> },
-  { name: 'Moon', id: 'moon', icon: <Icon id="moon" height="24px" width="24px" /> },
-  { name: 'NewWindow', id: 'new-window', icon: <Icon id="new-window" height="24px" width="24px" /> },
-  { name: 'Play', id: 'play', icon: <Icon id="play" height="24px" width="24px" /> },
-  { name: 'Search', id: 'search', icon: <Icon id="search" height="24px" width="24px" /> },
-  { name: 'Sun', id: 'sun', icon: <Icon id="sun" height="24px" width="24px" /> },
+  { name: 'ArrowDown', id: 'arrow-down', icon: <Icon name="arrow-down" height="24px" width="24px" /> },
+  { name: 'Logo', id: 'logo', icon: <Icon name="logo" height="24px" width="24px" /> },
+  { name: 'Moon', id: 'moon', icon: <Icon name="moon" height="24px" width="24px" /> },
+  { name: 'NewWindow', id: 'new-window', icon: <Icon name="new-window" height="24px" width="24px" /> },
+  { name: 'Play', id: 'play', icon: <Icon name="play" height="24px" width="24px" /> },
+  { name: 'Search', id: 'search', icon: <Icon name="search" height="24px" width="24px" /> },
+  { name: 'Sun', id: 'sun', icon: <Icon name="sun" height="24px" width="24px" /> },
 ];
 
 <Meta title="Design System/Icongraphy" />
@@ -32,7 +32,7 @@ Default size: `24px`
 
 ## Icon `name` and `id`
 
-<table id="icons">
+<table name="icons">
 <thead>
 <tr>
 {Object.keys(icons[0]).map(key => <th>{key}</th>)}

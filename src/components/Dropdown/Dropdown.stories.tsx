@@ -22,7 +22,7 @@ export const Default: Story = {
   args: {
     trigger: <button style={{ fontFamily: 'var(--font-family-sans-serif)' }}>
       Sans Serif
-      <Icon id="arrow-down" color="var(--color-primary-purple)" height="24px" width="24px" />
+      <Icon name="arrow-down" color="var(--color-primary-purple)" height="24px" width="24px" />
     </button>,
     menu: [
       <button key={'sans-serif'} style={{ fontFamily: 'var(--font-family-sans-serif)' }}>Sans Serif</button>,

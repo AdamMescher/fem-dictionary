@@ -35,6 +35,11 @@
         <path fill="currentColor" d="M29 27v21l21-10.5z" />
       </g>
     </symbol>
+    <symbol viewBox="0 0 75 75" id="play-triangle" fill-rule="evenodd">
+      <g>
+        <path fill="currentColor" d="M29 27v21l21-10.5z" />
+      </g>
+    </symbol>
     <symbol
       id="search"
       viewBox="0 0 18 18"

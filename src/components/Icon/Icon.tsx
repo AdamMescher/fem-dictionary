@@ -2,7 +2,8 @@ import * as React from 'react';
 import styles from './Icon.module.scss';
 
 interface IconProps {
-  id: string;
+  name: string;
+  id?: string;
   color?: string;
   stroke?: string;
   className?: string;
@@ -11,12 +12,12 @@ interface IconProps {
 }
 
 const Icon = ({
-  id = 'logo',
+  name = 'logo',
   ...rest
 }: IconProps) => {
   return (
-    <svg id={id} {...rest}>
-      <use href={`../../../assets/icons/sprite.svg#${id}`} />
+    <svg {...rest}>
+      <use href={`../../../assets/icons/sprite.svg#${name}`} />
     </svg>
   );
 }

@@ -11,7 +11,7 @@ const Header = ({ }: HeaderProps) => {
   return (
     <header className={styles.header}>
       <Link href="#">
-        <Icon id="logo" color="var(--color-neutral-gray-3)" height="32px" width="32px" />
+        <Icon name="logo" color="var(--color-neutral-gray-3)" height="32px" width="32px" />
       </Link>
       <div className={styles.toggles}>
         <FontSelect />

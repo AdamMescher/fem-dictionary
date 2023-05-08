@@ -18,7 +18,7 @@ const IconGalleryMapped = ({
         <IconGallery>
             {icons.map(icon => (
                 <IconItem key={icon.id} name={icon.id}>
-                    <Icon id={icon.id} />
+                    <Icon name={icon.id} />
                 </IconItem>
             ))}
         </IconGallery >

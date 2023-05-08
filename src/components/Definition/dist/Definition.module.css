@@ -42,7 +42,7 @@
 }
 
 .play-button:hover > svg {
-  color: white;
+  display: none;
 }
 
 .meaning {
