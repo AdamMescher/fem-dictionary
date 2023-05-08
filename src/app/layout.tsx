@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${lora.variable} ${inconsolata.variable}`} suppressHydrationWarning>
       <body className={`${styles.body}`}>
         <Providers>
-          <div>
+          <div className={styles.top}>
             <Header />
             <Search />
           </div>

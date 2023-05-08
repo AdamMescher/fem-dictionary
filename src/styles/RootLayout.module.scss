@@ -17,6 +17,12 @@
   text-decoration: var(--small-underline);
 }
 
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
 [data-theme='light'] .body {
   --background: var(--color-neutral-white);
   --foreground: var(--color-neutral-off-black);
