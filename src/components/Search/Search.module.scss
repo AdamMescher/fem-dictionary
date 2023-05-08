@@ -9,7 +9,8 @@
 .wrapper input {
     --background: var(--color-neutral-gray-1);
     --foreground: var(--color-neutral-off-black);
-    --placeholder: hsl(var(--color-neutral-gray-5-hsl), 0.25);
+    --placeholder: hsl(var(--color-neutral-gray-5-hsl) 0.25);
+
     width: 100%;
     border: none;
     border-radius: 16px;
@@ -57,11 +58,11 @@
 [data-theme="light"] .wrapper input {
     --background: var(--color-neutral-gray-1);
     --foreground: var(--color-neutral-off-black);
-    --placeholder: hsl(var(--color-neutral-gray-5-hsl), 0.25);
+    --placeholder: hsl(var(--color-neutral-gray-5-hsl) 0.25);
 }
 
 [data-theme="dark"] .wrapper input {
     --background: var(--color-neutral-gray-6);
     --foreground: var(--color-neutral-white);
-    --placeholder: hsl(var(--color-neutral-white-hsl), 0.25);;
+    --placeholder: hsl(var(--color-neutral-white-hsl) 0.25);
 }

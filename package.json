@@ -8,6 +8,7 @@
     "create:component": "node scripts/createComponent.js",
     "start": "next start",
     "lint": "next lint",
+    "lint:style": "./node_modules/.bin/stylelint '**/*.scss'",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "npx playwright test",
@@ -67,6 +68,9 @@
     "jsdom": "^22.0.0",
     "sass": "^1.62.1",
     "storybook": "^7.0.9",
+    "stylelint": "^15.6.1",
+    "stylelint-config-standard": "^33.0.0",
+    "stylelint-config-standard-scss": "^9.0.0",
     "vitest": "^0.31.0"
   },
   "readme": "ERROR: No README data found!",

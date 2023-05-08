@@ -33,7 +33,7 @@
     border-radius: 9999px;
     position: relative;
     background-color: var(--color-neutral-gray-3);
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: var(--color-neutral-black);
 }
 
 .switch-root:hover {
@@ -48,7 +48,7 @@
     background-color: var(--color-primary-purple);
 }
 
-.SwitchThumb {
+.switch-thumb {
     display: block;
     width: 14px;
     height: 14px;
@@ -59,7 +59,7 @@
     will-change: transform;
 }
 
-.SwitchThumb[data-state='checked'] {
+.switch-thumb[data-state='checked'] {
     transform: translateX(23px);
 }
 

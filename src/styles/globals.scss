@@ -1,29 +1,30 @@
+/* stylelint-disable selector-id-pattern */
 @use "open-props/animations";
 @use './typography.scss';
 
 :root {
-  --color-primary-red: hsl(0, 100%, 66%);
-  --color-primary-red-hsl: 0, 100%, 66%;
-  --color-primary-purple: hsl(274, 82%, 60%);
-  --color-primary-purple-hsl: 274, 82%, 60%;
-  --color-neutral-white: hsl(0, 0%, 100%);
-  --color-neutral-white-hsl: 0, 0%, 100%;
-  --color-neutral-black: hsl(0, 0%, 0%);
-  --color-neutral-black-hsl: 0, 0%, 0%;
-  --color-neutral-off-black: hsl(0, 0%, 2%);
-  --color-neutral-off-black-hl: 0, 0%, 2%;
-  --color-neutral-gray-1: hsl(0, 0%, 96%);
-  --color-neutral-gray-1-hsl: 0, 0%, 96%;
-  --color-neutral-gray-2: hsl(0, 0%, 91%);
-  --color-neutral-gray-2-hsl: 0, 0%, 91%;
-  --color-neutral-gray-3: hsl(0, 0%, 46%);
-  --color-neutral-gray-3-hsl: 0, 0%, 46%;
-  --color-neutral-gray-4: hsl(0, 0%, 23%);
-  --color-neutral-gray-4-hsl: 0, 0%, 23%;
-  --color-neutral-gray-5: hsl(0, 0%, 18%);
-  --color-neutral-gray-5-hsl: 0, 0%, 18%;
-  --color-neutral-gray-6: hsl(0, 0%, 12%);
-  --color-neutral-gray-6-hsl: 0, 0%, 12%;
+  --color-primary-red: hsl(0deg 100% 66%);
+  --color-primary-red-hsl: 0deg 100% 66%;
+  --color-primary-purple: hsl(274deg 82% 60%);
+  --color-primary-purple-hsl: 274deg 82% 60%;
+  --color-neutral-white: hsl(0deg 0% 100%);
+  --color-neutral-white-hsl: 0deg 0% 100%;
+  --color-neutral-black: hsl(0deg 0% 0%);
+  --color-neutral-black-hsl: 0deg 0% 0%;
+  --color-neutral-off-black: hsl(0deg 0% 2%);
+  --color-neutral-off-black-hl: 0deg 0% 2%;
+  --color-neutral-gray-1: hsl(0deg 0% 96%);
+  --color-neutral-gray-1-hsl: 0deg 0% 96%;
+  --color-neutral-gray-2: hsl(0deg 0% 91%);
+  --color-neutral-gray-2-hsl: 0deg 0% 91%;
+  --color-neutral-gray-3: hsl(0deg 0% 46%);
+  --color-neutral-gray-3-hsl: 0deg 0% 46%;
+  --color-neutral-gray-4: hsl(0deg 0% 23%);
+  --color-neutral-gray-4-hsl: 0deg 0% 23%;
+  --color-neutral-gray-5: hsl(0deg 0% 18%);
+  --color-neutral-gray-5-hsl: 0deg 0% 18%;
+  --color-neutral-gray-6: hsl(0deg 0% 12%);
+  --color-neutral-gray-6-hsl: 0deg 0% 12%;
   --typography-font-size-body-small: 14px;
   --typography-line-height-body-small: 17px;
   --typography-font-size-body-medium: 18px;
@@ -64,12 +65,16 @@ ol[role='list'] {
 }
 
 html {
+  min-height: 100vh;
+  font-family: var(--font-family-sans-serif);
   text-size-adjust: none;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-text-size-adjust: none;
 }
 
 body {
   min-height: 100vh;
+  /* stylelint-disable-next-line value-keyword-case */
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -109,12 +114,8 @@ h6 {
   overflow-wrap: break-word;
 }
 
+/* stylelint-disable-line */
 #root,
 #__next {
   isolation: isolate;
-}
-
-html {
-  min-height: 100vh;
-  font-family: var(--font-family-sans-serif);
 }

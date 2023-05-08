@@ -15,7 +15,7 @@ const Icon = ({
   ...rest
 }: IconProps) => {
   return (
-    <svg id={id} className={styles.svg} {...rest}>
+    <svg id={id} {...rest}>
       <use href={`../../../assets/icons/sprite.svg#${id}`} />
     </svg>
   );
