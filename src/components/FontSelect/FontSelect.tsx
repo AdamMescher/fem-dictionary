@@ -42,9 +42,9 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
   }
 
   const menu = [
-    <button onClick={handleSansSerif} style={{ fontFamily: 'var(--font-family-sans-serif)' }}>Sans Serif</button>,
-    <button onClick={handleSerif} style={{ fontFamily: 'var(--font-family-serif)' }}>Serif</button>,
-    <button onClick={handleMono} style={{ fontFamily: 'var(--font-family-monospace)' }} >Mono</button>,
+    <button key={'sansSerif'} onClick={handleSansSerif} style={{ fontFamily: 'var(--font-family-sans-serif)' }}>Sans Serif</button>,
+    <button key={'serif'} onClick={handleSerif} style={{ fontFamily: 'var(--font-family-serif)' }}>Serif</button>,
+    <button key={'monospace'} onClick={handleMono} style={{ fontFamily: 'var(--font-family-monospace)' }} >Mono</button>,
   ];
 
   let trigger =

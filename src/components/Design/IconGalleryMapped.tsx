@@ -17,7 +17,7 @@ const IconGalleryMapped = ({
     return (
         <IconGallery>
             {icons.map(icon => (
-                <IconItem name={icon.id}>
+                <IconItem key={icon.id} name={icon.id}>
                     <Icon id={icon.id} />
                 </IconItem>
             ))}

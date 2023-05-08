@@ -6,6 +6,7 @@ import Icon from '@/components/Icon';
 export default {
   component: Dropdown,
   title: 'Components/Dropdown',
+  argTypes: { onClick: { action: 'clicked' } },
   decorators: [
     (Story: any) => (
       <div style={{ width: '200px', height: '200px', display: 'grid', justifyItems: 'center' }}>
@@ -24,13 +25,10 @@ export const Default: Story = {
       <Icon id="arrow-down" color="var(--color-primary-purple)" height="24px" width="24px" />
     </button>,
     menu: [
-      <button onClick={() => { }} style={{ fontFamily: 'var(--font-family-sans-serif)' }}>Sans Serif</button>,
-      <button onClick={() => { }} style={{ fontFamily: 'var(--font-family-serif)' }}>Serif</button>,
-      <button onClick={() => { }} style={{ fontFamily: 'var(--font-family-monospace)' }} >Mono</button>,
+      <button key={'sans-serif'} style={{ fontFamily: 'var(--font-family-sans-serif)' }}>Sans Serif</button>,
+      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>Serif</button>,
+      <button key={'monospace'} style={{ fontFamily: 'var(--font-family-monospace)' }} >Mono</button>,
     ],
-    style: {
-      padding: '24px',
-    }
   },
   render: (args: any) => <Dropdown {...args} />,
 };
