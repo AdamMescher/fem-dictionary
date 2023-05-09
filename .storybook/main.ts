@@ -10,6 +10,7 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-mdx-gfm',
     '@storybook/addon-styling',
+    'storybook-addon-root-attribute/register'
   ],
   framework: {
     name: '@storybook/nextjs',

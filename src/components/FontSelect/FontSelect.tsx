@@ -7,38 +7,33 @@ import styles from './FontSelect.module.scss';
 
 interface FontSelectProps { }
 
-const updateFontFamily = (font: string): string => {
-  switch(font) {
-    case 'Sans Serif':
-      return 'var(--font-family-sans-serif)';
-    case 'Serif':
-      return 'var(--font-family-serif)';
-    case 'Mono':
-      return 'var(--font-family-monospace)';
-    default:
-      return 'var(--font-family-sans-serif)';
-  }
-}
-
 const FontSelect = ({ ...rest }: FontSelectProps) => {
   const [fontType, setFontType] = React.useState('Sans Serif');
 
+  React.useEffect(() => {
+    if (fontType === 'Sans Serif') {
+      document.documentElement.setAttribute('data-font', 'Sans Serif');
+    }
+
+    if (fontType === 'Serif') {
+      document.documentElement.setAttribute('data-font', 'Serif');
+    }
+
+    if (fontType === 'Mono') {
+      document.documentElement.setAttribute('data-font', 'Mono');
+    }
+  }, [fontType])
+
   const handleSansSerif = () => {
     setFontType('Sans Serif');
-    document.documentElement.style.setProperty('font-family', 'var(--font-family-sans-serif)');
-    document.documentElement.style.setProperty('--small-underline', 'underline');
   };
 
-  const handleSerif = () => {
+  const handleSerif = async () => {
     setFontType('Serif');
-    document.documentElement.style.setProperty('font-family', 'var(--font-family-serif)');
-    document.documentElement.style.setProperty('--small-underline', 'underline');
   };
 
   const handleMono = () => {
     setFontType('Mono');
-    document.documentElement.style.setProperty('font-family', 'var(--font-family-monospace)');
-    document.documentElement.style.setProperty('--small-underline', 'none');
   }
 
   const menu = [
@@ -48,7 +43,7 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
   ];
 
   let trigger =
-    <button style={{ fontFamily: updateFontFamily(fontType) }}>
+    <button>
       {fontType}
       <Icon name="arrow-down" color="var(--color-primary-purple)" height="24px" width="24px" />
     </button>;

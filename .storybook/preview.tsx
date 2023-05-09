@@ -1,11 +1,34 @@
 import * as React from 'react';
 import type { Preview } from '@storybook/react';
-import { withThemeByDataAttribute } from "@storybook/addon-styling";
-import { ThemeProvider } from "next-themes";
-import ThemeToggle from '../src/components/ThemeToggle';
-import FontSelect from '../src/components/FontSelect';
 import { inter, lora, inconsolata } from '../src/app/fonts';
+import { useTheme } from './useTheme';
+import { useFont } from './useFont';
 import '../src/styles/globals.scss';
+
+export const globalTypes = {
+  font: {
+    title: 'Font Select',
+    description: 'Global slect font for components',
+    defaultValue: 'Sans Serif',
+    toolbar: {
+      icon: 'listunordered',
+      items: ['Sans Serif', 'Serif', 'Mono'],
+      showName: true,
+      dynamicTitle: true
+    }
+  },
+  theme: {
+    title: 'Theme Select',
+    description: 'Global theme select for components',
+    defaultValue: 'light',
+    toolbar: {
+      icon: 'listunordered',
+      items: ['light', 'dark'],
+      showName: true,
+      dynamicTitle: true
+    }
+  }
+}
 
 const preview: Preview = {
   parameters: {
@@ -16,8 +39,8 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
-  },
-};
+  }
+}
 
 const decorators = [
   (Story: any) => (
@@ -25,14 +48,8 @@ const decorators = [
       <Story />
     </div>
   ),
-  withThemeByDataAttribute({
-    themes: {
-      light: "light",
-      dark: "dark",
-    },
-    defaultTheme: "light",
-    attributeName: "data-theme",
-  }),
+  useTheme,
+  useFont,
 ];
 
 export { decorators };

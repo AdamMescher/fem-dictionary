@@ -24,16 +24,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${lora.variable} ${inconsolata.variable}`} suppressHydrationWarning>
-      <body className={`${styles.body}`}>
+
+    <html lang="en" className={`${inter.variable} ${lora.variable} ${inconsolata.variable}`} data-font="Sans Serif" data-theme="light" suppressHydrationWarning>
+      <body className={styles.body}>
         <Providers>
           <div className={styles.top}>
             <Header />
             <Search />
           </div>
           {children}
-        </Providers>
+        </Providers >
       </body>
     </html>
+
   );
 }

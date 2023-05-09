@@ -26,6 +26,8 @@
   gap: var(--gap);
 }
 
+/* THEME */
+
 [data-theme='light'] .body {
   --background: var(--color-neutral-white);
   --foreground: var(--color-neutral-off-black);
@@ -34,4 +36,16 @@
 [data-theme='dark'] .body {
   --background: var(--color-neutral-off-black);
   --foreground: var(--color-neutral-white);
+}
+
+[data-font='sansSerif'] .body {
+  --font-family: var(--font-family-sans-serif);
+}
+
+[data-font='Serif'] .body {
+  --font-family: var(--font-family-serif);
+}
+
+[data-font='Mono'] .body {
+  --font-family: var(--font-family-monospace);
 }
