@@ -31,18 +31,22 @@
     border: none;
     background: none;
     padding: 0;
+    background-color: hsl(var(--color-primary-purple-hsl) / 25%);
     border-radius: 50%;
     height: 48px;
     width: 48px;
+    display: grid;
+    place-items: center;
 }
 
 .play-button:hover {
     cursor: pointer;
-    background: var(--color-primary-purple);
+    background-color: var(--color-primary-purple);
+    
 }
 
 .play-button:hover>svg {
-    display: none;
+    color: var(--color-neutral-white);
 }
 
 .meaning {

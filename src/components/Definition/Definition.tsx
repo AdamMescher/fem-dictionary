@@ -69,7 +69,7 @@ const Definition = ({
           </div>
           <button className={styles['play-button']}>
             <Icon
-              id="play"
+              name="play"
               height={"48px"}
               width={"48px"}
               color="var(--color-primary-purple)" />
