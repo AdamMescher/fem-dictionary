@@ -23,7 +23,10 @@ const config: StorybookConfig = {
       '@': path.resolve(__dirname, '../src/'),
     };
     
-    const fileLoaderRule = config.module.rules.find(rule => rule.test && rule.test.test('.svg'));
+    const fileLoaderRule = 
+      config.module.rules
+        .find(rule => rule.test && rule.test.test('.svg'));
+    
     fileLoaderRule.exclude = /\.svg$/;
 
     config.module.rules.push({
