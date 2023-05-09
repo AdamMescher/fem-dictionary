@@ -42,7 +42,7 @@
 .play-button:hover {
     cursor: pointer;
     background-color: var(--color-primary-purple);
-    
+
 }
 
 .play-button:hover>svg {
@@ -50,6 +50,7 @@
 }
 
 .meaning {
+    margin-top: 32px;
     display: flex;
     flex-direction: column;
 }
@@ -64,7 +65,8 @@
     flex-grow: 1;
 }
 
-.meaning-heading {
+.section-heading {
+    font-weight: var(--typography-font-weight-regular);
     color: var(--color-neutral-gray-3);
 }
 
@@ -75,4 +77,54 @@
 
 .meaning em {
     font-style: italic;
+}
+
+.meaning-list {
+    margin-top: 32px;
+}
+
+.meaning-list ul,
+.source-url-list {
+    margin-top: 16px;
+    list-style-type: none;
+    text-align: left;
+    padding: 0;
+}
+
+.meaning-list ul li::before {
+    content: "\2022";
+    color: var(--color-primary-purple);
+    width: 1em;
+    margin-right: 0.5em;
+}
+
+.definition-list-item {
+    margin-top: 12px;
+}
+
+.synonyms,
+.antonyms {
+    color: var(--color-primary-purple);
+    font-weight: var(--typography-font-weight-bold);
+}
+
+.source-url {
+    font-size: var(--typography-font-size-body-small);
+    color: var(--color-neutral-gray-3);
+}
+
+.source-url-list {
+    list-style-type: none;
+    padding: 0;
+    font-size: var(--typography-font-size-body-small);
+}
+
+.source-url-list-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.source-url-list-item:hover {
+    cursor: pointer;
 }

@@ -16,7 +16,7 @@ const Header = ({ }: HeaderProps) => {
       <div className={styles.toggles}>
         <FontSelect />
         <span>|</span>
-        {/* <ThemeToggle /> */}
+        <ThemeToggle />
       </div>
     </header>
   );
