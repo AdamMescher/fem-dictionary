@@ -1,13 +1,14 @@
 .default {
   padding: 12px 24px;
   border: 2px solid transparent;
-  background-color: black;
-  color: white;
+  background-color: var(--color-primary-purple);
+  color: var(--color-neutral-white);
+  font-weight: var(--typography-font-weight-bold);
 }
 
 .default:hover {
-  border: 2px solid black;
-  background: white;
-  color: black;
   cursor: pointer;
+  border: 2px solid var(--color-primary-purple);
+  color: var(--color-primary-purple);
+  background-color: hsl(var(--color-primary-purple-hsl) / 25%);
 }
