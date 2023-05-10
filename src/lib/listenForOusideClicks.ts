@@ -1,4 +1,9 @@
-function listenForOutsideClicks(listening, setListening, menuRef, setIsOpen) {
+function listenForOutsideClicks(
+  listening: boolean,
+  setListening: (arg0: boolean) => void,
+  menuRef: any,
+  setIsOpen: (arg0: boolean) => void
+) {
   return () => {
     if (listening) return;
     if (!menuRef.current) return;
