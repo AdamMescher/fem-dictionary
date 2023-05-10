@@ -12,8 +12,8 @@ export const globalTypes = {
     toolbar: {
       icon: 'listunordered',
       items: ['Sans Serif', 'Serif', 'Mono'],
-      dynamicTitle: true
-    }
+      dynamicTitle: true,
+    },
   },
   theme: {
     title: 'Theme Select',
@@ -21,10 +21,10 @@ export const globalTypes = {
     toolbar: {
       icon: 'listunordered',
       items: ['light', 'dark'],
-      dynamicTitle: true
-    }
-  }
-}
+      dynamicTitle: true,
+    },
+  },
+};
 
 const preview: Preview = {
   parameters: {
@@ -42,8 +42,8 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
-  }
-}
+  },
+};
 
 const decorators = [
   (Story: any, context) => {
@@ -54,10 +54,12 @@ const decorators = [
     console.log({ Story });
 
     return (
-      <main className={`${inter.variable} ${inconsolata.variable} ${lora.variable}`}>
+      <main
+        className={`${inter.variable} ${inconsolata.variable} ${lora.variable}`}
+      >
         <Story />
       </main>
-    )
+    );
   },
   useTheme,
   useFont,

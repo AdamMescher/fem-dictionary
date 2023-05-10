@@ -10,7 +10,7 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-mdx-gfm',
     '@storybook/addon-styling',
-    'storybook-addon-root-attribute/register'
+    'storybook-addon-root-attribute/register',
   ],
   framework: {
     name: '@storybook/nextjs',
@@ -26,9 +26,9 @@ const config: StorybookConfig = {
       '@': path.resolve(__dirname, '../src/'),
     };
 
-    const fileLoaderRule =
-      config.module.rules
-        .find(rule => rule.test && rule.test.test('.svg'));
+    const fileLoaderRule = config.module.rules.find(
+      (rule) => rule.test && rule.test.test('.svg')
+    );
 
     fileLoaderRule.exclude = /\.svg$/;
 
@@ -40,6 +40,6 @@ const config: StorybookConfig = {
 
     return config;
   },
-
 };
+
 export default config;
