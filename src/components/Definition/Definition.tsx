@@ -105,7 +105,7 @@ const Definition = ({
             <h1>{word}</h1>
             <h2 className={styles.phonetic}>{phonetic}</h2>
           </div>
-          <button className={styles['play-button']}>
+          <button className={styles['play-button']} aria-label="Play">
             <Icon
               name='play'
               height={'48px'}
