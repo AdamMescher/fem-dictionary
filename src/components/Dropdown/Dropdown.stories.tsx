@@ -59,7 +59,7 @@ export const Default: Story = {
   render: (args: any) => <Dropdown {...args} />,
 };
 
-export const LightTheme: Story = {
+export const Light: Story = {
   args: {
     trigger: (
       <button style={{ fontFamily: 'var(--font-family-sans-serif)' }}>
@@ -97,7 +97,10 @@ export const LightTheme: Story = {
   ),
 };
 
-export const DarkTheme: Story = {
+export const Dark: Story = {
+  parameters: {
+    backgrounds: { default: 'dark' },
+  },
   args: {
     trigger: (
       <button style={{ fontFamily: 'var(--font-family-sans-serif)' }}>
@@ -130,6 +133,129 @@ export const DarkTheme: Story = {
   },
   render: (args: any) => (
     <div data-theme='dark'>
+      <Dropdown {...args} />
+    </div>
+  ),
+};
+
+export const SansSerif: Story = {
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+  args: {
+    trigger: (
+      <button style={{ fontFamily: 'var(--font-family-sans-serif)' }}>
+        Sans Serif
+        <Icon
+          name='arrow-down'
+          color='var(--color-primary-purple)'
+          height='24px'
+          width='24px'
+        />
+      </button>
+    ),
+    menu: [
+      <button
+        key={'sans-serif'}
+        style={{ fontFamily: 'var(--font-family-sans-serif)' }}
+      >
+        Sans Serif
+      </button>,
+      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>
+        Serif
+      </button>,
+      <button
+        key={'monospace'}
+        style={{ fontFamily: 'var(--font-family-monospace)' }}
+      >
+        Mono
+      </button>,
+    ],
+  },
+  render: (args: any) => (
+    <div data-font='Sans Serif'>
+      <Dropdown {...args} />
+    </div>
+  ),
+};
+
+export const Serif: Story = {
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+  args: {
+    trigger: (
+      <button style={{ fontFamily: 'var(--font-family-serif)' }}>
+        Sans Serif
+        <Icon
+          name='arrow-down'
+          color='var(--color-primary-purple)'
+          height='24px'
+          width='24px'
+        />
+      </button>
+    ),
+    menu: [
+      <button
+        key={'sans-serif'}
+        style={{ fontFamily: 'var(--font-family-sans-serif)' }}
+      >
+        Sans Serif
+      </button>,
+      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>
+        Serif
+      </button>,
+      <button
+        key={'monospace'}
+        style={{ fontFamily: 'var(--font-family-monospace)' }}
+      >
+        Mono
+      </button>,
+    ],
+  },
+  render: (args: any) => (
+    <div data-font='Serif'>
+      <Dropdown {...args} />
+    </div>
+  ),
+};
+
+export const Mono: Story = {
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+  args: {
+    trigger: (
+      <button style={{ fontFamily: 'var(--font-family-monospace)' }}>
+        Sans Serif
+        <Icon
+          name='arrow-down'
+          color='var(--color-primary-purple)'
+          height='24px'
+          width='24px'
+        />
+      </button>
+    ),
+    menu: [
+      <button
+        key={'sans-serif'}
+        style={{ fontFamily: 'var(--font-family-sans-serif)' }}
+      >
+        Sans Serif
+      </button>,
+      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>
+        Serif
+      </button>,
+      <button
+        key={'monospace'}
+        style={{ fontFamily: 'var(--font-family-monospace)' }}
+      >
+        Mono
+      </button>,
+    ],
+  },
+  render: (args: any) => (
+    <div data-font='Mono'>
       <Dropdown {...args} />
     </div>
   ),
