@@ -1,7 +1,6 @@
 'use client';
 
 import * as React from 'react';
-import listenForOutsideClick from '../../lib/listenForOusideClicks';
 import styles from './Dropdown.module.scss';
 
 interface DropdownProps {
@@ -11,27 +10,36 @@ interface DropdownProps {
 }
 
 const Dropdown = ({ trigger, menu }: DropdownProps) => {
-  const menuRef = React.useRef(null);
-  const [listening, setListening] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState(false);
-
-  const handleDropdownClick = () => {
-    setIsOpen(true);
-    setListening(true);
+  const dropdownRef = React.useRef<HTMLDivElement>(null);
+  const handleDropdownClick = () => setIsOpen(!isOpen);
+  const handleOutsideClick = (event: MouseEvent | TouchEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setIsOpen(false);
+    }
   };
 
-  React.useEffect(
-    listenForOutsideClick(listening, setListening, menuRef, setIsOpen)
-  );
+  React.useEffect(() => {
+    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener('touchstart', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('touchstart', handleOutsideClick);
+    };
+  });
 
   return (
-    <div className={styles.dropdown}>
+    <div ref={dropdownRef} className={styles.dropdown}>
       {React.cloneElement(trigger, {
         className: styles.trigger,
         onClick: handleDropdownClick,
       })}
       {isOpen ? (
-        <ul className={styles.menu} ref={menuRef}>
+        <ul className={styles.menu}>
           {menu.map((menuItem, index) => (
             <li key={index} className={styles['menu-item']}>
               {React.cloneElement(menuItem, {

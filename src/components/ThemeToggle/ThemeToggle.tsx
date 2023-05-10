@@ -49,14 +49,13 @@ const ThemeToggle = ({}: ThemeToggleProps) => {
           }`}
         />
       </div>
-      <VisuallyHidden.Root>
-        <label htmlFor="theme-toggle">Theme Switch</label>
-      </VisuallyHidden.Root>
       <Switch.Root
         id='theme-toggle'
+        name='theme-toggle'
         className={styles['switch-root']}
         onCheckedChange={handleCheckedChange}
       >
+        <VisuallyHidden.Root>Theme Switch</VisuallyHidden.Root>
         <Switch.Thumb className={styles['switch-thumb']} />
       </Switch.Root>
       <div className={styles['theme-icon-container']}>
