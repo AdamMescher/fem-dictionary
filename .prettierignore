@@ -7,3 +7,4 @@ lerna.json
 .github
 **/.vscode/**
 **/.storebook/**
+**/coverage/**
