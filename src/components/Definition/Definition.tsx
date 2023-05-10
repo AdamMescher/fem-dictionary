@@ -16,6 +16,10 @@ type Meaning = {
   antonyms: string[];
 };
 
+interface SourceURLProps {
+  url: string;
+}
+
 interface MeaningProps {
   partOfSpeech: string;
   definitions: Definition[];
@@ -30,6 +34,22 @@ interface DefinitionProps {
   sourceUrls: string[];
 }
 
+const SourceURL = ({ url }: SourceURLProps) => {
+  return (
+    <li key={url} className={styles['source-url-list-item']}>
+      <Link href={url} target='_blank'>
+        {url}
+      </Link>
+      <Icon
+        name='new-window'
+        width='12px'
+        height='12px'
+        color='var(--color-neutral-gray-2)'
+      />
+    </li>
+  );
+};
+
 const Meaning = ({
   partOfSpeech,
   definitions,
@@ -39,15 +59,11 @@ const Meaning = ({
   return (
     <div className={styles.meaning}>
       <div className={styles['speech-divider']}>
-        <p className={styles['part-of-speech']}>
-          <strong>
-            <em>{partOfSpeech}</em>
-          </strong>
-        </p>
-        <hr />
+        <h2 className={styles['part-of-speech']}>{partOfSpeech}</h2>
+        <hr className={styles.divider} />
       </div>
       <div className={styles['meaning-list']}>
-        <p className={styles['section-heading']}>Meaning</p>
+        <h3 className={styles['section-heading']}>Meaning</h3>
         <ul>
           {definitions.map((def) => (
             <li
@@ -98,35 +114,22 @@ const Definition = ({
             />
           </button>
         </div>
-        {meanings.map((meaning) => (
-          <Meaning
-            key={meaning.partOfSpeech}
-            partOfSpeech={meaning.partOfSpeech}
-            definitions={meaning.definitions}
-            synonyms={meaning.synonyms}
-            antonyms={meaning.antonyms}
-          />
-        ))}
-        <div>
-          <hr />
+        <div className={styles['meanings-container']}>
+          {meanings.map((meaning) => (
+            <Meaning
+              key={meaning.partOfSpeech}
+              partOfSpeech={meaning.partOfSpeech}
+              definitions={meaning.definitions}
+              synonyms={meaning.synonyms}
+              antonyms={meaning.antonyms}
+            />
+          ))}
         </div>
         <div className={styles.source}>
-          <p className={styles['source-url']}>
-            <span className={styles['section-heading']}>source:</span>
-          </p>
+          <h3 className={styles['source-heading']}>source</h3>
           <ul className={styles['source-url-list']}>
             {sourceUrls.map((url) => (
-              <li key={url} className={styles['source-url-list-item']}>
-                <Link href={url} target='_blank'>
-                  {url}
-                </Link>
-                <Icon
-                  name='new-window'
-                  width='12px'
-                  height='12px'
-                  color='var(--color-neutral-gray-2)'
-                />
-              </li>
+              <SourceURL url={url} key={url} />
             ))}
           </ul>
         </div>

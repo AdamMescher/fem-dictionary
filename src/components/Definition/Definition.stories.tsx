@@ -62,3 +62,37 @@ export const Default: Story = {
   },
   render: (args: any) => <Definition {...args} />,
 };
+
+export const Light: Story = {
+  args: {
+    word,
+    phonetic,
+    meanings,
+    sourceUrls,
+  },
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+  render: (args: any) => (
+    <div data-theme="light">
+      <Definition {...args} />
+    </div>
+  ),
+};
+
+export const Dark: Story = {
+  args: {
+    word,
+    phonetic,
+    meanings,
+    sourceUrls,
+  },
+  parameters: {
+    backgrounds: { default: 'dark' },
+  },
+  render: (args: any) => (
+    <div data-theme="dark">
+      <Definition {...args} />
+    </div>
+  ),
+};
