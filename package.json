@@ -50,6 +50,7 @@
   "devDependencies": {
     "@axe-core/react": "^4.7.0",
     "@playwright/test": "^1.33.0",
+    "@storybook/addon-a11y": "^7.0.10",
     "@storybook/addon-essentials": "^7.0.9",
     "@storybook/addon-interactions": "^7.0.9",
     "@storybook/addon-links": "^7.0.9",
@@ -65,6 +66,7 @@
     "@types/jest-axe": "^3.5.5",
     "@vitejs/plugin-react": "^4.0.0",
     "@vitest/coverage-c8": "^0.31.0",
+    "add": "^2.0.6",
     "chromatic": "^6.17.4",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-storybook": "^0.6.12",
