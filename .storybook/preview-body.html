@@ -1,67 +1,67 @@
 <!-- .storybook/preview-body.html -->
 
 <style>
-    :root {
-        --color-primary-red: hsl(0deg 100% 66%);
-        --color-primary-red-hsl: 0deg 100% 66%;
-        --color-primary-purple: hsl(274deg 82% 60%);
-        --color-primary-purple-hsl: 274deg 82% 60%;
-        --color-neutral-white: hsl(0deg 0% 100%);
-        --color-neutral-white-hsl: 0deg 0% 100%;
-        --color-neutral-black: hsl(0deg 0% 0%);
-        --color-neutral-black-hsl: 0deg 0% 0%;
-        --color-neutral-off-black: hsl(0deg 0% 2%);
-        --color-neutral-off-black-hl: 0deg 0% 2%;
-        --color-neutral-gray-1: hsl(0deg 0% 96%);
-        --color-neutral-gray-1-hsl: 0deg 0% 96%;
-        --color-neutral-gray-2: hsl(0deg 0% 91%);
-        --color-neutral-gray-2-hsl: 0deg 0% 91%;
-        --color-neutral-gray-3: hsl(0deg 0% 46%);
-        --color-neutral-gray-3-hsl: 0deg 0% 46%;
-        --color-neutral-gray-4: hsl(0deg 0% 23%);
-        --color-neutral-gray-4-hsl: 0deg 0% 23%;
-        --color-neutral-gray-5: hsl(0deg 0% 18%);
-        --color-neutral-gray-5-hsl: 0deg 0% 18%;
-        --color-neutral-gray-6: hsl(0deg 0% 12%);
-        --color-neutral-gray-6-hsl: 0deg 0% 12%;
-        --typography-font-size-body-small: 14px;
-        --typography-line-height-body-small: 17px;
-        --typography-font-size-body-medium: 18px;
-        --typography-line-height-body-medium: 24px;
-        --typography-font-size-heading-small: 20px;
-        --typography-line-height-heading-small: 24px;
-        --typography-font-size-heading-medium: 24px;
-        --typography-line-height-heading-medium: 29px;
-        --typography-font-size-heading-large: 64px;
-        --typography-line-height-heading-large: 77px;
-        --typography-font-weight-regular: 400;
-        --typography-font-weight-bold: 700;
-        --font-family: var(--font-family-sans-serif);
-    }
+  :root {
+    --color-primary-red: hsl(0deg 100% 66%);
+    --color-primary-red-hsl: 0deg 100% 66%;
+    --color-primary-purple: hsl(274deg 82% 60%);
+    --color-primary-purple-hsl: 274deg 82% 60%;
+    --color-neutral-white: hsl(0deg 0% 100%);
+    --color-neutral-white-hsl: 0deg 0% 100%;
+    --color-neutral-black: hsl(0deg 0% 0%);
+    --color-neutral-black-hsl: 0deg 0% 0%;
+    --color-neutral-off-black: hsl(0deg 0% 2%);
+    --color-neutral-off-black-hl: 0deg 0% 2%;
+    --color-neutral-gray-1: hsl(0deg 0% 96%);
+    --color-neutral-gray-1-hsl: 0deg 0% 96%;
+    --color-neutral-gray-2: hsl(0deg 0% 91%);
+    --color-neutral-gray-2-hsl: 0deg 0% 91%;
+    --color-neutral-gray-3: hsl(0deg 0% 46%);
+    --color-neutral-gray-3-hsl: 0deg 0% 46%;
+    --color-neutral-gray-4: hsl(0deg 0% 23%);
+    --color-neutral-gray-4-hsl: 0deg 0% 23%;
+    --color-neutral-gray-5: hsl(0deg 0% 18%);
+    --color-neutral-gray-5-hsl: 0deg 0% 18%;
+    --color-neutral-gray-6: hsl(0deg 0% 12%);
+    --color-neutral-gray-6-hsl: 0deg 0% 12%;
+    --typography-font-size-body-small: 14px;
+    --typography-line-height-body-small: 17px;
+    --typography-font-size-body-medium: 18px;
+    --typography-line-height-body-medium: 24px;
+    --typography-font-size-heading-small: 20px;
+    --typography-line-height-heading-small: 24px;
+    --typography-font-size-heading-medium: 24px;
+    --typography-line-height-heading-medium: 29px;
+    --typography-font-size-heading-large: 64px;
+    --typography-line-height-heading-large: 77px;
+    --typography-font-weight-regular: 400;
+    --typography-font-weight-bold: 700;
+    --font-family: var(--font-family-sans-serif);
+  }
 
-    main {
-        font-family: 'Inter', ui-sans-serif, sans-serif;
-    }
+  main {
+    font-family: 'Inter', ui-sans-serif, sans-serif;
+  }
 
-    [data-theme='light'] .body {
-        --background: var(--color-neutral-white);
-        --foreground: var(--color-neutral-off-black);
-    }
+  [data-theme='light'] .body {
+    --background: var(--color-neutral-white);
+    --foreground: var(--color-neutral-off-black);
+  }
 
-    [data-theme='dark'] .body {
-        --background: var(--color-neutral-off-black);
-        --foreground: var(--color-neutral-white);
-    }
+  [data-theme='dark'] .body {
+    --background: var(--color-neutral-off-black);
+    --foreground: var(--color-neutral-white);
+  }
 
-    [data-font="Sans Serif"] main {
-        font-family: 'Inter', ui-sans-serif, sans-serif;
-    }
+  [data-font='Sans Serif'] main {
+    font-family: 'Inter', ui-sans-serif, sans-serif;
+  }
 
-    [data-font="Serif"] main {
-        font-family: 'Lora', ui-serif, serif;
-    }
+  [data-font='Serif'] main {
+    font-family: 'Lora', ui-serif, serif;
+  }
 
-    [data-font="Mono"] main {
-        font-family: 'Inconsolata', ui-monospace, monospace;
-    }
+  [data-font='Mono'] main {
+    font-family: 'Inconsolata', ui-monospace, monospace;
+  }
 </style>

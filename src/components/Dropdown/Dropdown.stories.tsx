@@ -9,10 +9,17 @@ export default {
   argTypes: { onClick: { action: 'clicked' } },
   decorators: [
     (Story: any) => (
-      <div style={{ width: '200px', height: '200px', display: 'grid', justifyItems: 'center' }}>
+      <div
+        style={{
+          width: '200px',
+          height: '200px',
+          display: 'grid',
+          justifyItems: 'center',
+        }}
+      >
         <Story />
       </div>
-    )
+    ),
   ],
 } as Meta;
 
@@ -20,14 +27,33 @@ type Story = StoryObj<typeof Dropdown>;
 
 export const Default: Story = {
   args: {
-    trigger: <button style={{ fontFamily: 'var(--font-family-sans-serif)' }}>
-      Sans Serif
-      <Icon name="arrow-down" color="var(--color-primary-purple)" height="24px" width="24px" />
-    </button>,
+    trigger: (
+      <button style={{ fontFamily: 'var(--font-family-sans-serif)' }}>
+        Sans Serif
+        <Icon
+          name='arrow-down'
+          color='var(--color-primary-purple)'
+          height='24px'
+          width='24px'
+        />
+      </button>
+    ),
     menu: [
-      <button key={'sans-serif'} style={{ fontFamily: 'var(--font-family-sans-serif)' }}>Sans Serif</button>,
-      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>Serif</button>,
-      <button key={'monospace'} style={{ fontFamily: 'var(--font-family-monospace)' }} >Mono</button>,
+      <button
+        key={'sans-serif'}
+        style={{ fontFamily: 'var(--font-family-sans-serif)' }}
+      >
+        Sans Serif
+      </button>,
+      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>
+        Serif
+      </button>,
+      <button
+        key={'monospace'}
+        style={{ fontFamily: 'var(--font-family-monospace)' }}
+      >
+        Mono
+      </button>,
     ],
   },
   render: (args: any) => <Dropdown {...args} />,
@@ -35,30 +61,76 @@ export const Default: Story = {
 
 export const LightTheme: Story = {
   args: {
-    trigger: <button style={{ fontFamily: 'var(--font-family-sans-serif)' }}>
-      Sans Serif
-      <Icon name="arrow-down" color="var(--color-primary-purple)" height="24px" width="24px" />
-    </button>,
+    trigger: (
+      <button style={{ fontFamily: 'var(--font-family-sans-serif)' }}>
+        Sans Serif
+        <Icon
+          name='arrow-down'
+          color='var(--color-primary-purple)'
+          height='24px'
+          width='24px'
+        />
+      </button>
+    ),
     menu: [
-      <button key={'sans-serif'} style={{ fontFamily: 'var(--font-family-sans-serif)' }}>Sans Serif</button>,
-      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>Serif</button>,
-      <button key={'monospace'} style={{ fontFamily: 'var(--font-family-monospace)' }} >Mono</button>,
+      <button
+        key={'sans-serif'}
+        style={{ fontFamily: 'var(--font-family-sans-serif)' }}
+      >
+        Sans Serif
+      </button>,
+      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>
+        Serif
+      </button>,
+      <button
+        key={'monospace'}
+        style={{ fontFamily: 'var(--font-family-monospace)' }}
+      >
+        Mono
+      </button>,
     ],
   },
-  render: (args: any) => <div data-theme="light"><Dropdown {...args} /></div>,
+  render: (args: any) => (
+    <div data-theme='light'>
+      <Dropdown {...args} />
+    </div>
+  ),
 };
 
 export const DarkTheme: Story = {
   args: {
-    trigger: <button style={{ fontFamily: 'var(--font-family-sans-serif)' }}>
-      Sans Serif
-      <Icon name="arrow-down" color="var(--color-primary-purple)" height="24px" width="24px" />
-    </button>,
+    trigger: (
+      <button style={{ fontFamily: 'var(--font-family-sans-serif)' }}>
+        Sans Serif
+        <Icon
+          name='arrow-down'
+          color='var(--color-primary-purple)'
+          height='24px'
+          width='24px'
+        />
+      </button>
+    ),
     menu: [
-      <button key={'sans-serif'} style={{ fontFamily: 'var(--font-family-sans-serif)' }}>Sans Serif</button>,
-      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>Serif</button>,
-      <button key={'monospace'} style={{ fontFamily: 'var(--font-family-monospace)' }} >Mono</button>,
+      <button
+        key={'sans-serif'}
+        style={{ fontFamily: 'var(--font-family-sans-serif)' }}
+      >
+        Sans Serif
+      </button>,
+      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>
+        Serif
+      </button>,
+      <button
+        key={'monospace'}
+        style={{ fontFamily: 'var(--font-family-monospace)' }}
+      >
+        Mono
+      </button>,
     ],
   },
-  render: (args: any) => <div data-theme="dark"><Dropdown {...args} /></div>,
+  render: (args: any) => (
+    <div data-theme='dark'>
+      <Dropdown {...args} />
+    </div>
+  ),
 };

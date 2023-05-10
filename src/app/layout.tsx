@@ -24,8 +24,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-
-    <html lang="en" className={`${inter.variable} ${lora.variable} ${inconsolata.variable}`} data-font="Sans Serif" data-theme="light" suppressHydrationWarning>
+    <html
+      lang='en'
+      className={`${inter.variable} ${lora.variable} ${inconsolata.variable}`}
+      data-font='Sans Serif'
+      data-theme='light'
+      suppressHydrationWarning
+    >
       <body className={styles.body}>
         <Providers>
           <div className={styles.top}>
@@ -33,7 +38,7 @@ export default function RootLayout({
             <Search />
           </div>
           {children}
-        </Providers >
+        </Providers>
       </body>
     </html>
   );

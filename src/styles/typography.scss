@@ -34,14 +34,14 @@ body {
   text-decoration-line: underline;
 }
 
-[data-font="Sans Serif"] {
+[data-font='Sans Serif'] {
   --font-family: var(--font-family-sans-serif);
 }
 
-[data-font="Serif"] {
+[data-font='Serif'] {
   --font-family: var(--font-family-serif);
 }
 
-[data-font="Mono"] {
+[data-font='Mono'] {
   --font-family: var(--font-family-monospace);
 }

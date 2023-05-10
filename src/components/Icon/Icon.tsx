@@ -11,15 +11,12 @@ interface IconProps {
   width?: string;
 }
 
-const Icon = ({
-  name = 'logo',
-  ...rest
-}: IconProps) => {
+const Icon = ({ name = 'logo', ...rest }: IconProps) => {
   return (
     <svg {...rest}>
       <use href={`../../../assets/icons/sprite.svg#${name}`} />
     </svg>
   );
-}
+};
 
 export default Icon;

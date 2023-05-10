@@ -1,77 +1,77 @@
 .wrapper {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .wrapper svg {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .theme-icon-container {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .theme-icon-visible {
-    opacity: 1;
-    transition: opacity 200ms ease-in-out;
-    visibility: visible;
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+  visibility: visible;
 }
 
 .theme-icon-hidden {
-    opacity: 0;
-    transition: opacity 200ms ease-in-out;
-    visibility: hidden;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+  visibility: hidden;
 }
 
 .switch-root {
-    all: unset;
-    position: relative;
-    width: 40px;
-    height: 20px;
-    border-radius: 9999px;
-    background-color: var(--color-neutral-gray-3);
-    -webkit-tap-highlight-color: var(--color-neutral-black);
+  all: unset;
+  position: relative;
+  width: 40px;
+  height: 20px;
+  border-radius: 9999px;
+  background-color: var(--color-neutral-gray-3);
+  -webkit-tap-highlight-color: var(--color-neutral-black);
 }
 
 .switch-root:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .switch-root:focus {
-    box-shadow: 0 0 0 2px var(--color-primary-purple);
+  box-shadow: 0 0 0 2px var(--color-primary-purple);
 }
 
 .switch-root[data-state='checked'] {
-    background-color: var(--color-primary-purple);
+  background-color: var(--color-primary-purple);
 }
 
 .switch-thumb {
-    display: block;
-    width: 14px;
-    height: 14px;
-    border-radius: 9999px;
-    background-color: white;
-    transform: translateX(3px);
-    transition: transform 100ms;
-    will-change: transform;
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background-color: white;
+  transform: translateX(3px);
+  transition: transform 100ms;
+  will-change: transform;
 }
 
 .switch-thumb[data-state='checked'] {
-    transform: translateX(23px);
+  transform: translateX(23px);
 }
 
 .label {
-    font-size: 15px;
-    line-height: 1;
+  font-size: 15px;
+  line-height: 1;
 }
 
-[data-theme="light"] .switch-root:focus {
-    box-shadow: 0 0 0 2px var(--color-neutral-black);
+[data-theme='light'] .switch-root:focus {
+  box-shadow: 0 0 0 2px var(--color-neutral-black);
 }
 
-[data-theme="dark"] .switch-root:focus {
-    box-shadow: 0 0 0 2px var(--color-neutral-white);
+[data-theme='dark'] .switch-root:focus {
+  box-shadow: 0 0 0 2px var(--color-neutral-white);
 }

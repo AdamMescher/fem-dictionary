@@ -5,7 +5,7 @@ import Dropdown from '../Dropdown/Dropdown';
 import Icon from '@/components/Icon';
 import styles from './FontSelect.module.scss';
 
-interface FontSelectProps { }
+interface FontSelectProps {}
 
 const FontSelect = ({ ...rest }: FontSelectProps) => {
   const [fontType, setFontType] = React.useState('Sans Serif');
@@ -25,7 +25,7 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
         document.documentElement.setAttribute('data-font', 'Sans Serif');
         break;
     }
-  }, [fontType])
+  }, [fontType]);
 
   const handleSansSerif = () => {
     setFontType('Sans Serif');
@@ -37,19 +37,43 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
 
   const handleMono = () => {
     setFontType('Mono');
-  }
+  };
 
   const menu = [
-    <button key={'sansSerif'} onClick={handleSansSerif} style={{ fontFamily: 'var(--font-family-sans-serif)' }}>Sans Serif</button>,
-    <button key={'serif'} onClick={handleSerif} style={{ fontFamily: 'var(--font-family-serif)' }}>Serif</button>,
-    <button key={'monospace'} onClick={handleMono} style={{ fontFamily: 'var(--font-family-monospace)' }} >Mono</button>,
+    <button
+      key={'sansSerif'}
+      onClick={handleSansSerif}
+      style={{ fontFamily: 'var(--font-family-sans-serif)' }}
+    >
+      Sans Serif
+    </button>,
+    <button
+      key={'serif'}
+      onClick={handleSerif}
+      style={{ fontFamily: 'var(--font-family-serif)' }}
+    >
+      Serif
+    </button>,
+    <button
+      key={'monospace'}
+      onClick={handleMono}
+      style={{ fontFamily: 'var(--font-family-monospace)' }}
+    >
+      Mono
+    </button>,
   ];
 
-  let trigger =
+  let trigger = (
     <button>
       {fontType}
-      <Icon name="arrow-down" color="var(--color-primary-purple)" height="24px" width="24px" />
-    </button>;
+      <Icon
+        name='arrow-down'
+        color='var(--color-primary-purple)'
+        height='24px'
+        width='24px'
+      />
+    </button>
+  );
 
   return (
     <div className={styles.wrapper} {...rest}>

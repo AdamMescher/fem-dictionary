@@ -3,17 +3,26 @@ import Icon from '@/components/Icon';
 import IconGalleryMapped from '@/components/Design/IconGalleryMapped';
 
 export const icons = [
-  { name: 'arrow-down', icon: <Icon name="arrow-down" height="24px" width="24px" /> },
-  { name: 'logo', icon: <Icon name="logo" height="24px" width="24px" /> },
-  { name: 'moon', icon: <Icon name="moon" height="24px" width="24px" /> },
-  { name: 'new-window', icon: <Icon name="new-window" height="24px" width="24px" /> },
-  { name: 'play', icon: <Icon name="play" height="24px" width="24px" /> },
-  { name: 'search', icon: <Icon name="search" height="24px" width="24px" /> },
-  { name: 'sun', icon: <Icon name="sun" height="24px" width="24px" /> },
-  { name: 'triangle', icon: <Icon name="triangle" height="24px" width="24px" />}
+  {
+    name: 'arrow-down',
+    icon: <Icon name='arrow-down' height='24px' width='24px' />,
+  },
+  { name: 'logo', icon: <Icon name='logo' height='24px' width='24px' /> },
+  { name: 'moon', icon: <Icon name='moon' height='24px' width='24px' /> },
+  {
+    name: 'new-window',
+    icon: <Icon name='new-window' height='24px' width='24px' />,
+  },
+  { name: 'play', icon: <Icon name='play' height='24px' width='24px' /> },
+  { name: 'search', icon: <Icon name='search' height='24px' width='24px' /> },
+  { name: 'sun', icon: <Icon name='sun' height='24px' width='24px' /> },
+  {
+    name: 'triangle',
+    icon: <Icon name='triangle' height='24px' width='24px' />,
+  },
 ];
 
-<Meta title="Design System/Icongraphy" />
+<Meta title='Design System/Icongraphy' />
 
 # Iconography
 
@@ -33,13 +42,21 @@ Default size: `24px`
 
 ## Icon `name` and `id`
 
-<table name="icons">
-<thead>
-<tr>
-{Object.keys(icons[0]).map(key => <th>{key}</th>)}
-</tr>
-</thead>
-<tbody>
-{icons.map(icon => <tr>{Object.values(icon).map(value => <td>{value}</td>)}</tr>)}
-</tbody>
+<table name='icons'>
+  <thead>
+    <tr>
+      {Object.keys(icons[0]).map((key) => (
+        <th>{key}</th>
+      ))}
+    </tr>
+  </thead>
+  <tbody>
+    {icons.map((icon) => (
+      <tr>
+        {Object.values(icon).map((value) => (
+          <td>{value}</td>
+        ))}
+      </tr>
+    ))}
+  </tbody>
 </table>

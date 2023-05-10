@@ -31,8 +31,8 @@ export default {
       control: { type: 'select' },
       options: Object.keys(colors),
       mapping: colors,
-    }
-  }
+    },
+  },
 } as Meta;
 
 type Story = StoryObj<typeof Icon>;

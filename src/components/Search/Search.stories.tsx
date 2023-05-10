@@ -22,7 +22,11 @@ export const Light: Story = {
   parameters: {
     backgrounds: { default: 'light' },
   },
-  render: (args: any) => <div data-theme="light" ><Search {...args} /></div>,
+  render: (args: any) => (
+    <div data-theme='light'>
+      <Search {...args} />
+    </div>
+  ),
 };
 
 export const Dark: Story = {
@@ -30,5 +34,9 @@ export const Dark: Story = {
   parameters: {
     backgrounds: { default: 'dark' },
   },
-  render: (args: any) => <div data-theme="dark" ><Search {...args} /></div >,
+  render: (args: any) => (
+    <div data-theme='dark'>
+      <Search {...args} />
+    </div>
+  ),
 };

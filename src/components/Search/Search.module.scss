@@ -1,76 +1,75 @@
 .wrapper {
-    --font-size: var(--typography-font-size-body-medium);
-    --line-height: var(--typorgraphy-line-height-body-medium);
+  --font-size: var(--typography-font-size-body-medium);
+  --line-height: var(--typorgraphy-line-height-body-medium);
 
-    position: relative;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    gap: 8px;
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .wrapper input {
-    --background: var(--color-neutral-gray-1);
-    --foreground: var(--color-neutral-off-black);
-    --placeholder: hsl(var(--color-neutral-gray-5-hsl) / 25%);
+  --background: var(--color-neutral-gray-1);
+  --foreground: var(--color-neutral-off-black);
+  --placeholder: hsl(var(--color-neutral-gray-5-hsl) / 25%);
 
-    width: 100%;
-    border: none;
-    border-radius: 16px;
-    background-color: var(--background);
-    color: var(--foreground);
-    font-size: var(--font-size);
-    font-weight: var(--typography-font-weight-bold);
-    line-height: var(--line-height);
-    padding-block: 16px;
-    padding-inline-start: 24px;
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-size: var(--font-size);
+  font-weight: var(--typography-font-weight-bold);
+  line-height: var(--line-height);
+  padding-block: 16px;
+  padding-inline-start: 24px;
 }
 
 .wrapper input::placeholder {
-    color: var(--placeholder);
+  color: var(--placeholder);
 }
 
 .wrapper input:focus-visible {
-    outline: 1px solid var(--color-primary-purple);
+  outline: 1px solid var(--color-primary-purple);
 }
 
 .wrapper button {
-    position: absolute;
-    top: 16px;
-    right: 24px;
-    padding: 2px;
-    border: none;
-    background-color: transparent;
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  padding: 2px;
+  border: none;
+  background-color: transparent;
 }
 
 .wrapper button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .wrapper button:focus-visible {
-    border-radius: 4px;
-    outline: 1px solid var(--color-primary-purple);
+  border-radius: 4px;
+  outline: 1px solid var(--color-primary-purple);
 }
 
 .error {
-    color: var(--color-primary-red);
-    font-size: var(--font-size);
-    line-height: var(--line-height);
-
+  color: var(--color-primary-red);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
 }
 
 .empty {
-    height: 27px;
+  height: 27px;
 }
 
-[data-theme="light"] .wrapper input {
-    --background: var(--color-neutral-gray-1);
-    --foreground: var(--color-neutral-off-black);
-    --placeholder: hsl(var(--color-neutral-gray-5-hsl) / 25%);
+[data-theme='light'] .wrapper input {
+  --background: var(--color-neutral-gray-1);
+  --foreground: var(--color-neutral-off-black);
+  --placeholder: hsl(var(--color-neutral-gray-5-hsl) / 25%);
 }
 
-[data-theme="dark"] .wrapper input {
-    --background: var(--color-neutral-gray-6);
-    --foreground: var(--color-neutral-white);
-    --placeholder: hsl(var(--color-neutral-white-hsl) / 25%);
+[data-theme='dark'] .wrapper input {
+  --background: var(--color-neutral-gray-6);
+  --foreground: var(--color-neutral-white);
+  --placeholder: hsl(var(--color-neutral-white-hsl) / 25%);
 }
