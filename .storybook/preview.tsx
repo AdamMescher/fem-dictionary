@@ -5,13 +5,44 @@ import { useTheme } from './useTheme';
 import { useFont } from './useFont';
 import '../src/styles/globals.scss';
 
+const themeToolbarItems = [
+  {
+    value: 'light',
+    title: 'Light',
+    left: '🔆',
+  },
+  {
+    value: 'dark',
+    title: 'Dark',
+    left: '🔦',
+  },
+];
+
+const fontToolbarItems = [
+  {
+    value: 'Sans Serif',
+    title: 'Sans Serif',
+    left: '➊',
+  },
+  {
+    value: 'Serif',
+    title: 'Serif',
+    left: '➋',
+  },
+  {
+    value: 'Monospace',
+    title: 'Monospace',
+    left: '➌',
+  },
+];
+
 export const globalTypes = {
   font: {
     title: 'Font Select',
     description: 'Global slect font for components',
     toolbar: {
       icon: 'listunordered',
-      items: ['Sans Serif', 'Serif', 'Mono'],
+      items: fontToolbarItems,
       dynamicTitle: true,
     },
   },
@@ -20,7 +51,7 @@ export const globalTypes = {
     description: 'Global theme select for components',
     toolbar: {
       icon: 'listunordered',
-      items: ['light', 'dark'],
+      items: themeToolbarItems,
       dynamicTitle: true,
     },
   },
