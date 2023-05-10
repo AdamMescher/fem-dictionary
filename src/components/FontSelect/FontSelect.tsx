@@ -11,16 +11,19 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
   const [fontType, setFontType] = React.useState('Sans Serif');
 
   React.useEffect(() => {
-    if (fontType === 'Sans Serif') {
-      document.documentElement.setAttribute('data-font', 'Sans Serif');
-    }
-
-    if (fontType === 'Serif') {
-      document.documentElement.setAttribute('data-font', 'Serif');
-    }
-
-    if (fontType === 'Mono') {
-      document.documentElement.setAttribute('data-font', 'Mono');
+    switch (fontType) {
+      case 'Sans Serif':
+        document.documentElement.setAttribute('data-font', 'Sans Serif');
+        break;
+      case 'Serif':
+        document.documentElement.setAttribute('data-font', 'Serif');
+        break;
+      case 'Mono':
+        document.documentElement.setAttribute('data-font', 'Mono');
+        break;
+      default:
+        document.documentElement.setAttribute('data-font', 'Sans Serif');
+        break;
     }
   }, [fontType])
 

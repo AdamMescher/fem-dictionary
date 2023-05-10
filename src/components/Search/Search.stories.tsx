@@ -11,15 +11,24 @@ type Story = StoryObj<typeof Search>;
 
 export const Default: Story = {
   args: {},
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
   render: (args: any) => <Search {...args} />,
 };
 
 export const Light: Story = {
   args: {},
-  render: (args: any) => <Search {...args} />,
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+  render: (args: any) => <div data-theme="light" ><Search {...args} /></div>,
 };
 
 export const Dark: Story = {
   args: {},
-  render: (args: any) => <Search {...args} />,
+  parameters: {
+    backgrounds: { default: 'dark' },
+  },
+  render: (args: any) => <div data-theme="dark" ><Search {...args} /></div >,
 };

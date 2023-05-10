@@ -9,7 +9,6 @@ export const globalTypes = {
   font: {
     title: 'Font Select',
     description: 'Global slect font for components',
-    defaultValue: 'Sans Serif',
     toolbar: {
       icon: 'listunordered',
       items: ['Sans Serif', 'Serif', 'Mono'],
@@ -19,7 +18,6 @@ export const globalTypes = {
   theme: {
     title: 'Theme Select',
     description: 'Global theme select for components',
-    defaultValue: 'light',
     toolbar: {
       icon: 'listunordered',
       items: ['light', 'dark'],
@@ -31,6 +29,13 @@ export const globalTypes = {
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
+    backgrounds: {
+      default: 'light',
+      values: [
+        { name: 'light', value: 'var(--color-neutral-white)' },
+        { name: 'dark', value: 'var(--color-neutral-off-black)' },
+      ],
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -41,11 +46,19 @@ const preview: Preview = {
 }
 
 const decorators = [
-  (Story: any) => (
-    <main className={`${inter.variable} ${inconsolata.variable} ${lora.variable}`}>
-      <Story />
-    </main>
-  ),
+  (Story: any, context) => {
+    const { font, theme } = context.globals;
+
+    console.log({ font, theme });
+
+    console.log({ Story });
+
+    return (
+      <main className={`${inter.variable} ${inconsolata.variable} ${lora.variable}`}>
+        <Story />
+      </main>
+    )
+  },
   useTheme,
   useFont,
 ];
