@@ -41,7 +41,7 @@
 }
 
 .switch-root:focus {
-    box-shadow: 0 0 0 2px black;
+    box-shadow: 0 0 0 2px var(--color-primary-purple);
 }
 
 .switch-root[data-state='checked'] {
@@ -66,4 +66,12 @@
 .label {
     font-size: 15px;
     line-height: 1;
+}
+
+[data-theme="light"] .switch-root:focus {
+    box-shadow: 0 0 0 2px var(--color-neutral-black);
+}
+
+[data-theme="dark"] .switch-root:focus {
+    box-shadow: 0 0 0 2px var(--color-neutral-white);
 }
