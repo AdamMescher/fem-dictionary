@@ -14,7 +14,7 @@ const themeToolbarItems = [
   {
     value: 'dark',
     title: 'Dark',
-    left: '🔦',
+    left: '🖤',
   },
 ];
 
