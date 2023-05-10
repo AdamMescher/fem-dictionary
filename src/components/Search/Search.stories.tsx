@@ -40,3 +40,39 @@ export const Dark: Story = {
     </div>
   ),
 };
+
+export const SansSerif: Story = {
+  args: {},
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+  render: (args: any) => (
+    <div data-font='Sans Serif'>
+      <Search {...args} />
+    </div>
+  ),
+};
+
+export const Serif: Story = {
+  args: {},
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+  render: (args: any) => (
+    <div data-font='Serif'>
+      <Search {...args} />
+    </div>
+  ),
+};
+
+export const Monospace: Story = {
+  args: {},
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+  render: (args: any) => (
+    <div data-font='Mono'>
+      <Search {...args} />
+    </div>
+  ),
+};
