@@ -28,7 +28,7 @@ export const globalTypes = {
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: { argTypesRegex: '^on.*' },
     backgrounds: {
       default: 'light',
       values: [
@@ -46,13 +46,7 @@ const preview: Preview = {
 };
 
 const decorators = [
-  (Story: any, context) => {
-    const { font, theme } = context.globals;
-
-    console.log({ font, theme });
-
-    console.log({ Story });
-
+  (Story: any) => {
     return (
       <main
         className={`${inter.variable} ${inconsolata.variable} ${lora.variable}`}

@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import * as Switch from '@radix-ui/react-switch';
+import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import Icon from '@/components/Icon';
 import styles from './ThemeToggle.module.scss';
 
@@ -48,9 +49,12 @@ const ThemeToggle = ({}: ThemeToggleProps) => {
           }`}
         />
       </div>
+      <VisuallyHidden.Root>
+        <label htmlFor="theme-toggle">Theme Switch</label>
+      </VisuallyHidden.Root>
       <Switch.Root
+        id='theme-toggle'
         className={styles['switch-root']}
-        id='airplane-mode'
         onCheckedChange={handleCheckedChange}
       >
         <Switch.Thumb className={styles['switch-thumb']} />

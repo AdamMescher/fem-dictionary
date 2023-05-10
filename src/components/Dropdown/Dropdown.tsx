@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import listenForOutsideClick from '../../lib/listenForOusideClicks';
 import styles from './Dropdown.module.scss';
 
 interface DropdownProps {
@@ -10,26 +11,33 @@ interface DropdownProps {
 }
 
 const Dropdown = ({ trigger, menu }: DropdownProps) => {
-  const [open, setOpen] = React.useState(false);
+  const menuRef = React.useRef(null);
+  const [listening, setListening] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
 
-  const handleOpen = () => {
-    setOpen(!open);
+  const handleDropdownClick = () => {
+    setIsOpen(true);
+    setListening(true);
   };
+
+  React.useEffect(
+    listenForOutsideClick(listening, setListening, menuRef, setIsOpen)
+  );
 
   return (
     <div className={styles.dropdown}>
       {React.cloneElement(trigger, {
         className: styles.trigger,
-        onClick: handleOpen,
+        onClick: handleDropdownClick,
       })}
-      {open ? (
-        <ul className={styles.menu}>
+      {isOpen ? (
+        <ul className={styles.menu} ref={menuRef}>
           {menu.map((menuItem, index) => (
             <li key={index} className={styles['menu-item']}>
               {React.cloneElement(menuItem, {
                 onClick: () => {
                   menuItem.props.onClick();
-                  setOpen(false);
+                  setIsOpen(false);
                 },
               })}
             </li>

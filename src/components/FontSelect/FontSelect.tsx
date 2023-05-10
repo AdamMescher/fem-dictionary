@@ -9,6 +9,8 @@ interface FontSelectProps {}
 
 const FontSelect = ({ ...rest }: FontSelectProps) => {
   const [fontType, setFontType] = React.useState('Sans Serif');
+  let [fontSelectDropdownIsOpen, setFontSelectDropdownIsOpen] =
+    React.useState(false);
 
   React.useEffect(() => {
     switch (fontType) {
@@ -26,6 +28,14 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
         break;
     }
   }, [fontType]);
+
+  const handleFontSelectDropdownOpen = () => {
+    setFontSelectDropdownIsOpen(fontSelectDropdownIsOpen ? false : true);
+  };
+
+  const handleClickOutsideFontSelectDropdown = () => {
+    setFontSelectDropdownIsOpen(false);
+  };
 
   const handleSansSerif = () => {
     setFontType('Sans Serif');
@@ -77,7 +87,14 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
 
   return (
     <div className={styles.wrapper} {...rest}>
-      <Dropdown trigger={trigger} menu={menu} />
+      <Dropdown
+        trigger={trigger}
+        menu={menu}
+        open={fontSelectDropdownIsOpen}
+        setOpen={setFontSelectDropdownIsOpen}
+        handleOpen={handleFontSelectDropdownOpen}
+        onClickOutside={handleClickOutsideFontSelectDropdown}
+      />
     </div>
   );
 };
