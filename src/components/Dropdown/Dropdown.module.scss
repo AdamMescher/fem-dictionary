@@ -1,4 +1,8 @@
 .dropdown {
+    --background: var(--color-neutral-white);
+    --foreground: var(--color-neutral-off-black);
+    --shadow: 0px 5px 30px hsl(var(--color-neutral-black-hsl) / 10%);
+
     position: relative;
     display: flex;
     width: max-content;
@@ -14,6 +18,7 @@
     margin: 0;
     background: none;
     font-weight: var(--typography-font-weight-bold);
+    color: var(--foreground);
     gap: 8px;
 }
 
@@ -22,10 +27,6 @@
 }
 
 .menu {
-    --background: var(--color-neutral-white);
-    --foreground: var(--color-neutral-off-black);
-    --shadow: 0px 5px 30px hsl(var(--color-neutral-black-hsl) / 10%);
-
     position: absolute;
     z-index: 1;
     top: 12px;
@@ -64,13 +65,13 @@
 
 /* Theme Colors */
 
-[data-theme="light"] .menu {
+[data-theme="light"] .dropdown {
     --background: var(--color-neutral-white);
     --foreground: var(--color-neutral-off-black);
     --shadow: 0px 5px 30px hsl(var(--color-neutral-black-hsl) / 10%);
 }
 
-[data-theme="dark"] .menu {
+[data-theme="dark"] .dropdown {
     --background: var(--color-neutral-off-black);
     --foreground: var(--color-neutral-white);
     --shadow: 0px 5px 30px var(--color-primary-purple);
