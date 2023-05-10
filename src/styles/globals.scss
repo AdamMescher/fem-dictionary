@@ -37,6 +37,7 @@
   --typography-line-height-heading-large: 77px;
   --typography-font-weight-regular: 400;
   --typography-font-weight-bold: 700;
+  --font-family: var(--typography-font-family-sans-serif);
 }
 
 *,
@@ -66,7 +67,7 @@ ol[role='list'] {
 
 html {
   min-height: 100vh;
-  font-family: var(--font-family-sans-serif);
+  font-family: var(--font-family);
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-text-size-adjust: none;
   text-size-adjust: none;

@@ -16,20 +16,10 @@ export const Default: Story = {
 
 export const Light: Story = {
   args: {},
-  parameters: {
-    theming: {
-      themeOverride: 'light'
-    }
-  },
   render: (args: any) => <Search {...args} />,
 };
 
 export const Dark: Story = {
   args: {},
-  parameters: {
-    theming: {
-      themeOverride: 'dark'
-    }
-  },
   render: (args: any) => <Search {...args} />,
 };

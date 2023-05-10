@@ -1,7 +1,6 @@
 'use client';
 
 import * as React from 'react';
-import { useTheme } from 'next-themes';
 import * as Switch from '@radix-ui/react-switch';
 import Icon from '@/components/Icon';
 import styles from './ThemeToggle.module.scss';
@@ -12,12 +11,24 @@ interface ThemeToggleProps { }
 const ThemeToggle = ({ }: ThemeToggleProps) => {
   const [mounted, setMounted] = React.useState(false);
   const [enabled, setEnabled] = React.useState(false);
+  const [theme, setTheme] = React.useState('light');
 
-  const { theme, setTheme } = useTheme();
 
   React.useEffect(() => {
-    setMounted(true)
+    setMounted(true);
   }, []);
+
+  React.useEffect(() => {
+    if (theme === 'light') {
+      setTheme('light');
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+
+    if (theme === 'dark') {
+      setTheme('dark');
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  }, [theme]);
 
   if (!mounted) {
     return null;

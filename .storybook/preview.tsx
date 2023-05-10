@@ -13,7 +13,6 @@ export const globalTypes = {
     toolbar: {
       icon: 'listunordered',
       items: ['Sans Serif', 'Serif', 'Mono'],
-      showName: true,
       dynamicTitle: true
     }
   },
@@ -24,7 +23,6 @@ export const globalTypes = {
     toolbar: {
       icon: 'listunordered',
       items: ['light', 'dark'],
-      showName: true,
       dynamicTitle: true
     }
   }
@@ -44,9 +42,9 @@ const preview: Preview = {
 
 const decorators = [
   (Story: any) => (
-    <div className={`${inter.variable} ${lora.variable} ${inconsolata.variable}`}>
+    <main className={`${inter.variable} ${inconsolata.variable} ${lora.variable}`}>
       <Story />
-    </div>
+    </main>
   ),
   useTheme,
   useFont,
