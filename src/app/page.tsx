@@ -60,34 +60,8 @@ const fetchDefinition = async (word: string) => {
   return response.json();
 };
 
-function useDebounce<T>(value: T, delay: number): T {
-  const [debouncedValue, setDebouncedValue] = React.useState<T>(value);
-
-  React.useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedValue(value);
-    }, delay);
-
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [value, delay]);
-
-  return debouncedValue;
-}
-
 export default async function Home() {
   const [searchValue, setSearchValue] = React.useState('keyboard');
-  const debounedSearchValue = useDebounce(searchValue, 300);
-
-  const { isLoading, isSuccess, data } = useQuery({
-    queryKey: ['definition'],
-    queryFn: async () => await fetchDefinition(debounedSearchValue),
-  });
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <main className={`${styles.main}`}>
