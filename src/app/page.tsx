@@ -1,6 +1,10 @@
 'use client';
 
+import * as React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import Definition from '@/components/Definition';
+import Search from '@/components/Search';
 import styles from '../styles/HomePage.module.scss';
 
 const meanings = [
@@ -46,9 +50,48 @@ const meanings = [
 
 const sourceUrls = ['https://en.wiktionary.org/wiki/keyboard'];
 
+const fetchDefinition = async (word: string) => {
+  const response = await fetch(
+    `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+  );
+
+  if (!response.ok) throw new Error('Failed to fetch definition');
+
+  return response.json();
+};
+
+function useDebounce<T>(value: T, delay: number): T {
+  const [debouncedValue, setDebouncedValue] = React.useState<T>(value);
+
+  React.useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+
 export default async function Home() {
+  const [searchValue, setSearchValue] = React.useState('keyboard');
+  const debounedSearchValue = useDebounce(searchValue, 300);
+
+  const { isLoading, isSuccess, data } = useQuery({
+    queryKey: ['definition'],
+    queryFn: async () => await fetchDefinition(debounedSearchValue),
+  });
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <main className={`${styles.main}`}>
+      <Search />
       <Definition
         word={'keyboard'}
         phonetic={'/ˈkiːbɔːd/'}

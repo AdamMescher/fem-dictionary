@@ -8,6 +8,10 @@ import styles from './ThemeToggle.module.scss';
 
 interface ThemeToggleProps {}
 
+const updateDataThemeAttribute = (theme: string) => {
+  document.documentElement.setAttribute('data-theme', theme);
+};
+
 const ThemeToggle = ({}: ThemeToggleProps) => {
   const [mounted, setMounted] = React.useState(false);
   const [enabled, setEnabled] = React.useState(false);
@@ -20,12 +24,12 @@ const ThemeToggle = ({}: ThemeToggleProps) => {
   React.useEffect(() => {
     if (theme === 'light') {
       setTheme('light');
-      document.documentElement.setAttribute('data-theme', 'light');
+      updateDataThemeAttribute('light');
     }
 
     if (theme === 'dark') {
       setTheme('dark');
-      document.documentElement.setAttribute('data-theme', 'dark');
+      updateDataThemeAttribute('dark');
     }
   }, [theme]);
 

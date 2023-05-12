@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import axios from 'axios';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
