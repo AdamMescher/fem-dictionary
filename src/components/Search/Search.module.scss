@@ -34,21 +34,22 @@
   outline: 1px solid var(--color-primary-purple);
 }
 
-.wrapper button {
+.search-button {
   position: absolute;
-  top: 16px;
-  right: 24px;
-  padding: 2px;
+  top: 12px;
+  right: 16px;
+  padding: 8px;
   border: none;
+  border-radius: 50%;
   background-color: transparent;
 }
 
-.wrapper button:hover {
+.search-button:hover {
   cursor: pointer;
+  background: hsl(var(--color-primary-purple-hsl) / 10%);
 }
 
-.wrapper button:focus-visible {
-  border-radius: 4px;
+.search-button:focus-visible {
   outline: 1px solid var(--color-primary-purple);
 }
 

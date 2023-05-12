@@ -42,7 +42,7 @@ const Search = ({ handleSubmit }: SearchProps) => {
         onChange={handleChange}
         onKeyDown={handleKeydown}
       />
-      <button onClick={handleClick}>
+      <button className={styles['search-button']} onClick={handleClick}>
         <Icon
           name='search'
           height='24px'
