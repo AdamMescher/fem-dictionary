@@ -74,7 +74,7 @@
 }
 
 [data-theme='light'] .switch-root:focus {
-  box-shadow: 0 0 0 4px hsl(var(--color-neutral-off-black-hsl) / 30%);
+  box-shadow: 0 0 0 2px hsl(var(--color-neutral-off-black-hsl) / 30%);
 }
 
 [data-theme='light'] .switch-root:hover>.switch-thumb {
@@ -82,7 +82,7 @@
 }
 
 [data-theme='dark'] .switch-root:focus {
-  box-shadow: 0 0 0 4px hsl(var(--color-neutral-white-hsl) / 80%);
+  box-shadow: 0 0 0 2px hsl(var(--color-neutral-white-hsl) / 80%);
 }
 
 [data-theme='dark'] .switch-root:hover>.switch-thumb {

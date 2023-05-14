@@ -30,8 +30,17 @@ const Search = ({ handleSubmit }: SearchProps) => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    if (searchInput === '') setError(true);
-    if (searchInput !== '') setError(false);
+    if (searchInput === '') {
+      setError(true);
+    }
+
+    if (searchInput !== '') {
+      setError(false);
+    }
+
+    if (handleSubmit) {
+      handleSubmit();
+    }
   };
 
   return (
