@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Icon from '@/components/Icon';
 import FontSelect from '../FontSelect/FontSelect';
 import ThemeToggle from '@/components/ThemeToggle';
-import Pronunciation from '@/components/Pronunciation';
 import styles from './Header.module.scss';
 
 interface HeaderProps {}
@@ -20,7 +19,6 @@ const Header = ({}: HeaderProps) => {
         />
       </Link>
       <div className={styles.toggles}>
-        <Pronunciation />
         <span>|</span>
         <FontSelect />
         <span>|</span>

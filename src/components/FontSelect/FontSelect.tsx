@@ -93,7 +93,7 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
         open={fontSelectDropdownIsOpen}
         setOpen={setFontSelectDropdownIsOpen}
         handleOpen={handleFontSelectDropdownOpen}
-        onClickOutside={handleClickOutsideFontSelectDropdown}
+        handleOutsideClick={handleClickOutsideFontSelectDropdown}
       />
     </div>
   );

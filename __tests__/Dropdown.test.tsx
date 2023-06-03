@@ -7,12 +7,46 @@ expect.extend(toHaveNoViolations);
 
 describe('Dropdown Component', () => {
   it('Should render without errors', () => {
-    render(<Dropdown />);
+    const trigger = <button>Trigger</button>;
+    const menu = [
+      <button key='one'>One</button>,
+      <button key='two'>Two</button>,
+    ];
+    const open = false;
+    const setOpen = jest.fn();
+    const handleOutsideClick = jest.fn();
+
+    render(
+      <Dropdown
+        trigger={trigger}
+        menu={menu}
+        open={open}
+        setOpen={setOpen}
+        handleOutsideClick={handleOutsideClick}
+      />
+    );
 
     expect(screen.getByTestId('dropdown')).toBeInTheDocument();
   });
   it('Should render without Axe Core A11Y errors', async () => {
-    const { container } = render(<Dropdown />);
+    const trigger = <button>Trigger</button>;
+    const menu = [
+      <button key='one'>One</button>,
+      <button key='two'>Two</button>,
+    ];
+    const open = false;
+    const setOpen = jest.fn();
+    const handleOutsideClick = jest.fn();
+
+    const { container } = render(
+      <Dropdown
+        trigger={trigger}
+        menu={menu}
+        open={open}
+        setOpen={setOpen}
+        handleOutsideClick={handleOutsideClick}
+      />
+    );
     const results = await axe(container);
 
     expect(results).toHaveNoViolations();

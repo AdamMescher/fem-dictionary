@@ -6,21 +6,16 @@ import styles from './Dropdown.module.scss';
 interface DropdownProps {
   trigger: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
   menu: React.ReactElement<any, string | React.JSXElementConstructor<any>>[];
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  handleOpen?: () => void;
+  handleOutsideClick: (e: MouseEvent | TouchEvent) => void;
   style?: React.CSSProperties;
 }
 
-const Dropdown = ({ trigger, menu }: DropdownProps) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+const Dropdown = ({ trigger, menu, open, setOpen, handleOutsideClick }: DropdownProps) => {
   const dropdownRef = React.useRef<HTMLDivElement>(null);
-  const handleDropdownClick = () => setIsOpen(!isOpen);
-  const handleOutsideClick = (event: MouseEvent | TouchEvent) => {
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target as Node)
-    ) {
-      setIsOpen(false);
-    }
-  };
+  const handleDropdownClick = () => setOpen(!open);
 
   React.useEffect(() => {
     document.addEventListener('mousedown', handleOutsideClick);
@@ -38,14 +33,14 @@ const Dropdown = ({ trigger, menu }: DropdownProps) => {
         className: styles.trigger,
         onClick: handleDropdownClick,
       })}
-      {isOpen ? (
+      {open ? (
         <ul className={styles.menu}>
           {menu.map((menuItem, index) => (
             <li key={index} className={styles['menu-item']}>
               {React.cloneElement(menuItem, {
                 onClick: () => {
                   menuItem.props.onClick();
-                  setIsOpen(false);
+                  setOpen(false);
                 },
               })}
             </li>

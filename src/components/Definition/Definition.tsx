@@ -3,36 +3,41 @@ import Link from 'next/link';
 import Icon from '@/components/Icon';
 import styles from './Definition.module.scss';
 
-type Definition = {
-  definition: string;
-  synonyms: string[];
-  antonyms: string[];
-};
-
-type Meaning = {
-  partOfSpeech: string;
-  definitions: Definition[];
-  synonyms: string[];
-  antonyms: string[];
-};
-
-interface SourceURLProps {
-  url: string;
-}
-
-interface MeaningProps {
-  partOfSpeech: string;
-  definitions: Definition[];
-  synonyms: string[];
-  antonyms: string[];
-}
-
-interface DefinitionProps {
+export interface Definition {
   word: string;
   phonetic: string;
+  phonetics: Phonetic[];
   meanings: Meaning[];
   sourceUrls: string[];
 }
+
+export interface Meaning {
+  partOfSpeech: string;
+  definitions: DefinitionElement[];
+  synonyms: string[];
+  antonyms: string[];
+}
+
+export interface DefinitionElement {
+  definition: string;
+  synonyms: string[];
+  antonyms: string[];
+  example?: string;
+}
+
+export interface Phonetic {
+  text: string;
+  audio: string;
+  sourceUrl: string;
+}
+
+export interface SourceURL {
+  url: string;
+}
+
+interface SourceURLProps extends SourceURL {}
+interface MeaningProps extends Meaning {}
+interface DefinitionProps extends Definition {}
 
 const SourceURL = ({ url }: SourceURLProps) => {
   return (
@@ -105,7 +110,7 @@ const Definition = ({
             <h1>{word}</h1>
             <h2 className={styles.phonetic}>{phonetic}</h2>
           </div>
-          <button className={styles['play-button']} aria-label="Play">
+          <button className={styles['play-button']} aria-label='Play'>
             <Icon
               name='play'
               height={'48px'}
@@ -128,7 +133,7 @@ const Definition = ({
         <div className={styles.source}>
           <h3 className={styles['source-heading']}>source</h3>
           <ul className={styles['source-url-list']}>
-            {sourceUrls.map((url) => (
+            {sourceUrls.map((url: string) => (
               <SourceURL url={url} key={url} />
             ))}
           </ul>

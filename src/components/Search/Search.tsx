@@ -6,17 +6,25 @@ import styles from './Search.module.scss';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 
 interface SearchProps {
-  handleSubmit?: () => void;
+  handleSubmit?: (event: any) => void;
 }
+
+// function useDebouncedValue(value: any, wait: number) {
+//   const [debouncedValue, setDebouncedValue] = React.useState(value);
+
+//   React.useEffect(() => {
+//     const id = setTimeout(() => setDebouncedValue(value), wait);
+//     return () => clearTimeout(id);
+//   }, [value]);
+
+//   return debouncedValue;
+// }
 
 const Search = ({ handleSubmit }: SearchProps) => {
   const [searchInput, setSearchInput] = React.useState<string>('');
   const [error, setError] = React.useState<boolean>(false);
 
   const handleChange = (event: React.ChangeEvent) => {
-    if ((event.target as HTMLInputElement).value === '') setError(true);
-    if ((event.target as HTMLInputElement).value !== '') setError(false);
-
     setSearchInput((event.target as HTMLInputElement).value);
   };
 
@@ -30,17 +38,9 @@ const Search = ({ handleSubmit }: SearchProps) => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    if (searchInput === '') {
-      setError(true);
-    }
-
-    if (searchInput !== '') {
-      setError(false);
-    }
-
-    if (handleSubmit) {
-      handleSubmit();
-    }
+    if (searchInput === '') setError(true);
+    if (searchInput !== '') setError(false);
+    if (handleSubmit) handleSubmit(event);
   };
 
   return (
