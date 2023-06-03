@@ -6,53 +6,25 @@ import styles from './Search.module.scss';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 
 interface SearchProps {
-  handleSubmit?: (event: any) => void;
+  inputRef: React.RefObject<HTMLInputElement>;
+  handleSubmit: (event: any) => void;
 }
 
-// function useDebouncedValue(value: any, wait: number) {
-//   const [debouncedValue, setDebouncedValue] = React.useState(value);
+const Search = ({ inputRef, handleSubmit }: SearchProps) => {
+  const [value, setValue] = React.useState('');
+  const [error, setError] = React.useState(false);
 
-//   React.useEffect(() => {
-//     const id = setTimeout(() => setDebouncedValue(value), wait);
-//     return () => clearTimeout(id);
-//   }, [value]);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.value === '') setError(true);
+    if (event.target.value !== '') setError(false);
 
-//   return debouncedValue;
-// }
-
-const Search = ({ handleSubmit }: SearchProps) => {
-  const [searchInput, setSearchInput] = React.useState<string>('');
-  const [error, setError] = React.useState<boolean>(false);
-
-  const handleChange = (event: React.ChangeEvent) => {
-    setSearchInput((event.target as HTMLInputElement).value);
-  };
-
-  const handleKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      if (!searchInput.length) setError(true);
-      if (searchInput.length) setError(false);
-    }
-  };
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-
-    if (searchInput === '') setError(true);
-    if (searchInput !== '') setError(false);
-    if (handleSubmit) handleSubmit(event);
+    setValue(event.target.value);
   };
 
   return (
     <div className={styles.wrapper} data-testid='search'>
-      <input
-        type='text'
-        placeholder='Search for any word...'
-        required
-        onChange={handleChange}
-        onKeyDown={handleKeydown}
-      />
-      <button className={styles['search-button']} onClick={handleClick}>
+      <input type='text' placeholder='Search for any word...' ref={inputRef} value={value} onChange={handleChange} />
+      <button className={styles['search-button']} onClick={handleSubmit}>
         <Icon
           name='search'
           height='24px'

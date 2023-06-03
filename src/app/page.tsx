@@ -1,25 +1,25 @@
 'use client';
 
 import * as React from 'react';
+import Search from '@/components/Search';
 import styles from '../styles/HomePage.module.scss';
 
 export default async function Home() {
-  const [value, setValue] = React.useState('');
+  const [error, setError] = React.useState(false);
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
-  const handleChange = (event: React.ChangeEvent) => {
-    setValue((event.target as HTMLInputElement).value);
+  const handleSubmit = () => {
+    if (inputRef.current) {
+      const search = inputRef.current.value;
+      console.log(search);
+      console.log({ ref: inputRef.current });
+    }
   };
 
   return (
     <main className={`${styles.main}`}>
       <h1>Dictionary</h1>
-      <label htmlFor='search'>search</label>
-      <input id="search" name="search" type='text' value={value} onChange={handleChange} />
-      {/* <Search
-        handleChange={handleChange}
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-      /> */}
+      <Search inputRef={inputRef} handleSubmit={handleSubmit} error={error} />
       {/* <Definition
         word={'keyboard'}
         phonetic={'/ˈkiːbɔːd/'}
