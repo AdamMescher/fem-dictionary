@@ -19,7 +19,6 @@ const Header = ({}: HeaderProps) => {
         />
       </Link>
       <div className={styles.toggles}>
-        <span>|</span>
         <FontSelect />
         <span>|</span>
         <ThemeToggle />

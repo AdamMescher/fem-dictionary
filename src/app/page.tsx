@@ -18,7 +18,6 @@ export default async function Home() {
 
   return (
     <main className={`${styles.main}`}>
-      <h1>Dictionary</h1>
       <Search inputRef={inputRef} handleSubmit={handleSubmit} />
       {/* <Definition
         word={'keyboard'}
