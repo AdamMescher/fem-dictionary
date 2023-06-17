@@ -4,21 +4,38 @@ import * as React from 'react';
 import Search from '@/components/Search';
 import styles from '../styles/HomePage.module.scss';
 
-export default async function Home() {
-  const [error, setError] = React.useState(false);
-  const inputRef = React.useRef<HTMLInputElement>(null);
+export default function Home() {
+  const [searchValue, setSearchValue] = React.useState('');
+  const [searchError, setSearchError] = React.useState(false);
 
-  const handleSubmit = () => {
-    if (inputRef.current) {
-      const search = inputRef.current.value;
-      console.log(search);
-      console.log({ ref: inputRef.current });
+  const handleSearchChange = (value: string) => {
+    setSearchValue(value.trim());
+
+    if (value.trim() === '') {
+      setSearchError(true);
+    } else {
+      setSearchError(false);
     }
+  };
+
+  const handleSearchSubmit = () => {
+    if (searchValue.trim() === '') {
+      setSearchError(true);
+      return;
+    }
+
+    // Perform search logic or update other components based on the search value
+    console.log('Performing search for:', searchValue);
   };
 
   return (
     <main className={`${styles.main}`}>
-      <Search inputRef={inputRef} handleSubmit={handleSubmit} />
+      <Search
+        value={searchValue}
+        error={searchError}
+        onChange={handleSearchChange}
+        onSearch={handleSearchSubmit}
+      />
       {/* <Definition
         word={'keyboard'}
         phonetic={'/ˈkiːbɔːd/'}
