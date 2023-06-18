@@ -26,7 +26,7 @@ export default function Home() {
     }
 
     // Perform search logic or update other components based on the search value
-    console.log('Performing search for:', searchValue);
+    console.log('Performing search for:', searchValue.trim());
   };
 
   return (
