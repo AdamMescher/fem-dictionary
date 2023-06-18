@@ -9,8 +9,7 @@ interface DropdownProps {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   handleOpen?: () => void;
-  handleOutsideClick?: (e: MouseEvent | TouchEvent) => void;
-  onClickOutside?: () => void;
+  handleOutsideClick: (e: MouseEvent | TouchEvent) => void;
   style?: React.CSSProperties;
 }
 
@@ -25,8 +24,6 @@ const Dropdown = ({
   const handleDropdownClick = () => setOpen(!open);
 
   React.useEffect(() => {
-    if (handleOutsideClick === undefined) return;
-
     document.addEventListener('mousedown', handleOutsideClick);
     document.addEventListener('touchstart', handleOutsideClick);
 
@@ -37,7 +34,7 @@ const Dropdown = ({
   });
 
   return (
-    <div ref={dropdownRef} className={styles.dropdown} data-testid='dropdown'>
+    <div ref={dropdownRef} className={styles.dropdown}>
       {React.cloneElement(trigger, {
         className: styles.trigger,
         onClick: handleDropdownClick,

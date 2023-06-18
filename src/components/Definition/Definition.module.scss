@@ -44,7 +44,7 @@
   background-color: var(--color-primary-purple);
 }
 
-.play-button:hover>svg {
+.play-button:hover > svg {
   color: var(--color-neutral-white);
 }
 
@@ -112,7 +112,7 @@
 }
 
 .source {
-  margin-top: 24px
+  margin-top: 24px;
 }
 
 .source-url {
@@ -141,10 +141,19 @@
   background-color: var(--color-neutral-gray-2);
 }
 
-[data-theme="light"] .wrapper {
+[data-theme='light'] .wrapper {
   color: var(--color-neutral-off-black);
 }
 
-[data-theme="dark"] .wrapper {
+[data-theme='dark'] .wrapper {
   color: var(--color-neutral-white);
+}
+
+[data-font='Sans Serif'] .wrapper {
+}
+
+[data-font='Serif'] .wrapper {
+}
+
+[data-font='Monospace'] .wrapper {
 }

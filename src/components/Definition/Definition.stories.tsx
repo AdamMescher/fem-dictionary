@@ -74,7 +74,7 @@ export const Light: Story = {
     backgrounds: { default: 'light' },
   },
   render: (args: any) => (
-    <div data-theme="light">
+    <div data-theme='light'>
       <Definition {...args} />
     </div>
   ),
@@ -91,7 +91,7 @@ export const Dark: Story = {
     backgrounds: { default: 'dark' },
   },
   render: (args: any) => (
-    <div data-theme="dark">
+    <div data-theme='dark'>
       <Definition {...args} />
     </div>
   ),

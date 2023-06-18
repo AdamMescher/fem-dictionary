@@ -7,7 +7,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const nextConfig = {
   eslint: {
-    dirs: ["src"],
+    dirs: ['src'],
   },
   experimental: {
     appDir: true,

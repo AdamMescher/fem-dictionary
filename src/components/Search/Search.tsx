@@ -2,46 +2,35 @@
 
 import * as React from 'react';
 import Icon from '@/components/Icon';
-
 import styles from './Search.module.scss';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 
 interface SearchProps {
-  error: boolean;
-  loading: boolean;
-  value: string;
-  onChange: (value: string) => void;
-  onSearch: () => void;
+  inputRef: React.RefObject<HTMLInputElement>;
+  handleSubmit: (event: any) => void;
 }
 
-const Search = ({ error, loading, value, onChange, onSearch }: SearchProps) => {
-  const placeholder = 'Search for any word...';
-
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      onSearch();
-    }
-  };
+const Search = ({ inputRef, handleSubmit }: SearchProps) => {
+  const [value, setValue] = React.useState('');
+  const [error, setError] = React.useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.target.value;
-    onChange(newValue);
-  };
+    if (event.target.value === '') setError(true);
+    if (event.target.value !== '') setError(false);
 
-  const handleSearch = () => {
-    onSearch();
+    setValue(event.target.value);
   };
 
   return (
     <div className={styles.wrapper} data-testid='search'>
       <input
         type='text'
+        placeholder='Search for any word...'
+        ref={inputRef}
         value={value}
         onChange={handleChange}
-        onKeyDown={handleKeyDown}
-        placeholder={placeholder}
       />
-      <button className={styles['search-button']} onClick={handleSearch}>
+      <button className={styles['search-button']} onClick={handleSubmit}>
         <Icon
           name='search'
           height='24px'

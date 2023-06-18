@@ -26,7 +26,7 @@ export default function RootLayout({
     <html
       lang='en'
       data-font='Sans Serif'
-      data-theme="light"
+      data-theme='light'
       className={`${inter.variable} ${lora.variable} ${inconsolata.variable}`}
     >
       <body className={styles.body}>

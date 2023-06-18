@@ -1,9 +1,10 @@
 {
-  "plugins": ["@tanstack/query"],
+  "plugins": ["prettier", "@tanstack/query"],
   "extends": [
     "next",
     "next/core-web-vitals",
     "plugin:storybook/recommended",
+    "airbnb",
     "prettier",
     "plugin:@tanstack/eslint-plugin-query/recommended",
     "plugin:storybook/recommended"

@@ -14,9 +14,9 @@ describe('Icon Component', () => {
     expect(screen.getByTestId('icon')).toBeInTheDocument();
   });
   it('Should render without Axe Core A11Y errors', async () => {
-    const name = "name";
+    const name = 'name';
 
-    const { container } = render(<Icon name={name}/>);
+    const { container } = render(<Icon name={name} />);
     const results = await axe(container);
 
     expect(results).toHaveNoViolations();
