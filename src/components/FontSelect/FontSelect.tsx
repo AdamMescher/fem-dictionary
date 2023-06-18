@@ -1,4 +1,5 @@
 'use client';
+
 import * as React from 'react';
 import Dropdown from '../Dropdown/Dropdown';
 import Icon from '@/components/Icon';
@@ -81,7 +82,7 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
   );
 
   return (
-    <div className={styles.wrapper} {...rest}>
+    <div className={styles.wrapper} data-testid="font-select" {...rest}>
       <Dropdown
         trigger={trigger}
         menu={menu}
