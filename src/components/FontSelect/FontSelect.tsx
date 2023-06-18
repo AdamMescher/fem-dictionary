@@ -1,10 +1,8 @@
 'use client';
-
 import * as React from 'react';
 import Dropdown from '../Dropdown/Dropdown';
 import Icon from '@/components/Icon';
 import styles from './FontSelect.module.scss';
-
 interface FontSelectProps {}
 
 const FontSelect = ({ ...rest }: FontSelectProps) => {
@@ -44,11 +42,9 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
   const handleSerif = async () => {
     setFontType('Serif');
   };
-
   const handleMono = () => {
     setFontType('Mono');
   };
-
   const menu = [
     <button
       key={'sansSerif'}
@@ -72,7 +68,6 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
       Mono
     </button>,
   ];
-
   let trigger = (
     <button>
       {fontType}
@@ -86,14 +81,14 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
   );
 
   return (
-    <div className={styles.wrapper} data-testid="font-select" {...rest}>
+    <div className={styles.wrapper} {...rest}>
       <Dropdown
         trigger={trigger}
         menu={menu}
         open={fontSelectDropdownIsOpen}
         setOpen={setFontSelectDropdownIsOpen}
         handleOpen={handleFontSelectDropdownOpen}
-        handleOutsideClick={handleClickOutsideFontSelectDropdown}
+        onClickOutside={handleClickOutsideFontSelectDropdown}
       />
     </div>
   );
