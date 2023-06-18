@@ -40,11 +40,6 @@
   cursor: pointer;
 }
 
-.switch-root:hover>.switch-thumb {
-  box-shadow: 0 0 0 10px hsl(var(--color-neutral-gray-3-hsl) / 30%);
-}
-
-
 .switch-root:focus {
   box-shadow: 0 0 0 2px var(--color-neutral-off-black);
 }
@@ -62,6 +57,10 @@
   transform: translateX(3px);
   transition: transform 100ms;
   will-change: transform;
+}
+
+.switch-root:hover>.switch-thumb {
+  box-shadow: 0 0 0 10px hsl(var(--color-neutral-gray-3-hsl) / 30%);
 }
 
 .switch-thumb[data-state='checked'] {

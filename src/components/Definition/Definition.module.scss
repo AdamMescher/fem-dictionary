@@ -44,7 +44,7 @@
   background-color: var(--color-primary-purple);
 }
 
-.play-button:hover > svg {
+.play-button:hover>svg {
   color: var(--color-neutral-white);
 }
 
@@ -148,9 +148,3 @@
 [data-theme="dark"] .wrapper {
   color: var(--color-neutral-white);
 }
-
-[data-font="Sans Serif"] .wrapper {}
-
-[data-font="Serif"] .wrapper {}
-
-[data-font="Monospace"] .wrapper {}
