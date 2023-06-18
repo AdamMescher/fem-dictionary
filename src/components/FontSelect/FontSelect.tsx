@@ -1,15 +1,15 @@
 'use client';
 
 import * as React from 'react';
-import Dropdown from '../Dropdown/Dropdown';
+import Dropdown from '@/components/Dropdown';
 import Icon from '@/components/Icon';
 import styles from './FontSelect.module.scss';
 
 interface FontSelectProps {}
 
-const FontSelect = ({ ...rest }: FontSelectProps) => {
+function FontSelect({ ...rest }: FontSelectProps) {
   const [fontType, setFontType] = React.useState('Sans Serif');
-  let [fontSelectDropdownIsOpen, setFontSelectDropdownIsOpen] =
+  const [fontSelectDropdownIsOpen, setFontSelectDropdownIsOpen] =
     React.useState(false);
 
   React.useEffect(() => {
@@ -30,7 +30,7 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
   }, [fontType]);
 
   const handleFontSelectDropdownOpen = () => {
-    setFontSelectDropdownIsOpen(fontSelectDropdownIsOpen ? false : true);
+    setFontSelectDropdownIsOpen(!fontSelectDropdownIsOpen);
   };
 
   const handleClickOutsideFontSelectDropdown = () => {
@@ -49,29 +49,33 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
   };
   const menu = [
     <button
-      key={'sansSerif'}
+      key='sansSerif'
+      type='button'
       onClick={handleSansSerif}
       style={{ fontFamily: 'var(--font-family-sans-serif)' }}
     >
       Sans Serif
     </button>,
     <button
-      key={'serif'}
+      key='serif'
+      type='button'
       onClick={handleSerif}
       style={{ fontFamily: 'var(--font-family-serif)' }}
     >
       Serif
     </button>,
     <button
-      key={'monospace'}
+      key='monospace'
+      type='button'
       onClick={handleMono}
       style={{ fontFamily: 'var(--font-family-monospace)' }}
     >
       Mono
     </button>,
   ];
-  let trigger = (
-    <button>
+
+  const trigger = (
+    <button type='button'>
       {fontType}
       <Icon
         name='arrow-down'
@@ -83,7 +87,8 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
   );
 
   return (
-    <div className={styles.wrapper} data-testid="font-select" {...rest}>
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <div className={styles.wrapper} data-testid='font-select' {...rest}>
       <Dropdown
         trigger={trigger}
         menu={menu}
@@ -94,6 +99,6 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
       />
     </div>
   );
-};
+}
 
 export default FontSelect;

@@ -30,7 +30,10 @@ type Story = StoryObj<typeof Dropdown>;
 export const Default: Story = {
   args: {
     trigger: (
-      <button style={{ fontFamily: 'var(--font-family-sans-serif)' }}>
+      <button
+        type='button'
+        style={{ fontFamily: 'var(--font-family-sans-serif)' }}
+      >
         Sans Serif
         <Icon
           name='arrow-down'
@@ -42,16 +45,22 @@ export const Default: Story = {
     ),
     menu: [
       <button
-        key={'sans-serif'}
+        key='sans-serif'
+        type='button'
         style={{ fontFamily: 'var(--font-family-sans-serif)' }}
       >
         Sans Serif
       </button>,
-      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>
+      <button
+        key='serif'
+        type='button'
+        style={{ fontFamily: 'var(--font-family-serif)' }}
+      >
         Serif
       </button>,
       <button
-        key={'monospace'}
+        key='monospace'
+        type='button'
         style={{ fontFamily: 'var(--font-family-monospace)' }}
       >
         Mono
@@ -64,7 +73,10 @@ export const Default: Story = {
 export const Light: Story = {
   args: {
     trigger: (
-      <button style={{ fontFamily: 'var(--font-family-sans-serif)' }}>
+      <button
+        type='button'
+        style={{ fontFamily: 'var(--font-family-sans-serif)' }}
+      >
         Sans Serif
         <Icon
           name='arrow-down'
@@ -76,16 +88,22 @@ export const Light: Story = {
     ),
     menu: [
       <button
-        key={'sans-serif'}
+        key='sans-serif'
+        type='button'
         style={{ fontFamily: 'var(--font-family-sans-serif)' }}
       >
         Sans Serif
       </button>,
-      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>
+      <button
+        key='serif'
+        type='button'
+        style={{ fontFamily: 'var(--font-family-serif)' }}
+      >
         Serif
       </button>,
       <button
-        key={'monospace'}
+        key='monospace'
+        type='button'
         style={{ fontFamily: 'var(--font-family-monospace)' }}
       >
         Mono
@@ -105,7 +123,10 @@ export const Dark: Story = {
   },
   args: {
     trigger: (
-      <button style={{ fontFamily: 'var(--font-family-sans-serif)' }}>
+      <button
+        type='button'
+        style={{ fontFamily: 'var(--font-family-sans-serif)' }}
+      >
         Sans Serif
         <Icon
           name='arrow-down'
@@ -117,16 +138,22 @@ export const Dark: Story = {
     ),
     menu: [
       <button
-        key={'sans-serif'}
+        key='sans-serif'
+        type='button'
         style={{ fontFamily: 'var(--font-family-sans-serif)' }}
       >
         Sans Serif
       </button>,
-      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>
+      <button
+        key='serif'
+        type='button'
+        style={{ fontFamily: 'var(--font-family-serif)' }}
+      >
         Serif
       </button>,
       <button
-        key={'monospace'}
+        key='monospace'
+        type='button'
         style={{ fontFamily: 'var(--font-family-monospace)' }}
       >
         Mono
@@ -146,7 +173,10 @@ export const SansSerif: Story = {
   },
   args: {
     trigger: (
-      <button style={{ fontFamily: 'var(--font-family-sans-serif)' }}>
+      <button
+        type='button'
+        style={{ fontFamily: 'var(--font-family-sans-serif)' }}
+      >
         Sans Serif
         <Icon
           name='arrow-down'
@@ -158,16 +188,22 @@ export const SansSerif: Story = {
     ),
     menu: [
       <button
-        key={'sans-serif'}
+        key='sans-serif'
+        type='button'
         style={{ fontFamily: 'var(--font-family-sans-serif)' }}
       >
         Sans Serif
       </button>,
-      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>
+      <button
+        key='serif'
+        type='button'
+        style={{ fontFamily: 'var(--font-family-serif)' }}
+      >
         Serif
       </button>,
       <button
-        key={'monospace'}
+        key='monospace'
+        type='button'
         style={{ fontFamily: 'var(--font-family-monospace)' }}
       >
         Mono
@@ -187,7 +223,7 @@ export const Serif: Story = {
   },
   args: {
     trigger: (
-      <button style={{ fontFamily: 'var(--font-family-serif)' }}>
+      <button type='button' style={{ fontFamily: 'var(--font-family-serif)' }}>
         Sans Serif
         <Icon
           name='arrow-down'
@@ -199,16 +235,22 @@ export const Serif: Story = {
     ),
     menu: [
       <button
-        key={'sans-serif'}
+        key='sans-serif'
+        type='button'
         style={{ fontFamily: 'var(--font-family-sans-serif)' }}
       >
         Sans Serif
       </button>,
-      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>
+      <button
+        key='serif'
+        type='button'
+        style={{ fontFamily: 'var(--font-family-serif)' }}
+      >
         Serif
       </button>,
       <button
-        key={'monospace'}
+        key='monospace'
+        type='button'
         style={{ fontFamily: 'var(--font-family-monospace)' }}
       >
         Mono
@@ -228,7 +270,10 @@ export const Mono: Story = {
   },
   args: {
     trigger: (
-      <button style={{ fontFamily: 'var(--font-family-monospace)' }}>
+      <button
+        type='button'
+        style={{ fontFamily: 'var(--font-family-monospace)' }}
+      >
         Sans Serif
         <Icon
           name='arrow-down'
@@ -240,16 +285,22 @@ export const Mono: Story = {
     ),
     menu: [
       <button
-        key={'sans-serif'}
+        key='sans-serif'
+        type='button'
         style={{ fontFamily: 'var(--font-family-sans-serif)' }}
       >
         Sans Serif
       </button>,
-      <button key={'serif'} style={{ fontFamily: 'var(--font-family-serif)' }}>
+      <button
+        key='serif'
+        type='button'
+        style={{ fontFamily: 'var(--font-family-serif)' }}
+      >
         Serif
       </button>,
       <button
-        key={'monospace'}
+        key='monospace'
+        type='button'
         style={{ fontFamily: 'var(--font-family-monospace)' }}
       >
         Mono

@@ -8,18 +8,18 @@ interface DropdownProps {
   menu: React.ReactElement<any, string | React.JSXElementConstructor<any>>[];
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  handleOpen?: () => void;
-  handleOutsideClick: (e: MouseEvent | TouchEvent) => void;
   style?: React.CSSProperties;
+  handleOutsideClick: (e: MouseEvent | TouchEvent) => void;
+  handleOpen?: () => void;
 }
 
-const Dropdown = ({
+function Dropdown({
   trigger,
   menu,
   open,
   setOpen,
   handleOutsideClick,
-}: DropdownProps) => {
+}: DropdownProps) {
   const dropdownRef = React.useRef<HTMLDivElement>(null);
   const handleDropdownClick = () => setOpen(!open);
 
@@ -41,8 +41,8 @@ const Dropdown = ({
       })}
       {open ? (
         <ul className={styles.menu}>
-          {menu.map((menuItem, index) => (
-            <li key={index} className={styles['menu-item']}>
+          {menu.map((menuItem) => (
+            <li key={menuItem.props.key} className={styles['menu-item']}>
               {React.cloneElement(menuItem, {
                 onClick: () => {
                   menuItem.props.onClick();
@@ -55,6 +55,6 @@ const Dropdown = ({
       ) : null}
     </div>
   );
-};
+}
 
 export default Dropdown;

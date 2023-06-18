@@ -11,7 +11,8 @@
     "plugin:storybook/recommended"
   ],
   "rules": {
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "react/no-unused-prop-types": "off"
   },
   "parserOptions": {
     "project": "./tsconfig.json"
