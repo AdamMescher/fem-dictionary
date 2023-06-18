@@ -34,7 +34,7 @@ function Dropdown({
   });
 
   return (
-    <div ref={dropdownRef} className={styles.dropdown}>
+    <div ref={dropdownRef} className={styles.dropdown} data-testid='dropdown'>
       {React.cloneElement(trigger, {
         className: styles.trigger,
         onClick: handleDropdownClick,
