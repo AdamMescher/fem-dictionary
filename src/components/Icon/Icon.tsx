@@ -11,12 +11,13 @@ interface IconProps {
   animation?: string;
 }
 
-const Icon = ({ name = 'logo', ...rest }: IconProps) => {
+function Icon({ name = 'logo', ...rest }: IconProps) {
   return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <svg data-testid='icon' {...rest}>
       <use href={`../../../assets/icons/sprite.svg#${name}`} />
     </svg>
   );
-};
+}
 
 export default Icon;

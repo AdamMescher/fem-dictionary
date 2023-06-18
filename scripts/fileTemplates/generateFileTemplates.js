@@ -4,7 +4,7 @@ function toKebabCase(str) {
 
 const generateComponentIndexTemplate = (componentName) => {
   const template = `
-// eslint-disable-next-line react/require-default-props
+/* eslint-disable no-restricted-exports */
 export { default } from './${componentName}';
 `;
 
