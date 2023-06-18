@@ -7,6 +7,7 @@ import styles from '../styles/RootLayout.module.scss';
 import '../styles/globals.scss';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
+  // eslint-disable-next-line global-require, import/no-extraneous-dependencies
   const axe = require('@axe-core/react');
   axe(React, ReactDOM, 1000);
 }

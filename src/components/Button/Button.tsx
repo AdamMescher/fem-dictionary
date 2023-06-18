@@ -6,8 +6,12 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-const Button = ({ children }: ButtonProps) => {
-  return <button className={styles.default}>{children}</button>;
-};
+function Button({ children }: ButtonProps) {
+  return (
+    <button className={styles.default} type='button'>
+      {children}
+    </button>
+  );
+}
 
 export default Button;

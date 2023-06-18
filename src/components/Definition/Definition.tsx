@@ -3,15 +3,15 @@ import Link from 'next/link';
 import Icon from '@/components/Icon';
 import styles from './Definition.module.scss';
 
-export interface Definition {
+export interface IDefinition {
   word: string;
   phonetic: string;
   phonetics: Phonetic[];
-  meanings: Meaning[];
+  meanings: IMeaning[];
   sourceUrls: string[];
 }
 
-export interface Meaning {
+export interface IMeaning {
   partOfSpeech: string;
   definitions: DefinitionElement[];
   synonyms: string[];
@@ -31,15 +31,15 @@ export interface Phonetic {
   sourceUrl: string;
 }
 
-export interface SourceURL {
+export interface ISourceURL {
   url: string;
 }
 
-interface SourceURLProps extends SourceURL {}
-interface MeaningProps extends Meaning {}
-interface DefinitionProps extends Definition {}
+interface SourceURLProps extends ISourceURL {}
+interface MeaningProps extends IMeaning {}
+interface DefinitionProps extends IDefinition {}
 
-const SourceURL = ({ url }: SourceURLProps) => {
+function SourceURL({ url }: SourceURLProps) {
   return (
     <li key={url} className={styles['source-url-list-item']}>
       <Link href={url} target='_blank'>
@@ -53,14 +53,14 @@ const SourceURL = ({ url }: SourceURLProps) => {
       />
     </li>
   );
-};
+}
 
-const Meaning = ({
+function Meaning({
   partOfSpeech,
   definitions,
   synonyms,
   antonyms,
-}: MeaningProps) => {
+}: MeaningProps) {
   return (
     <div className={styles.meaning}>
       <div className={styles['speech-divider']}>
@@ -94,14 +94,9 @@ const Meaning = ({
       ) : null}
     </div>
   );
-};
+}
 
-const Definition = ({
-  word,
-  phonetic,
-  meanings,
-  sourceUrls,
-}: DefinitionProps) => {
+function Definition({ word, phonetic, meanings, sourceUrls }: DefinitionProps) {
   return (
     <div className={styles.wrapper}>
       <article data-testid='definition'>
@@ -110,11 +105,15 @@ const Definition = ({
             <h1>{word}</h1>
             <h2 className={styles.phonetic}>{phonetic}</h2>
           </div>
-          <button className={styles['play-button']} aria-label='Play'>
+          <button
+            type='button'
+            className={styles['play-button']}
+            aria-label='Play'
+          >
             <Icon
               name='play'
-              height={'48px'}
-              width={'48px'}
+              height='48px'
+              width='48px'
               color='var(--color-primary-purple)'
             />
           </button>
@@ -141,6 +140,6 @@ const Definition = ({
       </article>
     </div>
   );
-};
+}
 
 export default Definition;

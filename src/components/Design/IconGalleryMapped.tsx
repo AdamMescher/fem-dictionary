@@ -2,16 +2,16 @@ import * as React from 'react';
 import { IconGallery, IconItem } from '@storybook/blocks';
 import Icon from '@/components/Icon';
 
-type Icon = {
+type IconT = {
   id: string;
   name: string;
 };
 
 type IconGalleryMappedProps = {
-  icons: Icon[];
+  icons: IconT[];
 };
 
-const IconGalleryMapped = ({ icons }: IconGalleryMappedProps) => {
+function IconGalleryMapped({ icons }: IconGalleryMappedProps) {
   return (
     <IconGallery>
       {icons.map((icon) => (
@@ -21,6 +21,6 @@ const IconGalleryMapped = ({ icons }: IconGalleryMappedProps) => {
       ))}
     </IconGallery>
   );
-};
+}
 
 export default IconGalleryMapped;

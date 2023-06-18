@@ -1,7 +1,6 @@
 'use client';
 
 import * as React from 'react';
-import axios from 'axios';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
@@ -11,13 +10,13 @@ interface ProvidersProps {
 
 const queryClient = new QueryClient();
 
-const Providers = ({ children }: ProvidersProps) => {
+function Providers({ children }: ProvidersProps) {
   return (
     <QueryClientProvider client={queryClient}>
       {children}
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
-};
+}
 
 export default Providers;

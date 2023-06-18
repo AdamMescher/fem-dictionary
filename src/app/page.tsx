@@ -21,11 +21,10 @@ export default function Home() {
   const handleSearchSubmit = () => {
     if (searchValue.trim() === '') {
       setSearchError(true);
-      return;
+      
     }
 
     // Perform search logic or update other components based on the search value
-    console.log('Performing search for:', searchValue.trim());
   };
 
   return (
@@ -33,7 +32,7 @@ export default function Home() {
       <Search
         value={searchValue}
         error={searchError}
-        loading={true}
+        loading
         onChange={handleSearchChange}
         onSearch={handleSearchSubmit}
       />
