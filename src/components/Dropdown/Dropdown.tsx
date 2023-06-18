@@ -9,7 +9,8 @@ interface DropdownProps {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   handleOpen?: () => void;
-  handleOutsideClick: (e: MouseEvent | TouchEvent) => void;
+  handleOutsideClick?: (e: MouseEvent | TouchEvent) => void;
+  onClickOutside?: () => void;
   style?: React.CSSProperties;
 }
 
@@ -24,6 +25,8 @@ const Dropdown = ({
   const handleDropdownClick = () => setOpen(!open);
 
   React.useEffect(() => {
+    if (handleOutsideClick === undefined) return;
+
     document.addEventListener('mousedown', handleOutsideClick);
     document.addEventListener('touchstart', handleOutsideClick);
 

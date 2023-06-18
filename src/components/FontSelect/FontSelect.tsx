@@ -4,6 +4,7 @@ import * as React from 'react';
 import Dropdown from '../Dropdown/Dropdown';
 import Icon from '@/components/Icon';
 import styles from './FontSelect.module.scss';
+
 interface FontSelectProps {}
 
 const FontSelect = ({ ...rest }: FontSelectProps) => {
