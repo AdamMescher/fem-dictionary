@@ -4,6 +4,7 @@ function toKebabCase(str) {
 
 const generateComponentIndexTemplate = (componentName) => {
   const template = `
+// eslint-disable-next-line react/require-default-props
 export { default } from './${componentName}';
 `;
 
@@ -17,7 +18,7 @@ import styles from './${componentName}.module.scss';
 
 interface ${componentName}Props {}
 
-const ${componentName} = ({}: ${componentName}Props) => {
+function ${componentName}({}: ${componentName}Props) {
   return (
     <div className={styles.wrapper} data-testid="${toKebabCase(componentName)}">
       ${componentName}
@@ -39,6 +40,8 @@ const generateComponentStyleModuleTemplate = (componentName) => {
 
 const generateComponentStoriesTemplate = (componentName) => {
   const template = `
+/* eslint-ignore react/require-default-props */
+
 import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import ${componentName} from './${componentName}';

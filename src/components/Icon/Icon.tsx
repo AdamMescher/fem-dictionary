@@ -1,5 +1,4 @@
 import * as React from 'react';
-import styles from './Icon.module.scss';
 
 interface IconProps {
   name: string;
