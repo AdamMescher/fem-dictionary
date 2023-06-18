@@ -86,7 +86,7 @@ const FontSelect = ({ ...rest }: FontSelectProps) => {
   );
 
   return (
-    <div className={styles.wrapper} {...rest}>
+    <div className={styles.wrapper} data-testid="font-select" {...rest}>
       <Dropdown
         trigger={trigger}
         menu={menu}

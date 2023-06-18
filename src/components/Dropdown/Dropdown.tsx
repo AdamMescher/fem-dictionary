@@ -13,7 +13,13 @@ interface DropdownProps {
   style?: React.CSSProperties;
 }
 
-const Dropdown = ({ trigger, menu, open, setOpen, handleOutsideClick }: DropdownProps) => {
+const Dropdown = ({
+  trigger,
+  menu,
+  open,
+  setOpen,
+  handleOutsideClick,
+}: DropdownProps) => {
   const dropdownRef = React.useRef<HTMLDivElement>(null);
   const handleDropdownClick = () => setOpen(!open);
 
@@ -28,7 +34,7 @@ const Dropdown = ({ trigger, menu, open, setOpen, handleOutsideClick }: Dropdown
   });
 
   return (
-    <div ref={dropdownRef} className={styles.dropdown}>
+    <div ref={dropdownRef} className={styles.dropdown} data-testid='dropdown'>
       {React.cloneElement(trigger, {
         className: styles.trigger,
         onClick: handleDropdownClick,

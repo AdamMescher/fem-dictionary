@@ -44,7 +44,7 @@ const ThemeToggle = ({}: ThemeToggleProps) => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles['theme-icon-container']}>
+      <div className={styles['theme-icon-container']} data-testid="theme-toggle">
         <Icon
           name='sun'
           color='var(--color-neutral-gray-3)'

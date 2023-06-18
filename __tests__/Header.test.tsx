@@ -9,7 +9,7 @@ describe('Header Component', () => {
   it('Should render without errors', () => {
     render(<Header />);
 
-    expect(screen.getByRole('header')).toBeInTheDocument();
+    expect(screen.getByTestId('header')).toBeInTheDocument();
   });
   it('Should render without Axe Core A11Y errors', async () => {
     const { container } = render(<Header />);

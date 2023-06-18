@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
@@ -13,8 +14,8 @@ describe('Dropdown Component', () => {
       <button key='two'>Two</button>,
     ];
     const open = false;
-    const setOpen = jest.fn();
-    const handleOutsideClick = jest.fn();
+    const setOpen = vi.fn();
+    const handleOutsideClick = vi.fn();
 
     render(
       <Dropdown
@@ -35,8 +36,8 @@ describe('Dropdown Component', () => {
       <button key='two'>Two</button>,
     ];
     const open = false;
-    const setOpen = jest.fn();
-    const handleOutsideClick = jest.fn();
+    const setOpen = vi.fn();
+    const handleOutsideClick = vi.fn();
 
     const { container } = render(
       <Dropdown

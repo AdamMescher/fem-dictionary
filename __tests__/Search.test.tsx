@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
@@ -10,8 +11,8 @@ describe('Search Component', () => {
     const error = false;
     const loading = false;
     const value = '';
-    const onChange = jest.fn();
-    const onSearch = jest.fn();
+    const onChange = vi.fn();
+    const onSearch = vi.fn();
 
     render(
       <Search
@@ -29,8 +30,8 @@ describe('Search Component', () => {
     const error = false;
     const loading = false;
     const value = '';
-    const onChange = jest.fn();
-    const onSearch = jest.fn();
+    const onChange = vi.fn();
+    const onSearch = vi.fn();
 
     const { container } = render(
       <Search

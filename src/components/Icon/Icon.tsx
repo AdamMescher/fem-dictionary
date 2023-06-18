@@ -14,7 +14,7 @@ interface IconProps {
 
 const Icon = ({ name = 'logo', ...rest }: IconProps) => {
   return (
-    <svg {...rest}>
+    <svg data-testid='icon' {...rest}>
       <use href={`../../../assets/icons/sprite.svg#${name}`} />
     </svg>
   );
