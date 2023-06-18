@@ -2,7 +2,6 @@ import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import Search from '@/components/Search';
-import { on } from 'events';
 
 expect.extend(toHaveNoViolations);
 
@@ -32,7 +31,7 @@ describe('Search Component', () => {
     const value = '';
     const onChange = jest.fn();
     const onSearch = jest.fn();
-    
+
     const { container } = render(
       <Search
         value={value}

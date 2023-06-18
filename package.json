@@ -77,6 +77,8 @@
         "prettier": "^2.8.8",
         "sass": "^1.62.1",
         "storybook": "^7.0.18",
+        "stylelint": "^15.8.0",
+        "stylelint-config-standard": "^33.0.0",
         "vitest": "^0.31.4"
     }
 }
