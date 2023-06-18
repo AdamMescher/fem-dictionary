@@ -40,7 +40,7 @@ const generateComponentStyleModuleTemplate = (componentName) => {
 
 const generateComponentStoriesTemplate = (componentName) => {
   const template = `
-/* eslint-ignore react/require-default-props */
+/* eslint-disable react/jsx-props-no-spreading */
 
 import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react';

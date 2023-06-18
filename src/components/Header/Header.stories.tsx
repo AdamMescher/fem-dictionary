@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-props-no-spreading */
+
 import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import Header from './Header';
