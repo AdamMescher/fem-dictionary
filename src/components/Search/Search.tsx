@@ -1,18 +1,21 @@
 'use client';
 
 import * as React from 'react';
+import BookFlip from '@/components/BookFlip';
 import Icon from '@/components/Icon';
+
 import styles from './Search.module.scss';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 
 interface SearchProps {
   error: boolean;
+  loading: boolean;
   value: string;
   onChange: (value: string) => void;
   onSearch: () => void;
 }
 
-const Search = ({ error, value, onChange, onSearch }: SearchProps) => {
+const Search = ({ error, loading, value, onChange, onSearch }: SearchProps) => {
   const placeholder = 'Search for any word...';
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {

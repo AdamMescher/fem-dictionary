@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import Search from '@/components/Search';
+import BookFlip from '@/components/BookFlip';
 import styles from '../styles/HomePage.module.scss';
 
 export default function Home() {
@@ -33,6 +34,7 @@ export default function Home() {
       <Search
         value={searchValue}
         error={searchError}
+        loading={true}
         onChange={handleSearchChange}
         onSearch={handleSearchSubmit}
       />
