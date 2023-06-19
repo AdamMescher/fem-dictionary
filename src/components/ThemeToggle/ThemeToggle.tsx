@@ -6,16 +6,14 @@ import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import Icon from '@/components/Icon';
 import styles from './ThemeToggle.module.scss';
 
-interface ThemeToggleProps {}
-
-const updateDataThemeAttribute = (theme: string) => {
-  document.documentElement.setAttribute('data-theme', theme);
-};
-
-const ThemeToggle = ({}: ThemeToggleProps) => {
+function ThemeToggle() {
   const [mounted, setMounted] = React.useState(false);
   const [enabled, setEnabled] = React.useState(false);
   const [theme, setTheme] = React.useState('light');
+
+  const updateDataThemeAttribute = (newTheme: string) => {
+    document.documentElement.setAttribute('data-theme', newTheme);
+  };
 
   React.useEffect(() => {
     setMounted(true);
@@ -44,7 +42,10 @@ const ThemeToggle = ({}: ThemeToggleProps) => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles['theme-icon-container']} data-testid="theme-toggle">
+      <div
+        className={styles['theme-icon-container']}
+        data-testid='theme-toggle'
+      >
         <Icon
           name='sun'
           color='var(--color-neutral-gray-3)'
@@ -73,6 +74,6 @@ const ThemeToggle = ({}: ThemeToggleProps) => {
       </div>
     </div>
   );
-};
+}
 
 export default ThemeToggle;

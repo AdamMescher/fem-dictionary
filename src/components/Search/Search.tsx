@@ -1,16 +1,16 @@
 'use client';
 
 import * as React from 'react';
+import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import Icon from '@/components/Icon';
 import styles from './Search.module.scss';
-import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 
 interface SearchProps {
   inputRef: React.RefObject<HTMLInputElement>;
   handleSubmit: (event: any) => void;
 }
 
-const Search = ({ inputRef, handleSubmit }: SearchProps) => {
+function Search({ inputRef, handleSubmit }: SearchProps) {
   const [value, setValue] = React.useState('');
   const [error, setError] = React.useState(false);
 
@@ -30,7 +30,11 @@ const Search = ({ inputRef, handleSubmit }: SearchProps) => {
         value={value}
         onChange={handleChange}
       />
-      <button className={styles['search-button']} onClick={handleSubmit}>
+      <button
+        type='button'
+        className={styles['search-button']}
+        onClick={handleSubmit}
+      >
         <Icon
           name='search'
           height='24px'
@@ -46,6 +50,6 @@ const Search = ({ inputRef, handleSubmit }: SearchProps) => {
       )}
     </div>
   );
-};
+}
 
 export default Search;
