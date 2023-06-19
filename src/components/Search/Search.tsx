@@ -6,34 +6,25 @@ import Icon from '@/components/Icon';
 import styles from './Search.module.scss';
 
 interface SearchProps {
-  inputRef: React.RefObject<HTMLInputElement>;
-  handleSubmit: (event: any) => void;
+  value: string;
+  error: boolean;
+  onChange: (event: any) => void;
+  onSearch: (event: any) => void;
 }
 
-function Search({ inputRef, handleSubmit }: SearchProps) {
-  const [value, setValue] = React.useState('');
-  const [error, setError] = React.useState(false);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value === '') setError(true);
-    if (event.target.value !== '') setError(false);
-
-    setValue(event.target.value);
-  };
-
+function Search({ value, error, onChange, onSearch }: SearchProps) {
   return (
     <div className={styles.wrapper} data-testid='search'>
       <input
         type='text'
         placeholder='Search for any word...'
-        ref={inputRef}
         value={value}
-        onChange={handleChange}
+        onChange={onChange}
       />
       <button
         type='button'
         className={styles['search-button']}
-        onClick={handleSubmit}
+        onClick={onSearch}
       >
         <Icon
           name='search'

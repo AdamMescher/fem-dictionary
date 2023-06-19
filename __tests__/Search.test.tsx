@@ -9,7 +9,6 @@ expect.extend(toHaveNoViolations);
 describe('Search Component', () => {
   it('Should render without errors', () => {
     const error = false;
-    const loading = false;
     const value = '';
     const onChange = vi.fn();
     const onSearch = vi.fn();
@@ -18,7 +17,6 @@ describe('Search Component', () => {
       <Search
         value={value}
         error={error}
-        loading={loading}
         onChange={onChange}
         onSearch={onSearch}
       />
@@ -28,7 +26,6 @@ describe('Search Component', () => {
   });
   it('Should render without Axe Core A11Y errors', async () => {
     const error = false;
-    const loading = false;
     const value = '';
     const onChange = vi.fn();
     const onSearch = vi.fn();
@@ -37,7 +34,6 @@ describe('Search Component', () => {
       <Search
         value={value}
         error={error}
-        loading={loading}
         onChange={onChange}
         onSearch={onSearch}
       />
