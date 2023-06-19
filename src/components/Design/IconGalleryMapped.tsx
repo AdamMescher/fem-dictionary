@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 import * as React from 'react';
 import { IconGallery, IconItem } from '@storybook/blocks';
 import Icon from '@/components/Icon';

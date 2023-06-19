@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable import/no-extraneous-dependencies, react/jsx-props-no-spreading */
 
 import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react';

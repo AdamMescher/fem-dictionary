@@ -1,25 +1,19 @@
 'use client';
 
 import * as React from 'react';
-import useSound from 'use-sound';
 import styles from './PlayButton.module.scss';
 
 interface PlayButtonProps {
   url: string;
 }
 
-const PlayButton = ({ url, ...rest }: PlayButtonProps) => {
-  const [play, { stop }] = useSound(url);
-
-  const handleClick = () => {
-    console.log('clicked');
-  };
-
+function PlayButton({ url, ...rest }: PlayButtonProps) {
   return (
-    <button className={styles.button} onClick={handleClick} {...rest}>
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <button type='button' className={styles.button} {...rest}>
       Play Button Can Haz Sound?
     </button>
   );
-};
+}
 
 export default PlayButton;
