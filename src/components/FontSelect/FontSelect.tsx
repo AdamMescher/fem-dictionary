@@ -33,10 +33,6 @@ function FontSelect({ ...rest }: FontSelectProps) {
     setFontSelectDropdownIsOpen(!fontSelectDropdownIsOpen);
   };
 
-  const handleClickOutsideFontSelectDropdown = () => {
-    setFontSelectDropdownIsOpen(false);
-  };
-
   const handleSansSerif = () => {
     setFontType('Sans Serif');
   };
@@ -96,8 +92,6 @@ function FontSelect({ ...rest }: FontSelectProps) {
         menu={menu}
         open={fontSelectDropdownIsOpen}
         setOpen={setFontSelectDropdownIsOpen}
-        handleOpen={handleFontSelectDropdownOpen}
-        handleOutsideClick={handleClickOutsideFontSelectDropdown}
       />
     </div>
   );

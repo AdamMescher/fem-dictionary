@@ -3,46 +3,40 @@
 import * as React from 'react';
 import styles from './Dropdown.module.scss';
 
+import { useOnClickOutside } from 'usehooks-ts';
+
 interface DropdownProps {
   trigger: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
   menu: React.ReactElement<any, string | React.JSXElementConstructor<any>>[];
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   style?: React.CSSProperties;
-  handleOutsideClick: (e: MouseEvent | TouchEvent) => void;
   handleOpen?: () => void;
 }
 
-function Dropdown({
-  trigger,
-  menu,
-  open,
-  setOpen,
-  handleOutsideClick,
-}: DropdownProps) {
-  const dropdownRef = React.useRef<HTMLDivElement>(null);
-  const handleDropdownClick = () => setOpen(!open);
+function Dropdown({ trigger, menu, open, setOpen }: DropdownProps) {
+  const ref = React.useRef(null);
 
-  React.useEffect(() => {
-    document.addEventListener('mousedown', handleOutsideClick);
-    document.addEventListener('touchstart', handleOutsideClick);
+  const handleClickOutside = () => {
+    setOpen(false);
+  };
 
-    return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-      document.removeEventListener('touchstart', handleOutsideClick);
-    };
-  });
+  const handleClickInside = () => {
+    setOpen(!open);
+  };
+
+  useOnClickOutside(ref, handleClickOutside);
 
   return (
-    <div ref={dropdownRef} className={styles.dropdown} data-testid='dropdown'>
+    <div ref={ref} className={styles.dropdown} data-testid='dropdown'>
       {React.cloneElement(trigger, {
         className: styles.trigger,
-        onClick: handleDropdownClick,
+        onClick: handleClickInside,
       })}
       {open ? (
         <ul className={styles.menu}>
           {menu.map((menuItem) => (
-            <li key={menuItem.props.key} className={styles['menu-item']}>
+            <li key={menuItem.key} className={styles['menu-item']}>
               {React.cloneElement(menuItem, {
                 onClick: () => {
                   menuItem.props.onClick();
