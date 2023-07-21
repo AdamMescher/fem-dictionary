@@ -1,31 +1,31 @@
 'use client';
 
 import * as React from 'react';
-import axios from 'axios';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
-import Definition from '@/components/Definition';
+// import axios from 'axios';
+// import { useQuery, useQueryClient } from '@tanstack/react-query';
+// import Definition from '@/components/Definition';
 import Search from '@/components/Search';
 import styles from '../styles/HomePage.module.scss';
 
-function useDefinition(word: string) {
-  return useQuery({
-    queryKey: ['word'],
-    queryFn: async () => {
-      const { data } = await axios.get(
-        'https://jsonplaceholder.typicode.com/posts'
-      );
-      return data;
-    },
-  });
-}
+// function useDefinition(word: string) {
+//   return useQuery({
+//     queryKey: ['word'],
+//     queryFn: async () => {
+//       const { data } = await axios.get(
+//         'https://jsonplaceholder.typicode.com/posts'
+//       );
+//       return data;
+//     },
+//   });
+// }
 
 export default function Home() {
-  const queryClient = useQueryClient();
+  // const queryClient = useQueryClient();
 
   const [searchValue, setSearchValue] = React.useState('');
   const [searchError, setSearchError] = React.useState(false);
 
-  const { status, data, error, isFetching } = useDefinition(searchValue);
+  // const { status, data, error, isFetching } = useDefinition(searchValue);
 
   const handleSearchChange = (value: string) => {
     setSearchValue(value.trim());
@@ -45,17 +45,17 @@ export default function Home() {
     // Perform search logic or update other components based on the search value
   };
 
-  {
-    status === 'loading' ? (
-      <div>Loading...</div>
-    ) : status === 'error' ? (
-      <div>Error: {error.message}</div>
-    ) : (
-      <>
-        <div>{data}</div>
-      </>
-    );
-  }
+  // {
+  //   status === 'loading' ? (
+  //     <div>Loading...</div>
+  //   ) : status === 'error' ? (
+  //     <div>Error: {error.message}</div>
+  //   ) : (
+  //     <>
+  //       <div>{data}</div>
+  //     </>
+  //   );
+  // }
 
   return (
     <main className={`${styles.main}`}>
@@ -65,6 +65,7 @@ export default function Home() {
         onChange={handleSearchChange}
         onSearch={handleSearchSubmit}
       />
+      <p>text to see what font type</p>
     </main>
   );
 }
