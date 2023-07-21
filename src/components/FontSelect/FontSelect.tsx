@@ -44,9 +44,11 @@ function FontSelect({ ...rest }: FontSelectProps) {
   const handleSerif = async () => {
     setFontType('Serif');
   };
+
   const handleMono = () => {
     setFontType('Mono');
   };
+
   const menu = [
     <button
       key='sansSerif'

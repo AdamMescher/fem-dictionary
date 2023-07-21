@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:style": "./node_modules/.bin/stylelint '**/*.scss'",
-    "prettier:all": "./node_modules/.bin/prettier --write .",
+    "prettier:write": "./node_modules/.bin/prettier --write .",
     "type:check": "tsc --noEmit --incremental --watch",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
