@@ -30,7 +30,7 @@ const fontToolbarItems = [
     left: '➋',
   },
   {
-    value: 'Monospace',
+    value: 'Mono',
     title: 'Monospace',
     left: '➌',
   },
