@@ -39,7 +39,7 @@ const fontToolbarItems = [
 export const globalTypes = {
   font: {
     title: 'Font Select',
-    description: 'Global slect font for components',
+    description: 'Global select font for components',
     toolbar: {
       icon: 'listunordered',
       items: fontToolbarItems,

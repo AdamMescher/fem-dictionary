@@ -44,7 +44,7 @@
   background-color: var(--color-primary-purple);
 }
 
-.play-button:hover > svg {
+.play-button:hover>svg {
   color: var(--color-neutral-white);
 }
 
@@ -52,6 +52,7 @@
   margin-top: 32px;
   display: flex;
   flex-direction: column;
+  gap: 40px;
 }
 
 .meanings-container {
@@ -83,18 +84,20 @@
 }
 
 .meaning-list {
-  margin-top: 32px;
+  list-style: none;
+  list-style-position: outside;
+  text-indent: -18px;
 }
 
 .meaning-list ul,
 .source-url-list {
-  margin-top: 16px;
+  list-style-position: outside;
   list-style-type: none;
   text-align: left;
   padding: 0;
 }
 
-.meaning-list ul li::before {
+.meaning-list li::before {
   content: '\2022';
   color: var(--color-primary-purple);
   width: 1em;
@@ -103,6 +106,12 @@
 
 .definition-list-item {
   margin-top: 12px;
+  padding-left: 22px;
+}
+
+.example {
+  color: var(--color-neutral-gray-3);
+  margin-left: 20px;
 }
 
 .synonyms,
@@ -111,8 +120,40 @@
   font-weight: var(--typography-font-weight-bold);
 }
 
+.related-words-container {
+  display: flex;
+}
+
+.related-words-list {
+  margin: 0;
+  list-style: none;
+}
+
+.related-words-list-item:not(:first-child) {
+  margin-left: 16px;
+}
+
+.related-words-list-link {
+  cursor: pointer;
+  color: var(--color-primary-purple);
+  text-decoration: none;
+}
+
+.related-words-list-link:hover {
+  text-decoration: underline;
+}
+
 .source {
-  margin-top: 24px;
+  display: flex;
+  align-items: baseline;
+}
+
+.source-heading {
+  color: var(--color-neutral-gray-3);
+  font-weight: var(--typography-font-weight-regular);
+  font-size: var(--typography-font-size-body-small);
+  text-decoration-line: underline;
+
 }
 
 .source-url {
@@ -123,17 +164,31 @@
 .source-url-list {
   list-style-type: none;
   padding: 0;
+  margin-left: 20px;
   font-size: var(--typography-font-size-body-small);
 }
 
 .source-url-list-item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+}
+
+.source-url-list-item:not(:first-child) {
+  margin-left: 12px;
 }
 
 .source-url-list-item:hover {
   cursor: pointer;
+}
+
+.source-url-list-item a {
+  color: var(--color-neutral-gray-5);
+}
+
+.source-url-list-item a:hover {
+  text-decoration: none;
+  color: var(--color-primary-purple);
 }
 
 .divider {
@@ -149,11 +204,8 @@
   color: var(--color-neutral-white);
 }
 
-[data-font='Sans Serif'] .wrapper {
-}
+[data-font='Sans Serif'] .wrapper {}
 
-[data-font='Serif'] .wrapper {
-}
+[data-font='Serif'] .wrapper {}
 
-[data-font='Monospace'] .wrapper {
-}
+[data-font='Monospace'] .wrapper {}

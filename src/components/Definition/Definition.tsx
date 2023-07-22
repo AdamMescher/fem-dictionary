@@ -18,6 +18,11 @@ export interface IMeaning {
   antonyms: string[];
 }
 
+export interface RelatedWords {
+  relation: string;
+  words: string[];
+}
+
 export interface DefinitionElement {
   definition: string;
   synonyms: string[];
@@ -37,7 +42,28 @@ export interface ISourceURL {
 
 interface SourceURLProps extends ISourceURL {}
 interface MeaningProps extends IMeaning {}
+interface RelatedWordsProps extends RelatedWords {}
 interface DefinitionProps extends IDefinition {}
+
+const RelatedWords = ({ relation, words }: RelatedWordsProps) => {
+  return (
+    <div className={styles['related-words-container']}>
+      <h3 className={styles['section-heading']}>{relation}</h3>
+      <ul className={styles['related-words-list']}>
+        {words.map((word) => (
+          <li className={styles['related-words-list-item']} key={word}>
+            <Link
+              className={styles['related-words-list-link']}
+              href={`/${word}`}
+            >
+              {word}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 function SourceURL({ url }: SourceURLProps) {
   return (
@@ -67,30 +93,29 @@ function Meaning({
         <h2 className={styles['part-of-speech']}>{partOfSpeech}</h2>
         <hr className={styles.divider} />
       </div>
-      <div className={styles['meaning-list']}>
+      <div className={styles['meaning-list-container']}>
         <h3 className={styles['section-heading']}>Meaning</h3>
-        <ul>
+        <ul className={styles['meaning-list']}>
           {definitions.map((def) => (
             <li
               className={styles['definition-list-item']}
               key={def.definition.slice(1, 10)}
             >
               {def.definition}
+              {def?.example ? (
+                <p className={styles.example}>
+                  &#8220;{def.example}&#8221;
+                </p>
+              ) : null}
             </li>
           ))}
         </ul>
       </div>
       {synonyms.length >= 1 ? (
-        <p className={styles.synonyms}>
-          <span className={styles['section-heading']}>Synonyms</span>{' '}
-          {synonyms.join(' ')}
-        </p>
+        <RelatedWords relation='Synonyms' words={synonyms} />
       ) : null}
       {antonyms.length >= 1 ? (
-        <p className={styles.antonyms}>
-          <span className={styles['section-heading']}>Antonyms</span>{' '}
-          {antonyms.join(' ')}
-        </p>
+        <RelatedWords relation='Antonyms' words={antonyms} />
       ) : null}
     </div>
   );
@@ -130,7 +155,7 @@ function Definition({ word, phonetic, meanings, sourceUrls }: DefinitionProps) {
           ))}
         </div>
         <div className={styles.source}>
-          <h3 className={styles['source-heading']}>source</h3>
+          <h3 className={styles['source-heading']}>Source</h3>
           <ul className={styles['source-url-list']}>
             {sourceUrls.map((url: string) => (
               <SourceURL url={url} key={url} />
