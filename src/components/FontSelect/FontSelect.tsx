@@ -9,8 +9,6 @@ interface FontSelectProps {}
 
 function FontSelect({ ...rest }: FontSelectProps) {
   const [fontType, setFontType] = React.useState('Sans Serif');
-  const [fontSelectDropdownIsOpen, setFontSelectDropdownIsOpen] =
-    React.useState(false);
 
   React.useEffect(() => {
     switch (fontType) {
@@ -28,10 +26,6 @@ function FontSelect({ ...rest }: FontSelectProps) {
         break;
     }
   }, [fontType]);
-
-  const handleFontSelectDropdownOpen = () => {
-    setFontSelectDropdownIsOpen(!fontSelectDropdownIsOpen);
-  };
 
   const handleSansSerif = () => {
     setFontType('Sans Serif');
@@ -87,12 +81,7 @@ function FontSelect({ ...rest }: FontSelectProps) {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <div className={styles.wrapper} data-testid='font-select' {...rest}>
-      <Dropdown
-        trigger={trigger}
-        menu={menu}
-        open={fontSelectDropdownIsOpen}
-        setOpen={setFontSelectDropdownIsOpen}
-      />
+      <Dropdown trigger={trigger} menu={menu} />
     </div>
   );
 }
