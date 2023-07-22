@@ -13,10 +13,10 @@ export default {
     (Story: any) => (
       <div
         style={{
-          width: '200px',
-          height: '200px',
+          width: '250px',
+          height: '350px',
           display: 'grid',
-          justifyItems: 'center',
+          placeItems: 'center',
         }}
       >
         <Story />
