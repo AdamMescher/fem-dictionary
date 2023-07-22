@@ -8,13 +8,12 @@ import { useOnClickOutside } from 'usehooks-ts';
 interface DropdownProps {
   trigger: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
   menu: React.ReactElement<any, string | React.JSXElementConstructor<any>>[];
-  open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   style?: React.CSSProperties;
-  handleOpen?: () => void;
 }
 
-function Dropdown({ trigger, menu, open, setOpen }: DropdownProps) {
+function Dropdown({ trigger, menu }: DropdownProps) {
+  const [open, setOpen] = React.useState(false);
+
   const ref = React.useRef(null);
 
   const handleClickOutside = () => {
@@ -34,7 +33,7 @@ function Dropdown({ trigger, menu, open, setOpen }: DropdownProps) {
         onClick: handleClickInside,
       })}
       {open ? (
-        <ul className={styles.menu}>
+        <ul className={styles.menu} data-testid='dropdown-menu'>
           {menu.map((menuItem) => (
             <li key={menuItem.key} className={styles['menu-item']}>
               {React.cloneElement(menuItem, {
