@@ -4,12 +4,13 @@ import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import Button from './Button';
 
+type Story = StoryObj<typeof Button>;
+
 export default {
   component: Button,
   title: 'Components/Button',
-} as Meta;
-
-type Story = StoryObj<typeof Button>;
+  argTypes: { onClick: { action: 'clicked' } },
+} as Meta<typeof Button>;
 
 export const Default: Story = {
   args: {},

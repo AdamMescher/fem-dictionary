@@ -59,7 +59,6 @@ export const globalTypes = {
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: '^on.*' },
     backgrounds: {
       default: 'light',
       values: [
