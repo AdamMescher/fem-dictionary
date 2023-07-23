@@ -41,10 +41,10 @@ function ThemeToggle() {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-testid='theme-toggle'>
       <div
         className={styles['theme-icon-container']}
-        data-testid='theme-toggle'
+        data-testid='theme-toggle-light'
       >
         <Icon
           name='sun'
@@ -63,7 +63,7 @@ function ThemeToggle() {
         <VisuallyHidden.Root>Theme Switch</VisuallyHidden.Root>
         <Switch.Thumb className={styles['switch-thumb']} />
       </Switch.Root>
-      <div className={styles['theme-icon-container']}>
+      <div className={styles['theme-icon-container']} data-testid='theme-toggle-dark'>
         <Icon
           name='moon'
           color='var(--color-primary-purple)'
