@@ -224,7 +224,7 @@ export const Serif: Story = {
   args: {
     trigger: (
       <button type='button' style={{ fontFamily: 'var(--font-family-serif)' }}>
-        Sans Serif
+        Serif
         <Icon
           name='arrow-down'
           color='var(--color-primary-purple)'
@@ -274,7 +274,7 @@ export const Mono: Story = {
         type='button'
         style={{ fontFamily: 'var(--font-family-monospace)' }}
       >
-        Sans Serif
+        Mono
         <Icon
           name='arrow-down'
           color='var(--color-primary-purple)'

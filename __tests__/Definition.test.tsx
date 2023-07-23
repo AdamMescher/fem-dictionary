@@ -41,8 +41,8 @@ describe('Definition Component', () => {
 
     render(
       <Definition
-        word='word'
-        phonetic='weird ascii here'
+        word={word}
+        phonetic={phonetic}
         phonetics={phonetics}
         meanings={meanings}
         sourceUrls={sourceUrls}

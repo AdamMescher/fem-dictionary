@@ -67,7 +67,7 @@ function FontSelect({ ...rest }: FontSelectProps) {
   ];
 
   const trigger = (
-    <button type='button'>
+    <button type='button' data-testid='trigger'>
       {fontType}
       <Icon
         name='arrow-down'

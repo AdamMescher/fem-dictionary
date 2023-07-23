@@ -27,5 +27,36 @@ type Story = StoryObj<typeof FontSelect>;
 
 export const Default: Story = {
   args: {},
-  render: (args: any) => <FontSelect {...args} />,
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+  render: (args: any) => (
+    <div data-theme='light' data-font='font-select'>
+      <FontSelect {...args} />
+    </div>
+  ),
+};
+
+export const Light: Story = {
+  args: {},
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+  render: (args: any) => (
+    <div data-theme='light' data-font='font-select'>
+      <FontSelect {...args} />
+    </div>
+  ),
+};
+
+export const Dark: Story = {
+  args: {},
+  parameters: {
+    backgrounds: { default: 'dark' },
+  },
+  render: (args: any) => (
+    <div data-theme='dark' data-font='font-select'>
+      <FontSelect {...args} />
+    </div>
+  ),
 };

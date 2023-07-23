@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/nextjs';
+import remarkGfm from 'remark-gfm';
 const path = require('path');
 
 const config: StorybookConfig = {
@@ -8,8 +9,17 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    '@storybook/addon-mdx-gfm',
     '@storybook/addon-styling',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
   ],
   framework: {
     name: '@storybook/nextjs',
