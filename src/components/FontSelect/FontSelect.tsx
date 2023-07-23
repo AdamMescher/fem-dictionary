@@ -21,9 +21,6 @@ function FontSelect({ ...rest }: FontSelectProps) {
       case 'Mono':
         document.documentElement.setAttribute('data-font', 'Mono');
         break;
-      default:
-        document.documentElement.setAttribute('data-font', 'Sans Serif');
-        break;
     }
   }, [fontType]);
 
