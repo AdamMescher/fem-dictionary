@@ -103,9 +103,7 @@ function Meaning({
             >
               {def.definition}
               {def?.example ? (
-                <p className={styles.example}>
-                  &#8220;{def.example}&#8221;
-                </p>
+                <p className={styles.example}>&#8220;{def.example}&#8221;</p>
               ) : null}
             </li>
           ))}

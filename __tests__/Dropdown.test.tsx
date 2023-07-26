@@ -44,8 +44,6 @@ describe('Dropdown Component', () => {
       <button key='two'>Two</button>,
       <button key='three'>Three</button>,
     ];
-    const open = false;
-    const setOpen = vi.fn();
 
     render(<Dropdown trigger={trigger} menu={menu} />);
 

@@ -62,7 +62,11 @@ export const Default: Story = {
     meanings,
     sourceUrls,
   },
-  render: (args: any) => <Definition {...args} />,
+  render: (args: any) => (
+    <div data-font='Sans Serif'>
+      <Definition {...args} />
+    </div>
+  ),
 };
 
 export const Light: Story = {
@@ -76,7 +80,7 @@ export const Light: Story = {
     backgrounds: { default: 'light' },
   },
   render: (args: any) => (
-    <div data-theme='light'>
+    <div data-theme='light' data-font='Sans Serif'>
       <Definition {...args} />
     </div>
   ),
@@ -93,7 +97,48 @@ export const Dark: Story = {
     backgrounds: { default: 'dark' },
   },
   render: (args: any) => (
-    <div data-theme='dark'>
+    <div data-theme='dark' data-font='Sans Serif'>
+      <Definition {...args} />
+    </div>
+  ),
+};
+
+export const SanSerif: Story = {
+  args: {
+    word,
+    phonetic,
+    meanings,
+    sourceUrls,
+  },
+  render: (args: any) => (
+    <div data-font='Sans Serif'>
+      <Definition {...args} />
+    </div>
+  ),
+};
+
+export const Serif: Story = {
+  args: {
+    word,
+    phonetic,
+    meanings,
+    sourceUrls,
+  },
+  render: (args: any) => (
+    <div data-font='Serif'>
+      <Definition {...args} />
+    </div>
+  ),
+};
+export const Mono: Story = {
+  args: {
+    word,
+    phonetic,
+    meanings,
+    sourceUrls,
+  },
+  render: (args: any) => (
+    <div data-font='Mono'>
       <Definition {...args} />
     </div>
   ),

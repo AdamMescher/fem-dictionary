@@ -137,6 +137,7 @@
   cursor: pointer;
   color: var(--color-primary-purple);
   text-decoration: none;
+  font-weight: bold;
 }
 
 .related-words-list-link:hover {
@@ -204,8 +205,42 @@
   color: var(--color-neutral-white);
 }
 
-[data-font='Sans Serif'] .wrapper {}
+/* SANS-SERIF STYLES */
 
-[data-font='Serif'] .wrapper {}
+[data-font='Sans Serif'] {
+  font-family: var(--font-family-sans-serif);
+}
 
-[data-font='Monospace'] .wrapper {}
+[data-font='Sans Serif'] .part-of-speech {
+  font-family: var(--font-family-sans-serif);
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* SERIF STYLES */
+
+[data-font='Serif'] {
+  font-family: var(--font-family-serif);
+}
+
+[data-font='Serif'] .part-of-speech {
+  font-family: var(--font-family-serif);
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* MONOSPACE STYLES */
+
+[data-font='Mono'] {
+  font-family: var(--font-family-monospace);
+}
+
+[data-font='Mono'] .part-of-speech {
+  font-family: var(--font-family-monospace);
+  font-style: normal;
+  font-weight: 700;
+}
+
+[data-font='Mono'] .source-heading {
+  text-decoration: none;
+}
