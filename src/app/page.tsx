@@ -1,9 +1,6 @@
 'use client';
 
 import * as React from 'react';
-// import axios from 'axios';
-// import { useQuery, useQueryClient } from '@tanstack/react-query';
-// import Definition from '@/components/Definition';
 import { useQuery } from '@tanstack/react-query';
 import Search from '@/components/Search';
 import styles from '../styles/HomePage.module.scss';
@@ -45,10 +42,6 @@ export default function Home() {
     if (searchValue.trim() === '') {
       setSearchError(true);
     }
-
-    console.log({ searchValue });
-
-    // Perform search logic or update other components based on the search value
   };
 
   const handleSearchKeyDown = (event: any) => {
@@ -56,18 +49,6 @@ export default function Home() {
       handleSearchSubmit();
     }
   };
-
-  // {
-  //   status === 'loading' ? (
-  //     <div>Loading...</div>
-  //   ) : status === 'error' ? (
-  //     <div>Error: {error.message}</div>
-  //   ) : (
-  //     <>
-  //       <div>{data}</div>
-  //     </>
-  //   );
-  // }
 
   return (
     <main className={`${styles.main}`}>
