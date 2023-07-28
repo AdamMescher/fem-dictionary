@@ -36,16 +36,13 @@ export default function Home() {
 
     if (!value || value?.trim() === '') {
       setSearchError(true);
-      setSearchValue(value.trim());
     } else {
       setSearchError(false);
-      setSearchValue(value.trim());
     }
+    setSearchValue(value);
   };
 
-  const handleSearchSubmit = async (event: any) => {
-    const { value } = event.target;
-
+  const handleSearchSubmit = async (value: any) => {
     if (!value || value?.trim() === '') {
       setSearchError(true);
       return;
@@ -70,7 +67,7 @@ export default function Home() {
         value={searchValue}
         error={searchError}
         onChange={(event: any) => handleSearchChange(event)}
-        onSearch={(event: any) => handleSearchSubmit(event)}
+        onSearch={() => handleSearchSubmit(searchValue)}
         onKeyDown={(event: any) => handleSearchKeyDown(event)}
       />
       <p>text to see what font type</p>
