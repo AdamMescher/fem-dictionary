@@ -55,7 +55,7 @@ export default function Home() {
     const { key } = event;
 
     if (key === 'Enter') {
-      handleSearchSubmit(event);
+      handleSearchSubmit(event.target.value);
     }
   };
 

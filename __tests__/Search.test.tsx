@@ -8,28 +8,42 @@ import Search from '@/components/Search';
 expect.extend(toHaveNoViolations);
 
 const ControlledSearch = () => {
-  const [searchValue, setSearchValue] = React.useState('');
+  const [searchValue, setSearchValue] = React.useState<string>('');
   const [searchError, setSearchError] = React.useState(false);
 
-  const handleSearchChange = (value: string) => {
-    setSearchValue(value.trim());
+  const handleSearchChange = (event: any) => {
+    const value = event.target.value as string;
 
-    if (value.trim() === '') {
+    if (!value || value?.trim() === '') {
       setSearchError(true);
     } else {
       setSearchError(false);
     }
+    setSearchValue(value);
   };
 
-  const handleSearchSubmit = () => {
-    if (searchValue.trim() === '') {
+  const handleSearchSubmit = async (value: string) => {
+    if (!value) {
       setSearchError(true);
+      return;
+    }
+
+    if (typeof value !== 'string') {
+      setSearchError(true);
+      return;
+    }
+
+    if (typeof value === 'string' && value.trim() === '') {
+      setSearchError(true);
+      return;
     }
   };
 
   const handleSearchKeyDown = (event: any) => {
-    if (event.key === 'Enter') {
-      handleSearchSubmit();
+    const { key } = event;
+
+    if (key === 'Enter') {
+      handleSearchSubmit(event.target.value);
     }
   };
 
@@ -38,8 +52,8 @@ const ControlledSearch = () => {
       <Search
         value={searchValue}
         error={searchError}
-        onChange={(event: any) => handleSearchChange(event.target.value)}
-        onSearch={handleSearchSubmit}
+        onChange={(event: any) => handleSearchChange(event)}
+        onSearch={() => handleSearchSubmit(searchValue)}
         onKeyDown={(event: any) => handleSearchKeyDown(event)}
       />
     </div>
@@ -57,6 +71,30 @@ describe('Search Component', () => {
     const results = await axe(container);
 
     expect(results).toHaveNoViolations();
+  });
+  it('Should not display an error message if the search value is not empty on icon button click', async () => {
+    const user = userEvent.setup();
+
+    render(<ControlledSearch />);
+
+    await user.type(screen.getByRole('textbox'), 'a');
+    await user.click(screen.getByRole('button'));
+
+    expect(
+      screen.queryByText(/Whoops, can't be empty…/i)
+    ).not.toBeInTheDocument();
+  });
+  it('Should not display an error message if the search value is not empty on enter key press', async () => {
+    const user = userEvent.setup();
+
+    render(<ControlledSearch />);
+
+    await user.type(screen.getByRole('textbox'), 'a');
+    await user.type(screen.getByRole('textbox'), '{enter}');
+
+    expect(
+      screen.queryByText(/Whoops, can't be empty…/i)
+    ).not.toBeInTheDocument();
   });
   it('Should display an error message if the search value is empty on icon button click', async () => {
     const user = userEvent.setup();
