@@ -59,7 +59,7 @@ export default function Home() {
     }
   };
 
-  if (error) return 'An error has occurred: ' + error.message;
+  if (error) return 'An error has occurred: ' + (error as Error).message;
 
   return (
     <main className={`${styles.main}`}>

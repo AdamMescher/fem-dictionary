@@ -23,17 +23,7 @@ const ControlledSearch = () => {
   };
 
   const handleSearchSubmit = async (value: string) => {
-    if (!value) {
-      setSearchError(true);
-      return;
-    }
-
-    if (typeof value !== 'string') {
-      setSearchError(true);
-      return;
-    }
-
-    if (typeof value === 'string' && value.trim() === '') {
+    if (!value || value.trim() === '') {
       setSearchError(true);
       return;
     }
