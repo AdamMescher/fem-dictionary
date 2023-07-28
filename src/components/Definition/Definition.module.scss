@@ -207,7 +207,7 @@
 
 /* SANS-SERIF STYLES */
 
-[data-font='Sans Serif'] {
+[data-font='Sans Serif'] .wrapper {
   font-family: var(--font-family-sans-serif);
 }
 
@@ -219,7 +219,7 @@
 
 /* SERIF STYLES */
 
-[data-font='Serif'] {
+[data-font='Serif'] .wrapper {
   font-family: var(--font-family-serif);
 }
 
@@ -231,7 +231,7 @@
 
 /* MONOSPACE STYLES */
 
-[data-font='Mono'] {
+[data-font='Mono'] .wrapper {
   font-family: var(--font-family-monospace);
 }
 

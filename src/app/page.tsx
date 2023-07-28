@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Search from '@/components/Search';
+import Definition from '@/components/Definition';
 import styles from '../styles/HomePage.module.scss';
 
 export default function Home() {
@@ -70,12 +71,17 @@ export default function Home() {
         onSearch={() => handleSearchSubmit(searchValue)}
         onKeyDown={(event: any) => handleSearchKeyDown(event)}
       />
-      <p>text to see what font type</p>
-      <p>Search Value: {searchValue}</p>
-      <h3>word goes here</h3>
-      {data && <div>{isFetching ? 'Updating...' : ''}</div>}
-      {data && <p>{data[0].word}</p>}
-      {data && <p>{data[0].phonetic}</p>}
+      {data &&
+        data.map((definition: any, idx: number) => (
+          <Definition
+            key={idx}
+            word={definition.word}
+            phonetic={definition.phonetic}
+            phonetics={definition.phonetics}
+            meanings={definition.meanings}
+            sourceUrls={definition.sourceUrls}
+          />
+        ))}
     </main>
   );
 }
