@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
+import Providers from '@/app/providers';
 import PlayButton from './PlayButton';
 
 export default {
@@ -13,6 +14,12 @@ export default {
 type Story = StoryObj<typeof PlayButton>;
 
 export const Default: Story = {
-  args: { url: '' },
-  render: (args: any) => <PlayButton {...args} />,
+  args: {
+    url: 'https://api.dictionaryapi.dev/media/pronunciations/en/keyboard-us.mp3',
+  },
+  render: (args: any) => (
+    <Providers>
+      <PlayButton {...args} />
+    </Providers>
+  ),
 };

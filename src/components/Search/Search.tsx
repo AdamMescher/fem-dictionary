@@ -10,9 +10,10 @@ interface SearchProps {
   error: boolean;
   onChange: (event: any) => void;
   onSearch: (event: any) => void;
+  onKeyDown: (event: any) => void;
 }
 
-function Search({ value, error, onChange, onSearch }: SearchProps) {
+function Search({ value, error, onChange, onSearch, onKeyDown }: SearchProps) {
   return (
     <div className={styles.wrapper} data-testid='search'>
       <input
@@ -20,6 +21,7 @@ function Search({ value, error, onChange, onSearch }: SearchProps) {
         placeholder='Search for any word...'
         value={value}
         onChange={onChange}
+        onKeyDown={onKeyDown}
       />
       <button
         type='button'

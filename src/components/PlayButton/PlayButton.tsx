@@ -1,19 +1,37 @@
-'use client';
+import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import useSound from 'use-sound';
 
-import * as React from 'react';
-import styles from './PlayButton.module.scss';
+const PlayButton = ({ audioUrl }) => {
+  const [audioBlob, setAudioBlob] = useState(null);
 
-interface PlayButtonProps {
-  url: string;
-}
+  // Fetch the audio file using useQuery
+  const { data, error, isLoading, refetch } = useQuery({
+    queryKey: ['audio', audioUrl],
+    queryFn: () => fetch(audioUrl).then((response) => response.blob()),
+    enabled: false, // Delay the query until the user clicks the Play button
+  });
 
-function PlayButton({ url, ...rest }: PlayButtonProps) {
-  return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <button type='button' className={styles.button} {...rest}>
-      Play Button Can Haz Sound?
-    </button>
+  useEffect(() => {
+    if (data) {
+      setAudioBlob(data);
+    }
+  }, [data]);
+
+  // Initialize the useSound hook once we have the audioBlob
+  const [play, { stop }] = useSound(
+    audioBlob ? URL.createObjectURL(audioBlob) : null,
+    {
+      format: 'mp3',
+    }
   );
-}
+
+  return (
+    <div>
+      <button onClick={() => refetch()}>Play</button>
+      <button onClick={stop}>Stop</button>
+    </div>
+  );
+};
 
 export default PlayButton;

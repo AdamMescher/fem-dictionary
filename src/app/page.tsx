@@ -4,28 +4,32 @@ import * as React from 'react';
 // import axios from 'axios';
 // import { useQuery, useQueryClient } from '@tanstack/react-query';
 // import Definition from '@/components/Definition';
+import { useQuery } from '@tanstack/react-query';
 import Search from '@/components/Search';
 import styles from '../styles/HomePage.module.scss';
 
-// function useDefinition(word: string) {
-//   return useQuery({
-//     queryKey: ['word'],
-//     queryFn: async () => {
-//       const { data } = await axios.get(
-//         'https://jsonplaceholder.typicode.com/posts'
-//       );
-//       return data;
-//     },
-//   });
-// }
+const fetchDefinition = async (word: any) => {
+  const response = await fetch(
+    `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+  );
+
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+
+  return response.json();
+};
+
+const useDefinition = (word: any) => {
+  return useQuery({
+    queryKey: ['definition', word],
+    queryFn: () => fetchDefinition(word),
+  });
+};
 
 export default function Home() {
-  // const queryClient = useQueryClient();
-
   const [searchValue, setSearchValue] = React.useState('');
   const [searchError, setSearchError] = React.useState(false);
-
-  // const { status, data, error, isFetching } = useDefinition(searchValue);
 
   const handleSearchChange = (value: string) => {
     setSearchValue(value.trim());
@@ -42,7 +46,15 @@ export default function Home() {
       setSearchError(true);
     }
 
+    console.log({ searchValue });
+
     // Perform search logic or update other components based on the search value
+  };
+
+  const handleSearchKeyDown = (event: any) => {
+    if (event.key === 'Enter') {
+      handleSearchSubmit();
+    }
   };
 
   // {
@@ -62,10 +74,12 @@ export default function Home() {
       <Search
         value={searchValue}
         error={searchError}
-        onChange={handleSearchChange}
+        onChange={(event: any) => handleSearchChange(event.target.value)}
         onSearch={handleSearchSubmit}
+        onKeyDown={(event: any) => handleSearchKeyDown(event)}
       />
       <p>text to see what font type</p>
+      <p>Search Value: {searchValue}</p>
     </main>
   );
 }
