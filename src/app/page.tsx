@@ -5,62 +5,80 @@ import { useQuery } from '@tanstack/react-query';
 import Search from '@/components/Search';
 import styles from '../styles/HomePage.module.scss';
 
-const fetchDefinition = async (word: any) => {
-  const response = await fetch(
-    `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
-  );
-
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-
-  return response.json();
-};
-
-const useDefinition = (word: any) => {
-  return useQuery({
-    queryKey: ['definition', word],
-    queryFn: () => fetchDefinition(word),
-  });
-};
-
 export default function Home() {
   const [searchValue, setSearchValue] = React.useState('');
   const [searchError, setSearchError] = React.useState(false);
 
-  const handleSearchChange = (value: string) => {
-    setSearchValue(value.trim());
+  const fetchDefinition = async () => {
+    const response = await fetch(
+      `https://api.dictionaryapi.dev/api/v2/entries/en/${searchValue}`
+    );
 
-    if (value.trim() === '') {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    return response.json();
+  };
+
+  const useDefinition = () => {
+    return useQuery({
+      queryKey: ['definition', searchValue],
+      queryFn: fetchDefinition,
+      enabled: false,
+    });
+  };
+
+  const { error, data, refetch, isFetching } = useDefinition();
+
+  const handleSearchChange = (event: any) => {
+    const { value } = event.target;
+
+    if (!value || value?.trim() === '') {
       setSearchError(true);
+      setSearchValue(value.trim());
     } else {
       setSearchError(false);
+      setSearchValue(value.trim());
     }
   };
 
-  const handleSearchSubmit = () => {
-    if (searchValue.trim() === '') {
+  const handleSearchSubmit = async (event: any) => {
+    const { value } = event.target;
+
+    if (!value || value?.trim() === '') {
       setSearchError(true);
+      return;
     }
+
+    refetch();
   };
 
   const handleSearchKeyDown = (event: any) => {
-    if (event.key === 'Enter') {
-      handleSearchSubmit();
+    const { key } = event;
+
+    if (key === 'Enter') {
+      handleSearchSubmit(event);
     }
   };
+
+  if (error) return 'An error has occurred: ' + error.message;
 
   return (
     <main className={`${styles.main}`}>
       <Search
         value={searchValue}
         error={searchError}
-        onChange={(event: any) => handleSearchChange(event.target.value)}
-        onSearch={handleSearchSubmit}
+        onChange={(event: any) => handleSearchChange(event)}
+        onSearch={(event: any) => handleSearchSubmit(event)}
         onKeyDown={(event: any) => handleSearchKeyDown(event)}
       />
       <p>text to see what font type</p>
       <p>Search Value: {searchValue}</p>
+      <h3>word goes here</h3>
+      {data && <div>{isFetching ? 'Updating...' : ''}</div>}
+      {data && <p>{data[0].word}</p>}
+      {data && <p>{data[0].phonetic}</p>}
     </main>
   );
 }
