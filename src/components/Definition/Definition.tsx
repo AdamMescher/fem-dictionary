@@ -50,14 +50,15 @@ const RelatedWords = ({ relation, words }: RelatedWordsProps) => {
     <div className={styles['related-words-container']}>
       <h3 className={styles['section-heading']}>{relation}</h3>
       <ul className={styles['related-words-list']}>
-        {words.map((word) => (
+        {words.map((word, idx, arr) => (
           <li className={styles['related-words-list-item']} key={word}>
             <Link
               className={styles['related-words-list-link']}
-              href={`/${word}`}
+              href={`https://en.wiktionary.org/wiki/${word}`}
             >
               {word}
             </Link>
+            {idx !== arr.length - 1 ? ', ' : null}
           </li>
         ))}
       </ul>
