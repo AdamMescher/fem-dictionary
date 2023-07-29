@@ -1,9 +1,13 @@
 import * as React from 'react';
 import type { Preview } from '@storybook/react';
+import { initialize, mswLoader } from 'msw-storybook-addon';
 import { inter, lora, inconsolata } from '../src/app/fonts';
 import { useTheme } from './useTheme';
 import { useFont } from './useFont';
 import '../src/styles/globals.scss';
+
+// Initialize MSW
+initialize();
 
 const themeToolbarItems = [
   {
@@ -73,6 +77,7 @@ const preview: Preview = {
       },
     },
   },
+  loaders: [mswLoader],
 };
 
 const decorators = [

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
+import PlayButton from '@/components/PlayButton';
 import Icon from '@/components/Icon';
 import styles from './Definition.module.scss';
 
@@ -120,7 +121,19 @@ function Meaning({
   );
 }
 
-function Definition({ word, phonetic, meanings, sourceUrls }: DefinitionProps) {
+function Definition({
+  word,
+  phonetic,
+  phonetics,
+  meanings,
+  sourceUrls,
+}: DefinitionProps) {
+  const audio = phonetics.filter((phonetic) => {
+    if (phonetic.audio) {
+      return phonetic.audio;
+    }
+  })[0]?.audio;
+
   return (
     <div className={styles.wrapper}>
       <article data-testid='definition'>
@@ -129,18 +142,7 @@ function Definition({ word, phonetic, meanings, sourceUrls }: DefinitionProps) {
             <h1>{word}</h1>
             <h2 className={styles.phonetic}>{phonetic}</h2>
           </div>
-          <button
-            type='button'
-            className={styles['play-button']}
-            aria-label='Play'
-          >
-            <Icon
-              name='play'
-              height='48px'
-              width='48px'
-              color='var(--color-primary-purple)'
-            />
-          </button>
+          {audio ? <PlayButton url={audio} /> : null}
         </div>
         <div className={styles['meanings-container']}>
           {meanings.map((meaning) => (
