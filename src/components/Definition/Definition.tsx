@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
+import { useQuery } from '@tanstack/react-query';
 import PlayButton from '@/components/PlayButton';
 import Icon from '@/components/Icon';
 import styles from './Definition.module.scss';
@@ -89,6 +90,9 @@ function Meaning({
   synonyms,
   antonyms,
 }: MeaningProps) {
+  const uniqueSynonyms = [...new Set(synonyms)];
+  const uniqueAntonyms = [...new Set(antonyms)];
+
   return (
     <div className={styles.meaning}>
       <div className={styles['speech-divider']}>
@@ -99,10 +103,7 @@ function Meaning({
         <h3 className={styles['section-heading']}>Meaning</h3>
         <ul className={styles['meaning-list']}>
           {definitions.map((def) => (
-            <li
-              className={styles['definition-list-item']}
-              key={def.definition.slice(1, 10)}
-            >
+            <li className={styles['definition-list-item']} key={def.definition}>
               {def.definition}
               {def?.example ? (
                 <p className={styles.example}>&#8220;{def.example}&#8221;</p>
@@ -111,11 +112,11 @@ function Meaning({
           ))}
         </ul>
       </div>
-      {synonyms.length >= 1 ? (
-        <RelatedWords relation='Synonyms' words={synonyms} />
+      {uniqueSynonyms.length >= 1 ? (
+        <RelatedWords relation='Synonyms' words={uniqueSynonyms} />
       ) : null}
-      {antonyms.length >= 1 ? (
-        <RelatedWords relation='Antonyms' words={antonyms} />
+      {uniqueAntonyms.length >= 1 ? (
+        <RelatedWords relation='Antonyms' words={uniqueAntonyms} />
       ) : null}
     </div>
   );
@@ -134,20 +135,43 @@ function Definition({
     }
   })[0]?.audio;
 
+  const fetchAudioFile = async () => {
+    const response = await fetch(audio);
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    return URL.createObjectURL(await response.blob());
+  };
+
+  const useAudioFile = () => {
+    return useQuery({
+      queryKey: ['audio', audio],
+      queryFn: fetchAudioFile,
+    });
+  };
+
+  const { error, data } = useAudioFile();
+
+  if (error) return 'An error has occurred: ' + (error as Error).message;
+
+  const audioFile = new Audio(data);
+
   return (
     <div className={styles.wrapper}>
       <article data-testid='definition'>
+        <div>
+          <h1>{word}</h1>
+          <h2 className={styles.phonetic}>{phonetic}</h2>
+        </div>
         <div className={styles.heading}>
-          <div>
-            <h1>{word}</h1>
-            <h2 className={styles.phonetic}>{phonetic}</h2>
-          </div>
-          {audio ? <PlayButton url={audio} /> : null}
+          {audioFile ? <PlayButton file={audioFile} /> : null}
         </div>
         <div className={styles['meanings-container']}>
-          {meanings.map((meaning) => (
+          {meanings.map((meaning, idx) => (
             <Meaning
-              key={meaning.partOfSpeech}
+              key={meaning.partOfSpeech + idx}
               partOfSpeech={meaning.partOfSpeech}
               definitions={meaning.definitions}
               synonyms={meaning.synonyms}
@@ -158,9 +182,16 @@ function Definition({
         <div className={styles.source}>
           <h3 className={styles['source-heading']}>Source</h3>
           <ul className={styles['source-url-list']}>
-            {sourceUrls.map((url: string) => (
-              <SourceURL url={url} key={url} />
-            ))}
+            {sourceUrls.map((url: string, idx, arr) => {
+              return idx !== arr.length - 1 ? (
+                <div key={url}>
+                  <SourceURL url={url} />
+                  <span>|</span>
+                </div>
+              ) : (
+                <SourceURL url={url} key={url} />
+              );
+            })}
           </ul>
         </div>
       </article>

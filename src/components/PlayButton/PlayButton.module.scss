@@ -1,15 +1,26 @@
-.button {
-  border: 2px solid transparent;
+.wrapper button {
+  border: none;
+  background: none;
+  padding: 0;
+  background-color: hsl(var(--color-primary-purple-hsl) / 25%);
   border-radius: 50%;
-  background: black;
-  color: white;
-  height: 100px;
-  width: 100px;
+  height: 48px;
+  width: 48px;
+  display: grid;
+  place-items: center;
 }
 
-.button:hover {
+.wrapper button>svg {
+  color: var(--color-primary-purple);
+  height: 32px;
+  width: 32px;
+}
+
+.wrapper button:hover {
   cursor: pointer;
-  background: white;
-  color: black;
-  border-color: black;
+  background-color: var(--color-primary-purple);
+}
+
+.wrapper button:hover>svg {
+  color: var(--color-neutral-white);
 }

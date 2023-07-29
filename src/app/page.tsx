@@ -74,7 +74,7 @@ export default function Home() {
       {data &&
         data.map((definition: any, idx: number) => (
           <Definition
-            key={idx}
+            key={definition.word + idx}
             word={definition.word}
             phonetic={definition.phonetic}
             phonetics={definition.phonetics}

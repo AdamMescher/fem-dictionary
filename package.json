@@ -83,6 +83,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.13",
     "global-jsdom": "^9.0.1",
+    "howler": "^2.2.3",
     "jest-axe": "^7.0.1",
     "jsdom": "^22.1.0",
     "msw": "^1.2.3",

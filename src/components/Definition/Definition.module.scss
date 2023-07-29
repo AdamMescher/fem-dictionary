@@ -26,27 +26,6 @@
   color: var(--color-primary-purple);
 }
 
-.play-button {
-  border: none;
-  background: none;
-  padding: 0;
-  background-color: hsl(var(--color-primary-purple-hsl) / 25%);
-  border-radius: 50%;
-  height: 48px;
-  width: 48px;
-  display: grid;
-  place-items: center;
-}
-
-.play-button:hover {
-  cursor: pointer;
-  background-color: var(--color-primary-purple);
-}
-
-.play-button:hover>svg {
-  color: var(--color-neutral-white);
-}
-
 .meaning {
   margin-top: 32px;
   display: flex;
@@ -128,8 +107,12 @@
   list-style: none;
 }
 
+.related-words-list-item {
+  display: inline;
+}
+
 .related-words-list-item:not(:first-child) {
-  margin-left: 16px;
+  margin-left: 4px;
 }
 
 .related-words-list-link {
@@ -166,12 +149,21 @@
   padding: 0;
   margin-left: 20px;
   font-size: var(--typography-font-size-body-small);
+  display: flex;
+}
+
+.source-url-list span {
+  margin-left: 8px;
 }
 
 .source-url-list-item {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.source-url-list-divider {
+  margin-right: 12px;
 }
 
 .source-url-list-item:not(:first-child) {
