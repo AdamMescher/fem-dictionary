@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Icon from '@/components/Icon';
 import styles from './PlayButton.module.scss';
 
 interface PlayButtonProps {
@@ -34,8 +35,24 @@ const PlayButton = ({ file }: PlayButtonProps) => {
   };
 
   return (
-    <div>
-      <button onClick={handleClick}>{playing ? 'pause' : 'play'}</button>
+    <div className={styles.wrapper}>
+      <button onClick={handleClick}>
+        {playing ? (
+          <Icon
+            name='stop'
+            height='24px'
+            width='12px'
+            color='var(--color-primary-purple)'
+          />
+        ) : (
+          <Icon
+            name='play'
+            height='24px'
+            width='24px'
+            color='var(--color-primary-purple)'
+          />
+        )}
+      </button>
     </div>
   );
 };

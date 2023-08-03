@@ -32,6 +32,9 @@
     <symbol viewBox="0 0 75 75" id="play" fill="currentColor">
       <path d="M29 27v21l21-10.5z" />
     </symbol>
+    <symbol viewBox="0 0 75 75" id="stop" fill="currentColor">
+      <rect x="27" y="27" width="21" height="21" />
+    </symbol>
     <symbol
       id="search"
       viewBox="0 0 18 18"
@@ -74,14 +77,6 @@
       <line x1="21" y1="12" x2="23" y2="12"></line>
       <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
       <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </symbol>
-    <symbol
-      id="loading-animation-pulse-one"
-      viewBox="0 0 24 24"
-      fill="currentColor">
-      <circle className="icon-loading-animation-pulse-one-spinner-one" cx="12" cy="12" r="0"></circle>
-      <circle className="icon-loading-animation-pulse-one-spinner-two" cx="12" cy="12" r="0"></circle>
-      <circle className="icon-loading-animation-pulse-one-spinner-three" cx="12" cy="12" r="0"></circle>
     </symbol>
   </defs>
 </svg>
