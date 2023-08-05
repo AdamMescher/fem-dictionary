@@ -4,6 +4,7 @@ import * as React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Search from '@/components/Search';
 import Definition from '@/components/Definition';
+import EmptyWordSearchResult from '@/components/EmptyWordSearchResult';
 import styles from '../styles/HomePage.module.scss';
 
 export default function Home() {
@@ -14,6 +15,10 @@ export default function Home() {
     const response = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${searchValue}`
     );
+
+    if (response.status === 404) {
+      return response.json();
+    }
 
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -71,7 +76,9 @@ export default function Home() {
         onSearch={() => handleSearchSubmit(searchValue)}
         onKeyDown={(event: any) => handleSearchKeyDown(event)}
       />
+      {data && data?.resolution && <EmptyWordSearchResult response={data} />}
       {data &&
+        data?.[0]?.word &&
         data.map((definition: any, idx: number) => (
           <Definition
             key={definition.word + idx}
