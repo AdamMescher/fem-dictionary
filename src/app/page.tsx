@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import Search from '@/components/Search';
 import Definition from '@/components/Definition';
 import EmptyWordSearchResult from '@/components/EmptyWordSearchResult';
+import DefinitionFetchError from '@/components/DefinitionFetchError';
 import styles from '../styles/HomePage.module.scss';
 
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
     }
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      return response.json();
     }
 
     return response.json();
@@ -65,8 +66,6 @@ export default function Home() {
     }
   };
 
-  if (error) return 'An error has occurred: ' + (error as Error).message;
-
   return (
     <main className={`${styles.main}`}>
       <Search
@@ -76,6 +75,11 @@ export default function Home() {
         onSearch={() => handleSearchSubmit(searchValue)}
         onKeyDown={(event: any) => handleSearchKeyDown(event)}
       />
+      {error && (
+        <div>
+          <DefinitionFetchError />
+        </div>
+      )}
       {data && data?.resolution && <EmptyWordSearchResult response={data} />}
       {data &&
         data?.[0]?.word &&
