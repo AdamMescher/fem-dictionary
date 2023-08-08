@@ -162,6 +162,11 @@
   gap: 12px;
 }
 
+li+ :not(nth-last-of-type())::before {
+  content: " | ";
+}
+
+
 .source-url-list-divider {
   margin-right: 12px;
 }

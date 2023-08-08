@@ -183,16 +183,9 @@ function Definition({
         <div className={styles.source}>
           <h3 className={styles['source-heading']}>Source</h3>
           <ul className={styles['source-url-list']}>
-            {sourceUrls.map((url: string, idx, arr) =>
-              idx !== arr.length - 1 ? (
-                <div key={url}>
-                  <SourceURL url={url} />
-                  <span>|</span>
-                </div>
-              ) : (
-                <SourceURL url={url} key={url} />
-              )
-            )}
+            {sourceUrls.map((url: string) => (
+              <SourceURL url={url} key={uuidv4()} />
+            ))}
           </ul>
         </div>
       </article>
