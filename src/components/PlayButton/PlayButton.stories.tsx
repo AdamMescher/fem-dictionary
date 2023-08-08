@@ -29,7 +29,7 @@ export const PinkPanther: Story = {
   render: (args: any) => <PlayButton {...args} />,
 };
 
-export const PopNotification: Story = {
+export const onAudioEnd: Story = {
   args: {
     file: new Audio(popNotification),
   },

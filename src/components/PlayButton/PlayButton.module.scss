@@ -1,19 +1,13 @@
 .wrapper button {
   border: none;
   background: none;
-  padding: 0;
   background-color: hsl(var(--color-primary-purple-hsl) / 25%);
   border-radius: 50%;
   height: 48px;
   width: 48px;
   display: grid;
   place-items: center;
-}
-
-.wrapper button>svg {
-  color: var(--color-primary-purple);
-  height: 32px;
-  width: 32px;
+  transition: 300ms;
 }
 
 .wrapper button:hover {
@@ -21,10 +15,15 @@
   background-color: var(--color-primary-purple);
 }
 
-.wrapper button:hover>svg {
-  color: var(--color-neutral-white);
+.wrapper button>svg {
+  height: 65%;
+  width: 65%;
 }
 
-.wrapper buttton:hover>svg path {
-  color: green;
+.wrapper button>svg>.polygon {
+  fill: var(--color-primary-purple);
+}
+
+.wrapper button:hover>svg>.polygon {
+  fill: var(--color-neutral-white);
 }

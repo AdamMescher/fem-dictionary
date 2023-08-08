@@ -34,9 +34,9 @@ const PlayButton = ({ file }: PlayButtonProps) => {
     }
   };
 
-  const points = {
-    triangle: '0,0 43.3,25 86.6,50 86.6,50 86.6,50 43.3,75 0,100',
-    square: '0,0 50,0 100,0 100,50 100,100 50,100 0,100',
+  const polyPoints = {
+    triangle: '13.4,0 56.7,25 100,50 100,50 100,50 56.7,75 13.4,100',
+    square: '10,10 50,10 90,10 90,50 90,90 50,90 10,90',
   };
 
   const polygonRef = React.useRef(null);
@@ -48,14 +48,11 @@ const PlayButton = ({ file }: PlayButtonProps) => {
       targets: polygon,
       points: [
         {
-          value: [
-            '0,0 43.3,25 86.6,50 86.6,50 86.6,50 43.3,75 0,100',
-            '0,0 50,0 100,0 100,50 100,100 50,100 0,100',
-          ],
+          value: [polyPoints.triangle, polyPoints.square],
         },
       ],
       easing: 'easeInOutQuint',
-      duration: 300,
+      duration: 400,
     });
   };
 
@@ -66,14 +63,11 @@ const PlayButton = ({ file }: PlayButtonProps) => {
       targets: polygon,
       points: [
         {
-          value: [
-            '0,0 50,0 100,0 100,50 100,100 50,100 0,100',
-            '0,0 43.3,25 86.6,50 86.6,50 86.6,50 43.3,75 0,100',
-          ],
+          value: [polyPoints.square, polyPoints.triangle],
         },
       ],
       easing: 'easeInOutQuint',
-      duration: 300,
+      duration: 400,
     });
   };
 
@@ -89,7 +83,11 @@ const PlayButton = ({ file }: PlayButtonProps) => {
     <div className={styles.wrapper}>
       <button onClick={handleClick}>
         <svg viewBox='0 0 100 100'>
-          <polygon ref={polygonRef} points={points.triangle} />
+          <polygon
+            className={styles.polygon}
+            ref={polygonRef}
+            points={polyPoints.triangle}
+          />
         </svg>
       </button>
     </div>
