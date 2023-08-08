@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { v4 as uuidv4 } from 'uuid';
 import Search from '@/components/Search';
 import Definition from '@/components/Definition';
 import EmptyWordSearchResult from '@/components/EmptyWordSearchResult';
@@ -28,15 +29,14 @@ export default function Home() {
     return response.json();
   };
 
-  const useDefinition = () => {
-    return useQuery({
+  const useDefinition = () =>
+    useQuery({
       queryKey: ['definition', searchValue],
       queryFn: fetchDefinition,
       enabled: false,
     });
-  };
 
-  const { error, data, refetch, isFetching } = useDefinition();
+  const { error, data, refetch } = useDefinition();
 
   const handleSearchChange = (event: any) => {
     const { value } = event.target;
@@ -83,9 +83,9 @@ export default function Home() {
       {data && data?.resolution && <EmptyWordSearchResult response={data} />}
       {data &&
         data?.[0]?.word &&
-        data.map((definition: any, idx: number) => (
+        data.map((definition: any) => (
           <Definition
-            key={definition.word + idx}
+            key={uuidv4()}
             word={definition.word}
             phonetic={definition.phonetic}
             phonetics={definition.phonetics}

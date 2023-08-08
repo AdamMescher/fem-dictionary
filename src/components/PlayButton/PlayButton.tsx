@@ -1,12 +1,13 @@
 import * as React from 'react';
 import anime from 'animejs';
+import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import styles from './PlayButton.module.scss';
 
 interface PlayButtonProps {
   file: any;
 }
 
-const PlayButton = ({ file }: PlayButtonProps) => {
+function PlayButton({ file }: PlayButtonProps) {
   const [playing, setPlaying] = React.useState(false);
 
   if (!file) {
@@ -80,8 +81,11 @@ const PlayButton = ({ file }: PlayButtonProps) => {
   }, [playing]);
 
   return (
-    <div className={styles.wrapper}>
-      <button onClick={handleClick}>
+    <div className={styles.wrapper} data-testid='play-button'>
+      <button type='button' onClick={handleClick}>
+        <VisuallyHidden.Root>
+          {playing ? 'stop audio' : 'play audio'}
+        </VisuallyHidden.Root>
         <svg viewBox='0 0 100 100'>
           <polygon
             className={styles.polygon}
@@ -92,6 +96,6 @@ const PlayButton = ({ file }: PlayButtonProps) => {
       </button>
     </div>
   );
-};
+}
 
 export default PlayButton;

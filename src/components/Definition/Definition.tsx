@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
+import { v4 as uuidv4 } from 'uuid';
 import PlayButton from '@/components/PlayButton';
 import Icon from '@/components/Icon';
 import styles from './Definition.module.scss';
@@ -20,7 +21,7 @@ export interface IMeaning {
   antonyms: string[];
 }
 
-export interface RelatedWords {
+export interface IRelatedWords {
   relation: string;
   words: string[];
 }
@@ -44,10 +45,10 @@ export interface ISourceURL {
 
 interface SourceURLProps extends ISourceURL {}
 interface MeaningProps extends IMeaning {}
-interface RelatedWordsProps extends RelatedWords {}
+interface RelatedWordsProps extends IRelatedWords {}
 interface DefinitionProps extends IDefinition {}
 
-const RelatedWords = ({ relation, words }: RelatedWordsProps) => {
+function RelatedWords({ relation, words }: RelatedWordsProps) {
   return (
     <div className={styles['related-words-container']}>
       <h3 className={styles['section-heading']}>{relation}</h3>
@@ -66,7 +67,7 @@ const RelatedWords = ({ relation, words }: RelatedWordsProps) => {
       </ul>
     </div>
   );
-};
+}
 
 function SourceURL({ url }: SourceURLProps) {
   return (
@@ -129,10 +130,11 @@ function Definition({
   meanings,
   sourceUrls,
 }: DefinitionProps) {
-  const audio = phonetics.filter((phonetic) => {
-    if (phonetic.audio) {
-      return phonetic.audio;
+  const audio = phonetics.filter((pho) => {
+    if (pho.audio) {
+      return pho.audio;
     }
+    return null;
   })[0]?.audio;
 
   const fetchAudioFile = async () => {
@@ -145,16 +147,15 @@ function Definition({
     return URL.createObjectURL(await response.blob());
   };
 
-  const useAudioFile = () => {
-    return useQuery({
+  const useAudioFile = () =>
+    useQuery({
       queryKey: ['audio', audio],
       queryFn: fetchAudioFile,
     });
-  };
 
   const { error, data } = useAudioFile();
 
-  if (error) return 'An error has occurred: ' + (error as Error).message;
+  if (error) return `An error has occurred: ${(error as Error).message}`;
 
   const audioFile = new Audio(data);
 
@@ -169,9 +170,9 @@ function Definition({
           <div>{audioFile ? <PlayButton file={audioFile} /> : null}</div>
         </div>
         <div className={styles['meanings-container']}>
-          {meanings.map((meaning, idx) => (
+          {meanings.map((meaning) => (
             <Meaning
-              key={meaning.partOfSpeech + idx}
+              key={uuidv4()}
               partOfSpeech={meaning.partOfSpeech}
               definitions={meaning.definitions}
               synonyms={meaning.synonyms}
@@ -182,16 +183,16 @@ function Definition({
         <div className={styles.source}>
           <h3 className={styles['source-heading']}>Source</h3>
           <ul className={styles['source-url-list']}>
-            {sourceUrls.map((url: string, idx, arr) => {
-              return idx !== arr.length - 1 ? (
+            {sourceUrls.map((url: string, idx, arr) =>
+              idx !== arr.length - 1 ? (
                 <div key={url}>
                   <SourceURL url={url} />
                   <span>|</span>
                 </div>
               ) : (
                 <SourceURL url={url} key={url} />
-              );
-            })}
+              )
+            )}
           </ul>
         </div>
       </article>

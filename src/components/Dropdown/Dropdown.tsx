@@ -1,9 +1,9 @@
 'use client';
 
 import * as React from 'react';
+import { useOnClickOutside } from 'usehooks-ts';
 import styles from './Dropdown.module.scss';
 
-import { useOnClickOutside } from 'usehooks-ts';
 
 interface DropdownProps {
   trigger: React.ReactElement<any, string | React.JSXElementConstructor<any>>;

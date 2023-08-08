@@ -188,12 +188,24 @@
   background-color: var(--color-neutral-gray-2);
 }
 
+/* LIGHT THEME STYLES */
+
 [data-theme='light'] .wrapper {
   color: var(--color-neutral-off-black);
 }
 
+/* DARK THEME STYLES */
+
 [data-theme='dark'] .wrapper {
   color: var(--color-neutral-white);
+}
+
+[data-theme='dark'] .source-url-list-item a {
+  color: var(--color-neutral-white);
+}
+
+[data-theme='dark'] .source-url-list-item a:hover {
+  color: var(--color-neutral-gray-2);
 }
 
 /* SANS-SERIF STYLES */

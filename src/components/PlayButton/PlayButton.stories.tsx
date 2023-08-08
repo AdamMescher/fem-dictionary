@@ -3,8 +3,11 @@
 import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import PlayButton from './PlayButton';
+// @ts-ignore
 import imperialMarchAudio from '../../../public/assets/audio/imperialMarch60.wav';
+// @ts-ignore
 import pinkPantherAudio from '../../../public/assets/audio/pinkPanther30.wav';
+// @ts-ignore
 import popNotification from '../../../public/assets/audio/popNotification.wav';
 
 export default {
@@ -29,7 +32,7 @@ export const PinkPanther: Story = {
   render: (args: any) => <PlayButton {...args} />,
 };
 
-export const onAudioEnd: Story = {
+export const OnAudioEnd: Story = {
   args: {
     file: new Audio(popNotification),
   },
