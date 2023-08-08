@@ -63,7 +63,10 @@ function ThemeToggle() {
         <VisuallyHidden.Root>Theme Switch</VisuallyHidden.Root>
         <Switch.Thumb className={styles['switch-thumb']} />
       </Switch.Root>
-      <div className={styles['theme-icon-container']} data-testid='theme-toggle-dark'>
+      <div
+        className={styles['theme-icon-container']}
+        data-testid='theme-toggle-dark'
+      >
         <Icon
           name='moon'
           color='var(--color-primary-purple)'

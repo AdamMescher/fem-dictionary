@@ -15,15 +15,15 @@
   background-color: var(--color-primary-purple);
 }
 
-.wrapper button>svg {
+.wrapper button > svg {
   height: 45%;
   width: 45%;
 }
 
-.wrapper button>svg>.polygon {
+.wrapper button > svg > .polygon {
   fill: var(--color-primary-purple);
 }
 
-.wrapper button:hover>svg>.polygon {
+.wrapper button:hover > svg > .polygon {
   fill: var(--color-neutral-white);
 }

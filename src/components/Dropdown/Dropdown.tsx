@@ -4,7 +4,6 @@ import * as React from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
 import styles from './Dropdown.module.scss';
 
-
 interface DropdownProps {
   trigger: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
   menu: React.ReactElement<any, string | React.JSXElementConstructor<any>>[];
@@ -35,7 +34,11 @@ function Dropdown({ trigger, menu }: DropdownProps) {
       {open ? (
         <ul className={styles.menu} data-testid='dropdown-menu'>
           {menu.map((menuItem) => (
-            <li key={menuItem.key} className={styles['menu-item']} data-testid='dropdown-menu-item'>
+            <li
+              key={menuItem.key}
+              className={styles['menu-item']}
+              data-testid='dropdown-menu-item'
+            >
               {React.cloneElement(menuItem, {
                 onClick: () => {
                   menuItem.props.onClick();

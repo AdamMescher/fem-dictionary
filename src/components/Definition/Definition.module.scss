@@ -136,7 +136,6 @@
   font-weight: var(--typography-font-weight-regular);
   font-size: var(--typography-font-size-body-small);
   text-decoration-line: underline;
-
 }
 
 .source-url {
@@ -162,10 +161,9 @@
   gap: 12px;
 }
 
-li+ :not(nth-last-of-type())::before {
-  content: " | ";
+li + :not(nth-last-of-type())::before {
+  content: ' | ';
 }
-
 
 .source-url-list-divider {
   margin-right: 12px;
