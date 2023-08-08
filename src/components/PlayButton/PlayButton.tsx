@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Icon from '@/components/Icon';
+import anime from 'animejs';
 import styles from './PlayButton.module.scss';
 
 interface PlayButtonProps {
@@ -34,24 +34,63 @@ const PlayButton = ({ file }: PlayButtonProps) => {
     }
   };
 
+  const points = {
+    triangle: '0,0 43.3,25 86.6,50 86.6,50 86.6,50 43.3,75 0,100',
+    square: '0,0 50,0 100,0 100,50 100,100 50,100 0,100',
+  };
+
+  const polygonRef = React.useRef(null);
+
+  const animateSquareToTriangle = () => {
+    const polygon = polygonRef.current;
+
+    anime({
+      targets: polygon,
+      points: [
+        {
+          value: [
+            '0,0 43.3,25 86.6,50 86.6,50 86.6,50 43.3,75 0,100',
+            '0,0 50,0 100,0 100,50 100,100 50,100 0,100',
+          ],
+        },
+      ],
+      easing: 'easeInOutQuint',
+      duration: 300,
+    });
+  };
+
+  const animationSquareToTriangle = () => {
+    const polygon = polygonRef.current;
+
+    anime({
+      targets: polygon,
+      points: [
+        {
+          value: [
+            '0,0 50,0 100,0 100,50 100,100 50,100 0,100',
+            '0,0 43.3,25 86.6,50 86.6,50 86.6,50 43.3,75 0,100',
+          ],
+        },
+      ],
+      easing: 'easeInOutQuint',
+      duration: 300,
+    });
+  };
+
+  React.useEffect(() => {
+    if (playing) {
+      animateSquareToTriangle();
+    } else {
+      animationSquareToTriangle();
+    }
+  }, [playing]);
+
   return (
     <div className={styles.wrapper}>
       <button onClick={handleClick}>
-        {playing ? (
-          <Icon
-            name='stop'
-            height='24px'
-            width='12px'
-            color='var(--color-primary-purple)'
-          />
-        ) : (
-          <Icon
-            name='play'
-            height='24px'
-            width='24px'
-            color='var(--color-primary-purple)'
-          />
-        )}
+        <svg viewBox='0 0 100 100'>
+          <polygon ref={polygonRef} points={points.triangle} />
+        </svg>
       </button>
     </div>
   );

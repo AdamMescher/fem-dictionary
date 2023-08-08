@@ -29,11 +29,11 @@
       <path
         d="M6.09 3.545H2.456A1.455 1.455 0 0 0 1 5v6.545A1.455 1.455 0 0 0 2.455 13H9a1.455 1.455 0 0 0 1.455-1.455V7.91m-5.091.727 7.272-7.272m0 0H9m3.636 0V5" />
     </symbol>
-    <symbol viewBox="0 0 75 75" id="play" fill="currentColor">
-      <path d="M29 27v21l21-10.5z" />
+    <symbol viewBox="0 0 100 100" id="play" fill="currentColor">
+      <polygon points="0,0 43.3,25 86.6,50 86.6,50 86.6,50 43.3,75 0,100" />
     </symbol>
-    <symbol viewBox="0 0 75 75" id="stop" fill="currentColor">
-      <rect x="27" y="27" width="21" height="21" />
+    <symbol viewBox="0 0 100 100" id="stop" fill="currentColor">
+      <polygon points="0,0 50,0 100,0 100,50 100,100 50,100 0,100" />
     </symbol>
     <symbol
       id="search"

@@ -161,12 +161,12 @@ function Definition({
   return (
     <div className={styles.wrapper}>
       <article data-testid='definition'>
-        <div>
-          <h1>{word}</h1>
-          <h2 className={styles.phonetic}>{phonetic}</h2>
-        </div>
         <div className={styles.heading}>
-          {audioFile ? <PlayButton file={audioFile} /> : null}
+          <div>
+            <h1>{word}</h1>
+            <h2 className={styles.phonetic}>{phonetic}</h2>
+          </div>
+          <div>{audioFile ? <PlayButton file={audioFile} /> : null}</div>
         </div>
         <div className={styles['meanings-container']}>
           {meanings.map((meaning, idx) => (

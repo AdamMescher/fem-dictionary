@@ -2,8 +2,10 @@
 
 import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import Providers from '@/app/providers';
 import PlayButton from './PlayButton';
+import imperialMarchAudio from '../../../public/assets/audio/imperialMarch60.wav';
+import pinkPantherAudio from '../../../public/assets/audio/pinkPanther30.wav';
+import popNotification from '../../../public/assets/audio/popNotification.wav';
 
 export default {
   component: PlayButton,
@@ -13,13 +15,23 @@ export default {
 
 type Story = StoryObj<typeof PlayButton>;
 
-export const Default: Story = {
+export const ImperialMarch: Story = {
   args: {
-    url: 'https://api.dictionaryapi.dev/media/pronunciations/en/keyboard-us.mp3',
+    file: new Audio(imperialMarchAudio),
   },
-  render: (args: any) => (
-    <Providers>
-      <PlayButton {...args} />
-    </Providers>
-  ),
+  render: (args: any) => <PlayButton {...args} />,
+};
+
+export const PinkPanther: Story = {
+  args: {
+    file: new Audio(pinkPantherAudio),
+  },
+  render: (args: any) => <PlayButton {...args} />,
+};
+
+export const PopNotification: Story = {
+  args: {
+    file: new Audio(popNotification),
+  },
+  render: (args: any) => <PlayButton {...args} />,
 };

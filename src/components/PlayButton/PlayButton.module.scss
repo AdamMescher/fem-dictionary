@@ -24,3 +24,7 @@
 .wrapper button:hover>svg {
   color: var(--color-neutral-white);
 }
+
+.wrapper buttton:hover>svg path {
+  color: green;
+}
