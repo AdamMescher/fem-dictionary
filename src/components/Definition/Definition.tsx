@@ -130,7 +130,7 @@ function Definition({
   meanings,
   sourceUrls,
 }: DefinitionProps) {
-  const audio = phonetics.filter((pho) => {
+  const audio = phonetics?.filter((pho) => {
     if (pho.audio) {
       return pho.audio;
     }
@@ -155,8 +155,6 @@ function Definition({
 
   const { error, data } = useAudioFile();
 
-  if (error) return `An error has occurred: ${(error as Error).message}`;
-
   const audioFile = new Audio(data);
 
   return (
@@ -167,7 +165,13 @@ function Definition({
             <h1>{word}</h1>
             <h2 className={styles.phonetic}>{phonetic}</h2>
           </div>
-          <div>{audioFile ? <PlayButton file={audioFile} /> : null}</div>
+          <div>
+            {error ? (
+              <button>ERROR!</button>
+            ) : audioFile ? (
+              <PlayButton file={audioFile} />
+            ) : null}
+          </div>
         </div>
         <div className={styles['meanings-container']}>
           {meanings.map((meaning) => (

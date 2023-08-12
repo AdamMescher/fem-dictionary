@@ -111,9 +111,9 @@
   display: inline;
 }
 
-.related-words-list-item:not(:first-child) {
-  margin-left: 4px;
-}
+// .related-words-list-item:not(:last-child):after {
+//   content: ", ";
+// }
 
 .related-words-list-link {
   cursor: pointer;
@@ -159,10 +159,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-}
-
-li + :not(nth-last-of-type())::before {
-  content: ' | ';
 }
 
 .source-url-list-divider {

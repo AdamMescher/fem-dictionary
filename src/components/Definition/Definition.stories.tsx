@@ -1,8 +1,14 @@
 /* eslint-disable react/jsx-props-no-spreading, import/no-extraneous-dependencies */
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { rest } from 'msw';
 import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
+import { v4 as uuidv4 } from 'uuid';
 import Definition from './Definition';
+import definitionResponseSuccess from '../../../__mocks__/api/definition/success';
+
+const queryClient = new QueryClient();
 
 export default {
   component: Definition,
@@ -63,9 +69,11 @@ export const Default: Story = {
     sourceUrls,
   },
   render: (args: any) => (
-    <div data-font='Sans Serif'>
-      <Definition {...args} />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div data-font='Sans Serif'>
+        <Definition {...args} />
+      </div>
+    </QueryClientProvider>
   ),
 };
 
@@ -80,9 +88,11 @@ export const Light: Story = {
     backgrounds: { default: 'light' },
   },
   render: (args: any) => (
-    <div data-theme='light' data-font='Sans Serif'>
-      <Definition {...args} />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div data-theme='light' data-font='Sans Serif'>
+        <Definition {...args} />
+      </div>
+    </QueryClientProvider>
   ),
 };
 
@@ -97,9 +107,11 @@ export const Dark: Story = {
     backgrounds: { default: 'dark' },
   },
   render: (args: any) => (
-    <div data-theme='dark' data-font='Sans Serif'>
-      <Definition {...args} />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div data-theme='dark' data-font='Sans Serif'>
+        <Definition {...args} />
+      </div>
+    </QueryClientProvider>
   ),
 };
 
@@ -111,9 +123,11 @@ export const SanSerif: Story = {
     sourceUrls,
   },
   render: (args: any) => (
-    <div data-font='Sans Serif'>
-      <Definition {...args} />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div data-font='Sans Serif'>
+        <Definition {...args} />
+      </div>
+    </QueryClientProvider>
   ),
 };
 
@@ -125,9 +139,11 @@ export const Serif: Story = {
     sourceUrls,
   },
   render: (args: any) => (
-    <div data-font='Serif'>
-      <Definition {...args} />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div data-font='Serif'>
+        <Definition {...args} />
+      </div>
+    </QueryClientProvider>
   ),
 };
 export const Mono: Story = {
@@ -138,8 +154,47 @@ export const Mono: Story = {
     sourceUrls,
   },
   render: (args: any) => (
-    <div data-font='Mono'>
-      <Definition {...args} />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div data-font='Mono'>
+        <Definition {...args} />
+      </div>
+    </QueryClientProvider>
+  ),
+};
+
+export const AsyncSuccessBehavior: Story = {
+  args: {},
+  loaders: [
+    async () => ({
+      data: await (
+        await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/yuck')
+      ).json(),
+    }),
+  ],
+  parameters: {
+    msw: {
+      handlers: [
+        rest.get(
+          'https://api.dictionaryapi.dev/api/v2/entries/en/yuck',
+          (req, res, ctx) => {
+            return res(ctx.json(definitionResponseSuccess));
+          }
+        ),
+      ],
+    },
+  },
+  render: (args: any, { loaded: { data } }) => (
+    <QueryClientProvider client={queryClient}>
+      {data.map((definition: any) => (
+        <Definition
+          key={uuidv4()}
+          word={definition.word}
+          phonetic={definition.phonetic}
+          phonetics={definition.phonetics}
+          meanings={definition.meanings}
+          sourceUrls={definition.sourceUrls}
+        />
+      ))}
+    </QueryClientProvider>
   ),
 };

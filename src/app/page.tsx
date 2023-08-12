@@ -36,7 +36,7 @@ export default function Home() {
       enabled: false,
     });
 
-  const { error, data, refetch } = useDefinition();
+  const { error, data, refetch, isFetching } = useDefinition();
 
   const handleSearchChange = (event: any) => {
     const { value } = event.target;
@@ -71,6 +71,7 @@ export default function Home() {
       <Search
         value={searchValue}
         error={searchError}
+        isFetching={isFetching}
         onChange={(event: any) => handleSearchChange(event)}
         onSearch={() => handleSearchSubmit(searchValue)}
         onKeyDown={(event: any) => handleSearchKeyDown(event)}
