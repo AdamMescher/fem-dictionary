@@ -43,10 +43,10 @@ export interface ISourceURL {
   url: string;
 }
 
-interface SourceURLProps extends ISourceURL {}
-interface MeaningProps extends IMeaning {}
-interface RelatedWordsProps extends IRelatedWords {}
-interface DefinitionProps extends IDefinition {}
+interface SourceURLProps extends ISourceURL { }
+interface MeaningProps extends IMeaning { }
+interface RelatedWordsProps extends IRelatedWords { }
+interface DefinitionProps extends IDefinition { }
 
 function RelatedWords({ relation, words }: RelatedWordsProps) {
   return (
@@ -130,8 +130,6 @@ function Definition({
   meanings,
   sourceUrls,
 }: DefinitionProps) {
-  const [audioError, setAudioError] = React.useState(false);
-
   const audio = phonetics?.filter((pho) => {
     if (pho.audio) {
       return pho.audio;
@@ -156,13 +154,9 @@ function Definition({
       retry: false,
     });
 
-  const { error, data } = useAudioFile();
+  const { error, data, isFetching } = useAudioFile();
 
   const audioFile = new Audio(data);
-
-  if (error) {
-    setAudioError(true);
-  }
 
   return (
     <div className={styles.wrapper}>
@@ -173,8 +167,8 @@ function Definition({
             <h2 className={styles.phonetic}>{phonetic}</h2>
           </div>
           <div>
-            {audioFile ? (
-              <PlayButton file={audioFile} error={audioError} />
+            {!isFetching && !error && audioFile ? (
+              <PlayButton file={audioFile} />
             ) : null}
           </div>
         </div>

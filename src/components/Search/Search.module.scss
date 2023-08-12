@@ -9,7 +9,7 @@
   gap: 8px;
 }
 
-.wrapper input {
+.search-input {
   --background: var(--color-neutral-gray-1);
   --foreground: var(--color-neutral-off-black);
   --placeholder: hsl(var(--color-neutral-gray-5-hsl) / 25%);
@@ -26,11 +26,11 @@
   padding-inline-start: 24px;
 }
 
-.wrapper input::placeholder {
+.search-input::placeholder {
   color: var(--placeholder);
 }
 
-.wrapper input:focus-visible {
+.search-input:focus-visible {
   outline: 1px solid var(--color-primary-purple);
 }
 
@@ -55,6 +55,8 @@
   outline: 1px solid var(--color-primary-purple);
 }
 
+// ERROR STATE
+
 .error {
   color: var(--color-primary-red);
   font-size: var(--font-size);
@@ -64,6 +66,16 @@
 .empty {
   height: 27px;
 }
+
+.search-input-error {
+  border: 1px solid var(--color-primary-red);
+}
+
+.search-input-error:focus-visible {
+  outline: 1px solid var(--color-primary-red);
+}
+
+/* Theme Styles */
 
 [data-theme='light'] .wrapper input {
   --background: var(--color-neutral-gray-1);
@@ -75,4 +87,18 @@
   --background: var(--color-neutral-gray-6);
   --foreground: var(--color-neutral-white);
   --placeholder: hsl(var(--color-neutral-white-hsl) / 25%);
+}
+
+/* Font Family Styles */
+
+[data-font='Sans Serif'] .wrapper {
+  font-family: var(--font-family-sans-serif);
+}
+
+[data-font='Serif'] .wrapper {
+  font-family: var(--font-family-serif);
+}
+
+[data-font='Mono'] .wrapper {
+  font-family: var(--font-family-monospace);
 }

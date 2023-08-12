@@ -27,6 +27,7 @@ function Search({
     <div className={styles.wrapper} data-testid='search'>
       <input
         type='text'
+        className={error ? `${styles['search-input']} ${styles['search-input-error']}` : styles['search-input']}
         placeholder='Search for any word...'
         value={value}
         onChange={onChange}

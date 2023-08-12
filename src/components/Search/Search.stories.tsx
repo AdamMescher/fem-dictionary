@@ -19,6 +19,27 @@ export const Default: Story = {
   render: (args: any) => <Search {...args} />,
 };
 
+export const Loading: Story = {
+  args: {
+    isFetching: true,
+  },
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+  render: (args: any) => <Search {...args} />,
+}
+
+export const InlineError: Story = {
+  args: {
+    error: true,
+  },
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+  render: (args: any) => <Search {...args} />,
+};
+
+
 export const Light: Story = {
   args: {},
   parameters: {
@@ -31,8 +52,35 @@ export const Light: Story = {
   ),
 };
 
+export const LoadingLight: Story = {
+  args: {
+    isFetching: true,
+  },
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+  render: (args: any) => <div data-theme='light'>
+    <Search {...args} />
+  </div>,
+};
+
+
 export const Dark: Story = {
   args: {},
+  parameters: {
+    backgrounds: { default: 'dark' },
+  },
+  render: (args: any) => (
+    <div data-theme='dark'>
+      <Search {...args} />
+    </div>
+  ),
+};
+
+export const LoadingDark: Story = {
+  args: {
+    isFetching: true,
+  },
   parameters: {
     backgrounds: { default: 'dark' },
   },
