@@ -7,6 +7,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { v4 as uuidv4 } from 'uuid';
 import Definition from './Definition';
 import definitionResponseSuccess from '../../../__mocks__/api/definition/success';
+import yuck from '../../../public/assets/audio/yuck.mp3';
 
 const queryClient = new QueryClient();
 
@@ -178,6 +179,63 @@ export const AsyncSuccessBehavior: Story = {
           'https://api.dictionaryapi.dev/api/v2/entries/en/yuck',
           (req, res, ctx) => {
             return res(ctx.json(definitionResponseSuccess));
+          }
+        ),
+        rest.get(
+          'https://api.dictionaryapi.dev/media/pronunciations/en/yuck-us.mp3',
+          async (req, res, ctx) => {
+            const audioBuffer = await fetch(yuck).then((res) =>
+              res.arrayBuffer()
+            );
+
+            return res(
+              ctx.set('Content-Length', audioBuffer.byteLength.toString()),
+              ctx.set('Content-Type', 'audio/mpeg'),
+              ctx.body(audioBuffer)
+            );
+          }
+        ),
+      ],
+    },
+  },
+  render: (args: any, { loaded: { data } }) => (
+    <QueryClientProvider client={queryClient}>
+      {data.map((definition: any) => (
+        <Definition
+          key={uuidv4()}
+          word={definition.word}
+          phonetic={definition.phonetic}
+          phonetics={definition.phonetics}
+          meanings={definition.meanings}
+          sourceUrls={definition.sourceUrls}
+        />
+      ))}
+    </QueryClientProvider>
+  ),
+};
+
+export const AsyncAudioFailureBehavior: Story = {
+  args: {},
+  loaders: [
+    async () => ({
+      data: await (
+        await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/yuck')
+      ).json(),
+    }),
+  ],
+  parameters: {
+    msw: {
+      handlers: [
+        rest.get(
+          'https://api.dictionaryapi.dev/api/v2/entries/en/yuck',
+          (req, res, ctx) => {
+            return res(ctx.json(definitionResponseSuccess));
+          }
+        ),
+        rest.get(
+          'https://api.dictionaryapi.dev/media/pronunciations/en/yuck-us.mp3',
+          (req, res, ctx) => {
+            return res(ctx.status(500));
           }
         ),
       ],

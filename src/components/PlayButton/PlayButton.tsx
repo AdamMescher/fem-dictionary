@@ -4,10 +4,11 @@ import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import styles from './PlayButton.module.scss';
 
 interface PlayButtonProps {
+  error: boolean;
   file: any;
 }
 
-function PlayButton({ file }: PlayButtonProps) {
+function PlayButton({ error, file }: PlayButtonProps) {
   const [playing, setPlaying] = React.useState(false);
 
   if (!file) {
@@ -79,6 +80,16 @@ function PlayButton({ file }: PlayButtonProps) {
       animationSquareToTriangle();
     }
   }, [playing]);
+
+  if (error) {
+    return (
+      <div className={styles.wrapper} data-testid='play-button-error'>
+        <button type='button' disabled>
+          ERROR!
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.wrapper} data-testid='play-button'>

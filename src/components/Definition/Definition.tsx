@@ -130,6 +130,8 @@ function Definition({
   meanings,
   sourceUrls,
 }: DefinitionProps) {
+  const [audioError, setAudioError] = React.useState(false);
+
   const audio = phonetics?.filter((pho) => {
     if (pho.audio) {
       return pho.audio;
@@ -151,11 +153,16 @@ function Definition({
     useQuery({
       queryKey: ['audio', audio],
       queryFn: fetchAudioFile,
+      retry: false,
     });
 
   const { error, data } = useAudioFile();
 
   const audioFile = new Audio(data);
+
+  if (error) {
+    setAudioError(true);
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -166,10 +173,8 @@ function Definition({
             <h2 className={styles.phonetic}>{phonetic}</h2>
           </div>
           <div>
-            {error ? (
-              <button>ERROR!</button>
-            ) : audioFile ? (
-              <PlayButton file={audioFile} />
+            {audioFile ? (
+              <PlayButton file={audioFile} error={audioError} />
             ) : null}
           </div>
         </div>
