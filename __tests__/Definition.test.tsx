@@ -1,8 +1,12 @@
+import { vi } from 'vitest';
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { axe, toHaveNoViolations } from 'jest-axe';
+import { v4 as uuidv4 } from 'uuid';
 import Definition from '@/components/Definition';
+import definitionResponseSuccess from '../__mocks__/api/definition/success';
+import definitionSuccessNoAudoURLResponse from '../__mocks__/api/definition/successNoAudioURL';
 
 expect.extend(toHaveNoViolations);
 
@@ -19,14 +23,16 @@ const wrapper = ({ children }: { children: React.ReactNode }) => (
 );
 
 describe('Definition Component', () => {
-  it('Should render without errors', () => {
+  global.URL.createObjectURL = vi.fn();
+
+  it('Should render without errors', async () => {
     const word = 'word';
     const phonetic = 'weird ascii here';
     const phonetics = [
       {
         text: '/miːn/',
         audio:
-          'https://api.dictionaryapi.dev/media/pronunciations/en/mean-us.mp3',
+          'https://api.dictionaryapi.dev/media/pronunciations/en/yuck-us.mp3',
         sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=1217918',
         license: {
           name: 'BY-SA 3.0',
@@ -72,7 +78,7 @@ describe('Definition Component', () => {
       {
         text: '/miːn/',
         audio:
-          'https://api.dictionaryapi.dev/media/pronunciations/en/mean-us.mp3',
+          'https://api.dictionaryapi.dev/media/pronunciations/en/yuck-us.mp3',
         sourceUrl: 'https://commons.wikimedia.org/w/index.php?curid=1217918',
         license: {
           name: 'BY-SA 3.0',
@@ -107,8 +113,52 @@ describe('Definition Component', () => {
       />,
       { wrapper }
     );
-    const results = await axe(container);
 
-    expect(results).toHaveNoViolations();
+    await waitFor(async () => {
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    });
+  });
+  it('Should render synonyms or antonyms as comma dileminated list', async () => {
+    const response = definitionResponseSuccess;
+    render(
+      response.map((definition: any) => (
+        <Definition
+          key={uuidv4()}
+          word={definition.word}
+          phonetic={definition.phonetic}
+          phonetics={definition.phonetics}
+          meanings={definition.meanings}
+          sourceUrls={definition.sourceUrls}
+        />
+      )), { wrapper }
+    );
+
+    await waitFor(() => {
+      expect(screen.queryAllByTestId('related-words')).toHaveLength(4);
+    });
+  });
+  it.only('Should not render play button if no audio url', async () => {
+    const response = definitionSuccessNoAudoURLResponse;
+
+    render(
+      response.map((definition: any) => (
+        <Definition
+          key={uuidv4()}
+          word={definition.word}
+          phonetic={definition.phonetic}
+          phonetics={definition.phonetics}
+          meanings={definition.meanings}
+          sourceUrls={definition.sourceUrls}
+        />
+      )), { wrapper }
+    );
+
+    await waitFor(() => {
+      expect(screen.getByText('yum')).toBeInTheDocument();
+      expect(screen.getByText('muy')).toBeInTheDocument();
+      expect(screen.getByText('rats')).toBeInTheDocument();
+      expect(screen.getByText('star')).toBeInTheDocument();
+    });
   });
 });

@@ -54,7 +54,7 @@ function RelatedWords({ relation, words }: RelatedWordsProps) {
       <h3 className={styles['section-heading']}>{relation}</h3>
       <ul className={styles['related-words-list']}>
         {words.map((word, idx, arr) => (
-          <li className={styles['related-words-list-item']} key={word}>
+          <li className={styles['related-words-list-item']} key={word} data-testid="related-words" >
             <Link
               className={styles['related-words-list-link']}
               href={`https://en.wiktionary.org/wiki/${word}`}
@@ -95,7 +95,7 @@ function Meaning({
   const uniqueAntonyms = [...new Set(antonyms)];
 
   return (
-    <div className={styles.meaning}>
+    <div className={styles.meaning} data-testid="meaning">
       <div className={styles['speech-divider']}>
         <h2 className={styles['part-of-speech']}>{partOfSpeech}</h2>
         <hr className={styles.divider} />
@@ -134,7 +134,6 @@ function Definition({
     if (pho.audio) {
       return pho.audio;
     }
-    return null;
   })[0]?.audio;
 
   const fetchAudioFile = async () => {

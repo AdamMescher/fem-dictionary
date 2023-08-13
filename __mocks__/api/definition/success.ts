@@ -36,7 +36,7 @@ const definitionResponseSuccess = [
           },
         ],
         synonyms: [],
-        antonyms: ['yum'],
+        antonyms: [],
       },
     ],
     license: {
@@ -60,8 +60,8 @@ const definitionResponseSuccess = [
       {
         partOfSpeech: 'verb',
         definitions: [{ definition: 'To itch.', synonyms: [], antonyms: [] }],
-        synonyms: [],
-        antonyms: [],
+        synonyms: ['rats', 'star'],
+        antonyms: ['yum', 'muy'],
       },
     ],
     license: {
