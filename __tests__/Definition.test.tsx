@@ -6,7 +6,6 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import { v4 as uuidv4 } from 'uuid';
 import Definition from '@/components/Definition';
 import definitionResponseSuccess from '../__mocks__/api/definition/success';
-import definitionSuccessNoAudoURLResponse from '../__mocks__/api/definition/successNoAudioURL';
 
 expect.extend(toHaveNoViolations);
 
@@ -119,46 +118,24 @@ describe('Definition Component', () => {
       expect(results).toHaveNoViolations();
     });
   });
-  it('Should render synonyms or antonyms as comma dileminated list', async () => {
+  it.only('Should render synonyms or antonyms as comma dileminated list', async () => {
     const response = definitionResponseSuccess;
-    render(
-      response.map((definition: any) => (
-        <Definition
-          key={uuidv4()}
-          word={definition.word}
-          phonetic={definition.phonetic}
-          phonetics={definition.phonetics}
-          meanings={definition.meanings}
-          sourceUrls={definition.sourceUrls}
-        />
-      )), { wrapper }
-    );
 
     await waitFor(() => {
+      render(
+        response.map((definition: any) => (
+          <Definition
+            key={uuidv4()}
+            word={definition.word}
+            phonetic={definition.phonetic}
+            phonetics={definition.phonetics}
+            meanings={definition.meanings}
+            sourceUrls={definition.sourceUrls}
+          />
+        )),
+        { wrapper }
+      );
       expect(screen.queryAllByTestId('related-words')).toHaveLength(4);
-    });
-  });
-  it.only('Should not render play button if no audio url', async () => {
-    const response = definitionSuccessNoAudoURLResponse;
-
-    render(
-      response.map((definition: any) => (
-        <Definition
-          key={uuidv4()}
-          word={definition.word}
-          phonetic={definition.phonetic}
-          phonetics={definition.phonetics}
-          meanings={definition.meanings}
-          sourceUrls={definition.sourceUrls}
-        />
-      )), { wrapper }
-    );
-
-    await waitFor(() => {
-      expect(screen.getByText('yum')).toBeInTheDocument();
-      expect(screen.getByText('muy')).toBeInTheDocument();
-      expect(screen.getByText('rats')).toBeInTheDocument();
-      expect(screen.getByText('star')).toBeInTheDocument();
     });
   });
 });

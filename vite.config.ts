@@ -1,16 +1,27 @@
 import { configDefaults, defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import path from 'path';
+import { resolve } from 'path';
+
+const r = (p: string) => resolve(__dirname, p);
+
+export const alias: Record<string, string> = {
+  '~~': r('.'),
+  '~~/': r('./'),
+  '@': r('./src'),
+  '@e2e': r('./__e2e__'),
+  '@@': r('.'),
+  '@@/': r('./'),
+  assets: r('./assets'),
+  public: r('./public'),
+  'public/': r('./public/'),
+};
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@e2e': path.resolve(__dirname, './__e2e__'),
-    },
+    alias,
   },
   test: {
     exclude: [...configDefaults.exclude, '**/__e2e__/**'],
