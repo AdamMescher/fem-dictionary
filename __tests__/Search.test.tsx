@@ -42,6 +42,7 @@ const ControlledSearch = () => {
       <Search
         value={searchValue}
         error={searchError}
+        isFetching={false}
         onChange={(event: any) => handleSearchChange(event)}
         onSearch={() => handleSearchSubmit(searchValue)}
         onKeyDown={(event: any) => handleSearchKeyDown(event)}

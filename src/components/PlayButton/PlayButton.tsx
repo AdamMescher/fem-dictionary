@@ -78,6 +78,7 @@ function PlayButton({ file }: PlayButtonProps) {
     } else {
       animationSquareToTriangle();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playing]);
 
   return (

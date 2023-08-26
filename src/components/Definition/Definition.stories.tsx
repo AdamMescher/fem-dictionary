@@ -7,6 +7,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { v4 as uuidv4 } from 'uuid';
 import Definition from './Definition';
 import definitionResponseSuccess from '../../../__mocks__/api/definition/success';
+// @ts-ignore
 import yuck from '../../../public/assets/audio/yuck.mp3';
 
 const queryClient = new QueryClient();
@@ -177,15 +178,13 @@ export const AsyncSuccessBehavior: Story = {
       handlers: [
         rest.get(
           'https://api.dictionaryapi.dev/api/v2/entries/en/yuck',
-          (req, res, ctx) => {
-            return res(ctx.json(definitionResponseSuccess));
-          }
+          (req, res, ctx) => res(ctx.json(definitionResponseSuccess))
         ),
         rest.get(
           'https://api.dictionaryapi.dev/media/pronunciations/en/yuck-us.mp3',
           async (req, res, ctx) => {
-            const audioBuffer = await fetch(yuck).then((res) =>
-              res.arrayBuffer()
+            const audioBuffer = await fetch(yuck).then((response) =>
+              response.arrayBuffer()
             );
 
             return res(
@@ -228,15 +227,11 @@ export const AsyncAudioFailureBehavior: Story = {
       handlers: [
         rest.get(
           'https://api.dictionaryapi.dev/api/v2/entries/en/yuck',
-          (req, res, ctx) => {
-            return res(ctx.json(definitionResponseSuccess));
-          }
+          (req, res, ctx) => res(ctx.json(definitionResponseSuccess))
         ),
         rest.get(
           'https://api.dictionaryapi.dev/media/pronunciations/en/yuck-us.mp3',
-          (req, res, ctx) => {
-            return res(ctx.status(500));
-          }
+          (req, res, ctx) => res(ctx.status(500))
         ),
       ],
     },

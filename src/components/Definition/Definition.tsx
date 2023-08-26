@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
-import { useQuery } from '@tanstack/react-query';
 import { v4 as uuidv4 } from 'uuid';
+import { useAudioFile } from '@/hooks/useAudioFile';
 import PlayButton from '@/components/PlayButton';
 import Icon from '@/components/Icon';
 import styles from './Definition.module.scss';
@@ -43,10 +43,10 @@ export interface ISourceURL {
   url: string;
 }
 
-interface SourceURLProps extends ISourceURL { }
-interface MeaningProps extends IMeaning { }
-interface RelatedWordsProps extends IRelatedWords { }
-interface DefinitionProps extends IDefinition { }
+interface SourceURLProps extends ISourceURL {}
+interface MeaningProps extends IMeaning {}
+interface RelatedWordsProps extends IRelatedWords {}
+interface DefinitionProps extends IDefinition {}
 
 function RelatedWords({ relation, words }: RelatedWordsProps) {
   return (
@@ -54,7 +54,11 @@ function RelatedWords({ relation, words }: RelatedWordsProps) {
       <h3 className={styles['section-heading']}>{relation}</h3>
       <ul className={styles['related-words-list']}>
         {words.map((word, idx, arr) => (
-          <li className={styles['related-words-list-item']} key={word} data-testid="related-words" >
+          <li
+            className={styles['related-words-list-item']}
+            key={word}
+            data-testid='related-words'
+          >
             <Link
               className={styles['related-words-list-link']}
               href={`https://en.wiktionary.org/wiki/${word}`}
@@ -95,7 +99,7 @@ function Meaning({
   const uniqueAntonyms = [...new Set(antonyms)];
 
   return (
-    <div className={styles.meaning} data-testid="meaning">
+    <div className={styles.meaning} data-testid='meaning'>
       <div className={styles['speech-divider']}>
         <h2 className={styles['part-of-speech']}>{partOfSpeech}</h2>
         <hr className={styles.divider} />
@@ -130,30 +134,9 @@ function Definition({
   meanings,
   sourceUrls,
 }: DefinitionProps) {
-  const audio = phonetics?.filter((pho) => {
-    if (pho.audio) {
-      return pho.audio;
-    }
-  })[0]?.audio;
+  const audio = phonetics?.filter((pho) => pho?.audio)[0]?.audio;
 
-  const fetchAudioFile = async () => {
-    const response = await fetch(audio);
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-
-    return URL.createObjectURL(await response.blob());
-  };
-
-  const useAudioFile = () =>
-    useQuery({
-      queryKey: ['audio', audio],
-      queryFn: fetchAudioFile,
-      retry: false,
-    });
-
-  const { error, data, isFetching } = useAudioFile();
+  const { error, data, isFetching } = useAudioFile(audio);
 
   const audioFile = new Audio(data);
 

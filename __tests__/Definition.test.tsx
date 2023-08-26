@@ -119,7 +119,7 @@ describe('Definition Component', () => {
     });
   });
   it.only('Should render synonyms or antonyms as comma dileminated list', async () => {
-    const response = definitionResponseSuccess;
+    const response: any = definitionResponseSuccess;
 
     await waitFor(() => {
       render(

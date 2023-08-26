@@ -1,8 +1,8 @@
 'use client';
 
 import * as React from 'react';
-import { useQuery } from '@tanstack/react-query';
 import { v4 as uuidv4 } from 'uuid';
+import { useDefinition } from '@/hooks/useDefinition';
 import Search from '@/components/Search';
 import Definition from '@/components/Definition';
 import EmptyWordSearchResult from '@/components/EmptyWordSearchResult';
@@ -13,30 +13,7 @@ export default function Home() {
   const [searchValue, setSearchValue] = React.useState('');
   const [searchError, setSearchError] = React.useState(false);
 
-  const fetchDefinition = async () => {
-    const response = await fetch(
-      `https://api.dictionaryapi.dev/api/v2/entries/en/${searchValue}`
-    );
-
-    if (response.status === 404) {
-      return response.json();
-    }
-
-    if (!response.ok) {
-      return response.json();
-    }
-
-    return response.json();
-  };
-
-  const useDefinition = () =>
-    useQuery({
-      queryKey: ['definition', searchValue],
-      queryFn: fetchDefinition,
-      enabled: false,
-    });
-
-  const { error, data, refetch, isFetching } = useDefinition();
+  const { error, data, refetch, isFetching } = useDefinition(searchValue);
 
   const handleSearchChange = (event: any) => {
     const { value } = event.target;
