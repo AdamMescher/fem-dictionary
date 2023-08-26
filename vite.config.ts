@@ -24,14 +24,14 @@ export default defineConfig({
     alias,
   },
   test: {
-    exclude: [...configDefaults.exclude, '**/__e2e__/**'],
+    exclude: [...configDefaults.exclude, '**/__e2e__/**', '**/__mocks__/**'],
     globals: true,
     environment: 'jsdom',
     setupFiles: './__tests__/setup.ts',
     // @ts-ignore
     setupFilesAfterEnv: ['react-intersection-observer/test-utils'],
     coverage: {
-      exclude: ['**/__e2e__/**', '**/__tests__/**'],
+      exclude: ['**/__e2e__/**', '**/__tests__/**', '**/__mocks__/**'],
     },
   },
 });
