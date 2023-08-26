@@ -1,25 +1,13 @@
 import { vi } from 'vitest';
 import * as React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { v4 as uuidv4 } from 'uuid';
 import Definition from '@/components/Definition';
+import { createWrapper } from './testUtils/createWrapper';
 import definitionResponseSuccess from '../__mocks__/api/definition/success';
 
 expect.extend(toHaveNoViolations);
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-    },
-  },
-});
-
-const wrapper = ({ children }: { children: React.ReactNode }) => (
-  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-);
 
 describe('Definition Component', () => {
   global.URL.createObjectURL = vi.fn();
@@ -65,7 +53,7 @@ describe('Definition Component', () => {
         meanings={meanings}
         sourceUrls={sourceUrls}
       />,
-      { wrapper }
+      { wrapper: createWrapper() }
     );
 
     expect(screen.getByTestId('definition')).toBeInTheDocument();
@@ -110,7 +98,7 @@ describe('Definition Component', () => {
         meanings={meanings}
         sourceUrls={sourceUrls}
       />,
-      { wrapper }
+      { wrapper: createWrapper() }
     );
 
     await waitFor(async () => {
@@ -118,7 +106,7 @@ describe('Definition Component', () => {
       expect(results).toHaveNoViolations();
     });
   });
-  it.only('Should render synonyms or antonyms as comma dileminated list', async () => {
+  it('Should render synonyms or antonyms as comma dileminated list', async () => {
     const response: any = definitionResponseSuccess;
 
     await waitFor(() => {
@@ -133,7 +121,7 @@ describe('Definition Component', () => {
             sourceUrls={definition.sourceUrls}
           />
         )),
-        { wrapper }
+        { wrapper: createWrapper() }
       );
       expect(screen.queryAllByTestId('related-words')).toHaveLength(4);
     });

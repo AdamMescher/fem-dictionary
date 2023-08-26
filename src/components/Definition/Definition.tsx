@@ -138,7 +138,11 @@ function Definition({
 
   const { error, data, isFetching } = useAudioFile(audio);
 
-  const audioFile = new Audio(data);
+  let audioFile;
+
+  if (!isFetching && !error && data) {
+    audioFile = data;
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -148,11 +152,7 @@ function Definition({
             <h1>{word}</h1>
             <h2 className={styles.phonetic}>{phonetic}</h2>
           </div>
-          <div>
-            {!isFetching && !error && audioFile ? (
-              <PlayButton file={audioFile} />
-            ) : null}
-          </div>
+          <div>{audioFile ? <PlayButton file={audioFile} /> : null}</div>
         </div>
         <div className={styles['meanings-container']}>
           {meanings.map((meaning) => (

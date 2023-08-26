@@ -15,12 +15,12 @@ const fetchDefinition = async (searchValue: any) => {
     return response;
   }
 
-  return response;
+  return await response;
 };
 
 export const useDefinition = (searchValue: any) =>
   useQuery({
     queryKey: ['definition', searchValue],
-    queryFn: fetchDefinition,
+    queryFn: () => fetchDefinition(searchValue),
     enabled: false,
   });

@@ -1,15 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
 
 const fetchAudioFile = async (url: string) => {
-  const response = await fetch(url)
-    .then((res) => res.blob())
-    .catch((error) => error.json());
+  const response = await fetch(url).catch((error) => console.error({ error }));
+
+  if (!response) {
+    throw new Error('No response');
+  }
 
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
 
-  return URL.createObjectURL(await response);
+  return URL.createObjectURL(await response.blob());
 };
 
 export const useAudioFile = (url: string) =>
