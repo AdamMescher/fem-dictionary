@@ -3,18 +3,17 @@ import { rest } from 'msw';
 import { renderHook, waitFor } from '@testing-library/react';
 import { server } from './setup';
 import { createWrapper } from './utils';
-import { useAudioFile } from '@/hooks/useAudioFile';
-import { useDefinition } from '@/hooks/useDefinition';
+import useAudioFile from '@/hooks/useAudioFile';
+import useDefinition from '@/hooks/useDefinition';
 
 describe.skip('useDefinition Hook', () => {
-  it('should return the initial values for data, error and loading', async () => {
-    const searchValue = 'yuck';
-    const { result } = renderHook(() => useDefinition(searchValue), {
-      wrapper: createWrapper(),
-    });
-
-    await waitFor(() => expect(result.current.isSuccess).toBe(true));
-  });
+  // it('should return the initial values for data, error and loading', async () => {
+  //   const searchValue = 'yuck';
+  //   const { result } = renderHook(() => useDefinition(searchValue), {
+  //     wrapper: createWrapper(),
+  //   });
+  //   await waitFor(() => expect(result.current.isSuccess).toBe(true));
+  // });
   // it('should return the initial values for data, error and loading', () => {
   //   const searchValue = 'yuck';
   //   const { result } = renderHook(() => useDefinition(searchValue), {
@@ -44,7 +43,7 @@ describe.skip('useDefinition Hook', () => {
   // });
 });
 
-// describe('useAudioFile Hook', () => {
+describe.skip('useAudioFile Hook', () => {});
 //   const baseURL = 'https://api.dictionaryapi.dev/media/pronunciations/en';
 
 //   it('should return the initial values for data, error and loading', () => {

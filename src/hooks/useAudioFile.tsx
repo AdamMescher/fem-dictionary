@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 const fetchAudioFile = async (url: string) => {
+  // eslint-disable-next-line no-console
   const response = await fetch(url).catch((error) => console.error({ error }));
 
   if (!response?.ok) {
@@ -10,9 +11,11 @@ const fetchAudioFile = async (url: string) => {
   return URL.createObjectURL(await response.blob());
 };
 
-export const useAudioFile = (url: string) =>
+const useAudioFile = (url: string) =>
   useQuery({
     queryKey: ['audio', url],
     queryFn: () => fetchAudioFile(url),
     retry: false,
   });
+
+export default useAudioFile;

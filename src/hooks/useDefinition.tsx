@@ -4,6 +4,7 @@ const fetchDefinition = async (searchValue: any) => {
   const baseURL = 'https://api.dictionaryapi.dev/api/v2/entries/en';
 
   const response = await fetch(`${baseURL}/${searchValue}`).catch((error) =>
+    // eslint-disable-next-line no-console
     console.error({ error })
   );
 
@@ -15,12 +16,14 @@ const fetchDefinition = async (searchValue: any) => {
     throw new Error('Network response was not ok');
   }
 
-  return await response.json();
+  return response.json();
 };
 
-export const useDefinition = (searchValue: any) =>
+const useDefinition = (searchValue: any) =>
   useQuery({
     queryKey: ['definition', searchValue],
     queryFn: () => fetchDefinition(searchValue),
     enabled: false,
   });
+
+export default useDefinition;
