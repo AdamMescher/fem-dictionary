@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { useDefinition } from '@/hooks/useDefinition';
+import useDefinition from '@/hooks/useDefinition';
 import Search from '@/components/Search';
 import Definition from '@/components/Definition';
 import EmptyWordSearchResult from '@/components/EmptyWordSearchResult';
