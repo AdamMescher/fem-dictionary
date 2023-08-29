@@ -6,7 +6,7 @@ import * as React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { v4 as uuidv4 } from 'uuid';
 import Definition from './Definition';
-import definitionResponseSuccess from '../../../__mocks__/api/definition/success';
+import { definitionResponseSuccess } from '../../../__mocks__/api/definition/success';
 // @ts-ignore
 import yuck from '../../../public/assets/audio/yuck.mp3';
 
