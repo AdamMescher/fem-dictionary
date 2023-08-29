@@ -141,7 +141,7 @@ function Definition({
   let audioFile;
 
   if (!isFetching && !error && data) {
-    audioFile = data;
+    audioFile = new Audio(data);
   }
 
   return (

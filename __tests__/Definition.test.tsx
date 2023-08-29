@@ -4,8 +4,8 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { v4 as uuidv4 } from 'uuid';
 import Definition from '@/components/Definition';
-import { createWrapper } from './testUtils/createWrapper';
-import definitionResponseSuccess from '../__mocks__/api/definition/success';
+import { createWrapper } from './utils';
+import { definitionResponseSuccess } from '../__mocks__/api/definition/success';
 
 expect.extend(toHaveNoViolations);
 

@@ -1,4 +1,4 @@
-const definitionResponseSuccess = [
+export const definitionResponseSuccess = [
   {
     word: 'yuck',
     phonetic: '/jʌk/',
@@ -71,5 +71,3 @@ const definitionResponseSuccess = [
     sourceUrls: ['https://en.wiktionary.org/wiki/yuck'],
   },
 ];
-
-export default definitionResponseSuccess;
