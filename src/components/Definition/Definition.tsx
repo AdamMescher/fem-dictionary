@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { v4 as uuidv4 } from 'uuid';
-import { useAudioFile } from '@/hooks/useAudioFile';
+import useAudioFile from '@/hooks/useAudioFile';
 import PlayButton from '@/components/PlayButton';
 import Icon from '@/components/Icon';
 import styles from './Definition.module.scss';
