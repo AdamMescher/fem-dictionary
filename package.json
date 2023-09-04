@@ -13,7 +13,7 @@
     "type:check": "tsc --noEmit --incremental --watch",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:e2e": "npx playwright test",
+    "test:e2e": "npx playwright test && npx playwright show-report",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -s public",
     "serve-storybook": "serve storybook-static",
